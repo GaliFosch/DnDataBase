@@ -69,15 +69,15 @@ create table Beneficio (
 
 create table Bottino (
      Id_oggetto varchar(20) not null,
-     Id_luogo_d_interesse varchar(20) not null,
+     Id_luogo_d_interesse int not null,
      constraint ID_Bottino_ID primary key (Id_luogo_d_interesse, Id_oggetto));
 
 create table CAMPAGNA (
-     Id_campagna varchar(20) not null,
-     Nome varchar(20) not null,
+     Id_campagna int not null,
+     Nome varchar(50) not null,
      Sinossi text not null,
      Creatore varchar(20) not null,
-     Id_mondo varchar(20) not null,
+     Id_mondo int not null,
      constraint ID_CAMPAGNA_ID primary key (Id_campagna));
 
 create table caratteristica (
@@ -124,7 +124,7 @@ create table EFFETTO_MAGICO (
 
 create table Eroe (
      IDPersonaggio varchar(20) not null,
-     Id_campagna varchar(20) not null,
+     Id_campagna int not null,
      constraint ID_Eroe_ID primary key (IDPersonaggio, Id_campagna));
 
 create table GIOCATORE (
@@ -157,12 +157,12 @@ create table Inventario (
      constraint ID_Inventario_ID primary key (IDPersonaggio, Id_oggetto));
 
 create table LUOGO_D_INTERESSE (
-     Id_luogo_d_interesse varchar(20) not null,
+     Id_luogo_d_interesse int not null,
      Nome varchar(20) not null,
      Tipologia varchar(20) not null,
      Descrizione text not null,
-     Appartiene varchar(20),
-     Mondo varchar(20) not null,
+     Appartiene int,
+     Mondo int not null,
      Stato varchar(20) not null,
      constraint ID_LUOGO_D_INTERESSE_ID primary key (Id_luogo_d_interesse));
 
@@ -173,7 +173,7 @@ create table Modifica_al_danno (
      constraint ID_Modifica_al_danno_ID primary key (Tipo_di_danno, IDTratto));
 
 create table MONDO (
-     Id_mondo varchar(20) not null,
+     Id_mondo int not null,
      Nome varchar(20) not null,
      Ambientazione varchar(20) not null,
      Descrizione text not null,
@@ -223,7 +223,7 @@ create table PNG (
      Cognome varchar(20) not null,
      Eta int not null,
      Descrizione text not null,
-     Id_luogo_d_interesse varchar(20) not null,
+     Id_luogo_d_interesse int not null,
      Scheda_Personaggio varchar(20),
      constraint ID_PNG_ID primary key (IdPNG));
 
@@ -239,15 +239,15 @@ create table PROPRIETA__ARMI (
      constraint ID_PROPRIETA__ARMI_ID primary key (Nome));
 
 create table SCENA (
-     Id_campagna varchar(20) not null,
+     Id_campagna int not null,
      Data_Sessione date not null,
-     Id_scena varchar(20) not null,
+     Id_scena varchar(50) not null,
      Descrizione text not null,
-     Id_luogo_d_interesse varchar(20) not null,
+     Id_luogo_d_interesse int not null,
      constraint ID_SCENA_ID primary key (Id_campagna, Data_Sessione, Id_scena));
 
 create table SESSIONE (
-     Id_campagna varchar(20) not null,
+     Id_campagna int not null,
      Data_Sessione date not null,
      Riassunto text,
      constraint ID_SESSIONE_ID primary key (Id_campagna, Data_Sessione));
@@ -292,7 +292,7 @@ create table STATISTICA (
      constraint ID_STATISTICA_ID primary key (Nome));
 
 create table STATO (
-     Id_mondo varchar(20) not null,
+     Id_mondo int not null,
      Nome varchar(20) not null,
      Governo varchar(20) not null,
      Ricchezza enum("Povero", "Medio", "Agiato", "Ricco") not null,
@@ -324,7 +324,7 @@ create table Tratto (
 
 create table Ubicazione (
      IDPersonaggio varchar(20) not null,
-     Id_luogo_d_interesse varchar(20) not null,
+     Id_luogo_d_interesse int not null,
      constraint ID_Ubicazione_ID primary key (IDPersonaggio, Id_luogo_d_interesse));
 
 create table Vocazione (
@@ -904,3 +904,13 @@ create unique index ID_Vocazione_IND
 
 create index EQU_Vocaz_PG_IND
      on Vocazione (IDPersonaggio);
+
+ALTER TABLE CAMPAGNA
+MODIFY Id_campagna int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE Mondo
+MODIFY Id_mondo int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE LUOGO_D_INTERESSE
+MODIFY Id_luogo_d_interesse int NOT NULL AUTO_INCREMENT;
+
