@@ -501,22 +501,6 @@ alter table OGGETTO add constraint REF_OGGET_GIOCA_FK
      foreign key (Creatore)
      references GIOCATORE(Nickname);
 
--- alter table PG add constraint ID_PG_PERSO_CHK
---     check(exists(select * from Vocazione
---                  where Vocazione.IDPersonaggio = IDPersonaggio));
-delimiter $$
-create trigger controlloPg before insert on PG 
-		for each row
-        begin
-        if !exists(select * from Vocazione
-                  where Vocazione.IDPersonaggio = new.IDPersonaggio)
-			or !exists(select * from Specializza
-                  where Specializza.IDPersonaggio = new.IDPersonaggio) then
-			signal sqlstate '45000';
-		end if;
-        end;$$
-delimiter ;
-
 alter table PG add constraint ID_PG_PERSO_FK
      foreign key (IDPersonaggio)
      references PERSONAGGIO(IDPersonaggio);
