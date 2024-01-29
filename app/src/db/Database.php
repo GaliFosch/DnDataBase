@@ -14,4 +14,17 @@ class Database {
     public function getConnection(){
         return $this->instance;
     }
+
+    public function getAccount($nik, $psw){
+        $sql = "SELECT * FROM giocatore WHERE Nickname = ? AND Password = ?";
+        $stmnt = $this->instance->prepare($sql);
+        $stmnt->bind_param('s', $nik);
+        $stmnt->bind_param('s', $psw);
+        $stmnt->execute();
+        $result = $stmnt->get_result();
+        if($result->num_rows == 0){
+            return false;
+        }
+        return $result->fetch_assoc();
+    }
 }
