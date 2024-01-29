@@ -1,6 +1,6 @@
 <?php
 
-class Connection {
+class Database {
     private $instance;
 
     public function __construct(){

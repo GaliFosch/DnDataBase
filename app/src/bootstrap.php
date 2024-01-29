@@ -1,3 +1,3 @@
 <?php
-require_once("db/connection.php");
-$db = new Connection();
+require_once("db/Database.php");
+$db = new Database();
