@@ -13,5 +13,5 @@
         </ul>
         <input type="submit" value="Login">
     </form>
-    <p>Non hai un account? <a href="#">Creane uno</a></p>
+    <p>Non hai un account? <a href="http://localhost/DnDataBase/app/src/register.php">Creane uno</a></p>
 </main>
