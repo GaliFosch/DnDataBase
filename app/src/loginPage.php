@@ -9,6 +9,8 @@ if(!empty($_GET["nickname"]) && !empty($_GET["password"])){
         $template["log error"] = "Combinazione Nickname e Password errata";
     }else{
         $_SESSION["user"] = $result;
+        $template["title"]  = "Select";
+        $template["file"]  = "selectionTemplate.php";
     }
 }
 
