@@ -32,7 +32,7 @@ create table ABILITA (
      constraint ID_ABILITA_ID primary key (Nome));
 
 create table ARMATURA (
-     Id_oggetto varchar(20) not null,
+     Id_oggetto int not null,
      Classe_armatura int not null,
      Forza_richiesta int not null,
      Svantaggio_furtivita bool not null,
@@ -40,11 +40,11 @@ create table ARMATURA (
 
 create table Attribuzione (
      IdAzione varchar(20) not null,
-     IDTratto varchar(20) not null,
-     constraint ID_Attribuzione_ID primary key (IDTratto, IdAzione));
+     IDTratto int not null,
+     constraint ID_Attribuzione_ID primary key (IdAzione, IDTratto));
 
 create table Aumento (
-     IDTratto varchar(20) not null,
+     IDTratto int not null,
      Statistica varchar(20) not null,
      Valore int not null,
      constraint ID_Aumento_ID primary key (Statistica, IDTratto));
@@ -63,12 +63,12 @@ create table AZIONE (
      constraint ID_AZIONE_ID primary key (IdAzione));
 
 create table Beneficio (
-     IDPersonaggio varchar(20) not null,
-     IDTratto varchar(20) not null,
+     IDPersonaggio int not null,
+     IDTratto int not null,
      constraint ID_Beneficio_ID primary key (IDPersonaggio, IDTratto));
 
 create table Bottino (
-     Id_oggetto varchar(20) not null,
+     Id_oggetto int not null,
      Id_luogo_d_interesse int not null,
      constraint ID_Bottino_ID primary key (Id_luogo_d_interesse, Id_oggetto));
 
@@ -82,7 +82,7 @@ create table CAMPAGNA (
 
 create table caratteristica (
      Proprieta varchar(20) not null,
-     Id_oggetto varchar(20) not null,
+     Id_oggetto int not null,
      constraint ID_caratteristica_ID primary key (Id_oggetto, Proprieta));
 
 create table CLASSE (
@@ -92,26 +92,26 @@ create table CLASSE (
      constraint ID_CLASSE_ID primary key (Nome));
 
 create table Competenza_Abilita (
-     IDTratto varchar(20) not null,
+     IDTratto int not null,
      IDAbilita varchar(20) not null,
      Maestria bool not null,
      constraint ID_Competenza_Abilita_ID primary key (IDAbilita, IDTratto));
 
 create table Competenza_Oggetto (
-     Id_oggetto varchar(20) not null,
-     IDTratto varchar(20) not null,
+     Id_oggetto int not null,
+     IDTratto int not null,
      Maestria bool not null,
      constraint ID_Competenza_Oggetto_ID primary key (Id_oggetto, IDTratto));
 
 create table Dotazione (
-     IDTratto varchar(20) not null,
+     IDTratto int not null,
      Dote varchar(20) not null,
      Metri float,
      constraint ID_Dotazione_ID primary key (IDTratto, Dote));
 
 create table DOTE (
      Nome varchar(20) not null,
-     Tipologia enum("velocità", "sensi", "lingua") not null,
+     Tipologia enum("Velocità", "Sensi", "Lingua") not null,
      Descrizione text not null,
      Creatore varchar(20) not null,
      constraint ID_DOTE_ID primary key (Nome));
@@ -123,7 +123,7 @@ create table EFFETTO_MAGICO (
      constraint ID_EFFETTO_MAGICO_ID primary key (Id_effetto_magico));
 
 create table Eroe (
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      Id_campagna int not null,
      constraint ID_Eroe_ID primary key (IDPersonaggio, Id_campagna));
 
@@ -152,8 +152,8 @@ create table Infligge (
      constraint ID_Infligge_ID primary key (IdAzione, Tipo_di_danno));
 
 create table Inventario (
-     Id_oggetto varchar(20) not null,
-     IDPersonaggio varchar(20) not null,
+     Id_oggetto int not null,
+     IDPersonaggio int not null,
      constraint ID_Inventario_ID primary key (IDPersonaggio, Id_oggetto));
 
 create table LUOGO_D_INTERESSE (
@@ -168,7 +168,7 @@ create table LUOGO_D_INTERESSE (
 
 create table Modifica_al_danno (
      Tipo_di_danno varchar(20) not null,
-     IDTratto varchar(20) not null,
+     IDTratto int not null,
      Tipologia enum("Immunità", "Resistenza", "debolezza") not null,
      constraint ID_Modifica_al_danno_ID primary key (Tipo_di_danno, IDTratto));
 
@@ -181,13 +181,13 @@ create table MONDO (
      constraint ID_MONDO_ID primary key (Id_mondo));
 
 create table MOSTRO (
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      GS float not null,
      Creatore varchar(20) not null,
      constraint ID_MOSTR_PERSO_ID primary key (IDPersonaggio));
 
 create table OGGETTO (
-     Id_oggetto varchar(20) not null,
+     Id_oggetto int not null,
      Nome varchar(20) not null,
      Costo int not null,
      Peso float not null,
@@ -199,7 +199,7 @@ create table OGGETTO (
      constraint ID_OGGETTO_ID primary key (Id_oggetto));
 
 create table PERSONAGGIO (
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      Nome varchar(40) not null,
      Allineamento enum("LB", "NB", "CB", "LN", "NN", "CN", "LM", "NM", "CM") not null,
      Taglia enum("Minuscola", "Piccola", "Media", "Grande", "Enorme", "Mastodontica") not null,
@@ -211,24 +211,24 @@ create table PERSONAGGIO (
      constraint ID_PERSONAGGIO_ID primary key (IDPersonaggio));
 
 create table PG (
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      Livello int not null,
      Creatore varchar(20) not null,
-     IdSpecie varchar(20) not null,
+     IdSpecie int not null,
      constraint ID_PG_PERSO_ID primary key (IDPersonaggio));
 
 create table PNG (
-     IdPNG varchar(20) not null,
+     IdPNG int not null,
      Nome varchar(20) not null,
      Cognome varchar(20) not null,
      Eta int not null,
      Descrizione text not null,
      Id_luogo_d_interesse int not null,
-     Scheda_Personaggio varchar(20),
+     Scheda_Personaggio int,
      constraint ID_PNG_ID primary key (IdPNG));
 
 create table Privilegio (
-     IDTratto varchar(20) not null,
+     IDTratto int not null,
      Classe varchar(20) not null,
      Livello int not null,
      constraint ID_Privilegio_ID primary key (Classe, IDTratto));
@@ -241,10 +241,10 @@ create table PROPRIETA__ARMI (
 create table SCENA (
      Id_campagna int not null,
      Data_Sessione date not null,
-     Id_scena varchar(50) not null,
+     Nome varchar(50) not null,
      Descrizione text not null,
      Id_luogo_d_interesse int not null,
-     constraint ID_SCENA_ID primary key (Id_campagna, Data_Sessione, Id_scena));
+     constraint ID_SCENA_ID primary key (Id_campagna, Data_Sessione, Nome));
 
 create table SESSIONE (
      Id_campagna int not null,
@@ -260,7 +260,7 @@ create table SOTTO_CLASSE (
      constraint ID_SOTTO_CLASSE_ID primary key (Nome, Classe));
 
 create table Sotto_Privilegio (
-     IDTratto varchar(20) not null,
+     IDTratto int not null,
      Nome_SottoClasse varchar(20) not null,
      Classe varchar(20) not null,
      Livello int not null,
@@ -269,18 +269,18 @@ create table Sotto_Privilegio (
 create table Specializza (
      Nome_SottoClasse varchar(20) not null,
      Classe varchar(20) not null,
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      constraint ID_Specializza_ID primary key (Nome_SottoClasse, Classe, IDPersonaggio));
 
 create table SPECIE (
-     IdSpecie varchar(20) not null,
+     IdSpecie int not null,
      Nome varchar(20) not null,
      Descrizione text not null,
      Creatore varchar(20) not null,
      constraint ID_SPECIE_ID primary key (IdSpecie));
 
 create table Stat (
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      Statistica varchar(20) not null,
      Valore int not null,
      constraint ID_Stat_ID primary key (IDPersonaggio, Statistica));
@@ -305,33 +305,33 @@ create table TIPO_DI_DANNO (
      constraint ID_TIPO_DI_DANNO_ID primary key (Nome));
 
 create table Tipologia (
-     Id_oggetto varchar(20) not null,
+     Id_oggetto int not null,
      Tipo_di_danno varchar(20) not null,
      Danno varchar(10) not null,
      constraint ID_Tipologia_ID primary key (Id_oggetto, Tipo_di_danno));
 
 create table TRATTI (
-     IDTratto varchar(20) not null,
+     IDTratto int not null,
      Nome varchar(20) not null,
      Descrizione text not null,
      Creatore varchar(20) not null,
      constraint ID_TRATTI_ID primary key (IDTratto));
 
 create table Tratto (
-     IDTratto varchar(20) not null,
-     IdSpecie varchar(20) not null,
+     IDTratto int not null,
+     IdSpecie int not null,
      constraint ID_Tratto_ID primary key (IdSpecie, IDTratto));
 
 create table Ubicazione (
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      Id_luogo_d_interesse int not null,
      constraint ID_Ubicazione_ID primary key (IDPersonaggio, Id_luogo_d_interesse));
 
 create table Vocazione (
-     IDPersonaggio varchar(20) not null,
+     IDPersonaggio int not null,
      Classe varchar(20) not null,
      Livello int not null,
-     constraint ID_Vocazione_ID primary key (Classe, IDPersonaggio));
+     constraint ID_Vocazione_ID primary key (IDPersonaggio, Classe));
 
 
 -- Constraints Section
@@ -825,7 +825,7 @@ create unique index ID_PROPRIETA__ARMI_IND
      on PROPRIETA__ARMI (Nome);
 
 create unique index ID_SCENA_IND
-     on SCENA (Id_campagna, Data_Sessione, Id_scena);
+     on SCENA (Id_campagna, Data_Sessione, Nome);
 
 create index REF_SCENA_LUOGO_IND
      on SCENA (Id_luogo_d_interesse);
@@ -913,4 +913,19 @@ MODIFY Id_mondo int NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE LUOGO_D_INTERESSE
 MODIFY Id_luogo_d_interesse int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE SPECIE
+MODIFY IdSpecie int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE PERSONAGGIO
+MODIFY IDPersonaggio int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE OGGETTO
+MODIFY Id_oggetto int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE PNG
+MODIFY IdPNG int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE TRATTI
+MODIFY IDTratto int NOT NULL AUTO_INCREMENT;
 
