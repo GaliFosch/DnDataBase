@@ -16,10 +16,9 @@ class Database {
     }
 
     public function getAccount($nik, $psw){
-        $sql = "SELECT * FROM giocatore WHERE Nickname = ? AND Password = ?";
+        $sql = "SELECT * FROM giocatore WHERE nickname = ? AND password = ?";
         $stmnt = $this->instance->prepare($sql);
-        $stmnt->bind_param('s', $nik);
-        $stmnt->bind_param('s', $psw);
+        $stmnt->bind_param("ss", $nik, $psw);
         $stmnt->execute();
         $result = $stmnt->get_result();
         if($result->num_rows == 0){
