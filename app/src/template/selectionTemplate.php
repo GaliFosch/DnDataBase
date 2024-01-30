@@ -3,7 +3,7 @@
     <p>Scegli da dove cominciare!</p>
     <div>
         <img src="#" alt=""/>
-        <a href="#">Player</a>
+        <a href="http://localhost/DnDataBase/app/src/index.php?mode=player#">Player</a>
     </div>
     <div>
         <img src="#" alt=""/>
