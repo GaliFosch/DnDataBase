@@ -21,4 +21,10 @@
         <label for="invia" hidden></label><input type="submit" value="Invia">
     </form>
     <p>*Il nickname sarà il nome con cui gli utenti potranno vederti</p>
+    <?php
+    if(!empty($template["reg_ERR"])){
+        echo "<p>". $template["reg_ERR"] ."</p>";
+        $template["reg_ERR"] = "";
+    }
+    ?>
 </main>
