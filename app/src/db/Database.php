@@ -26,4 +26,13 @@ class Database {
         }
         return $result->fetch_assoc();
     }
+
+    public function isPresent($nik){
+        $sql = "SELECT * FROM giocatore WHERE nickname = ?";
+        $stmnt = $this->instance->prepare($sql);
+        $stmnt->bind_param("s", $nik);
+        $stmnt->execute();
+        $result = $stmnt->get_result();
+        return $result->num_rows !=0;
+    }
 }
