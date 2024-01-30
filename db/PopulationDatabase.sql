@@ -79,9 +79,9 @@ INSERT INTO `tratti`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Competenza armi
 
 INSERT INTO `competenza_oggetto`(`Id_oggetto`, `IDTratto`) VALUES ('3','1',);
 
-INSERT INTO `dote`(`Nome`, `Tipologia`, `Descrizione`, `Creatore`) VALUES ('Velocità terreno 9m','Velocità','La velocità sul terreno è di 9 metri','WOC');
+INSERT INTO `dote`(`Nome`, `Tipologia`, `Descrizione`, `Creatore`) VALUES ('Velocità terreno','Velocità','La velocità sul terreno è di 9 metri','WOC');
 
-INSERT INTO `dotazione`(`IDTratto`, `Dote`, `Metri`) VALUES ('2','Velocità terreno 9m','9m');
+INSERT INTO `dotazione`(`IDTratto`, `Dote`, `Metri`) VALUES ('2','Velocità terreno','9m');
 
 INSERT INTO `tratti`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Velocità terreno 9m','La velocità sul terreno è di 9m','WOC');
 
