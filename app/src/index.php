@@ -1,10 +1,16 @@
 <?php
 require_once("bootstrap.php");
-
-if($_GET["mode"] = "player"){
+if(!empty($_GET["mode"])){
+    $template["mode"] = $_GET["mode"];
+}
+if(!isset($_SESSION["user"])){
+    $template["title"] = "ERROR";
+    $template["file"] = "errorTempl.php";
+    $template["ERR_message"] = "user not logged in";
+}elseif($template["mode"] = "player"){
     $template["title"] = "Player";
     $template["file"] = "playerTempl.php";
-}elseif($_GET["mode"] = "dm"){
+}elseif($template["mode"] = "dm"){
     $template["title"] = "Player";
     $template["file"] = "dmTempl.php";
 }else{
