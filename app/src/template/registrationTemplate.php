@@ -22,9 +22,9 @@
     </form>
     <p>*Il nickname sarà il nome con cui gli utenti potranno vederti</p>
     <?php
-    if(!empty($template["reg_ERR"])){
-        echo "<p>". $template["reg_ERR"] ."</p>";
-        $template["reg_ERR"] = "";
+    if(!empty($template["err_REG"])){
+        echo "<p>". $template["err_REG"] ."</p>";
+        $template["err_REG"] = "";
     }
     ?>
 </main>
