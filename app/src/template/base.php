@@ -3,6 +3,11 @@
     <head>
         <title><?php echo $template["title"]?></title>
         <meta charset="UTF-8"/>
+        <?php
+            if(!empty($template["style"])){
+                echo "<link href=\"". "css/" . $template["style"] ."\" type=\"text/css\" rel=\"stylesheet\" />";
+            }
+        ?>
     </head>
     <body>
         <header>
