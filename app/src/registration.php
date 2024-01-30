@@ -1,7 +1,7 @@
 <?php
 require_once("bootstrap.php");
 $template["title"] = "Registration";
-$template["file"] = "registerTemplate.php";
+$template["file"] = "registrationTemplate.php";
 
 if(!empty($_GET["name"])
 && !empty($_GET["surname"])
