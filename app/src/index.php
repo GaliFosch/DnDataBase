@@ -18,3 +18,5 @@ if(!isset($_SESSION["user"])){
     $template["file"] = "errorTempl.php";
     $template["ERR_message"] = "visualization mode not set";
 }
+
+require_once("template/base.php");
