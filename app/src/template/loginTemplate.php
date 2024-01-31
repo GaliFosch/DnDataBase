@@ -2,7 +2,7 @@
     <div class="container-login">
 
         <div class="cover">
-            <img src="..\..\..\images\loginImage.jpg" alt="Ai generated image of a typical Dungeons & Dragons campaign.">
+            <img src="..\..\images\loginImage.jpg" alt="Ai generated image of a typical Dungeons & Dragons campaign.">
         </div>
 
         <div class="wrap-form">
@@ -35,7 +35,7 @@
                 $template["log_ERR"] = "";
             }
             ?>
-            <p>Non hai un account? <a href="http://localhost/DnDataBase/app/src/register.php">Creane uno</a></p>
+            <p>Non hai un account? <a href="http://localhost/DnDataBase/app/src/registration.php">Creane uno</a></p>
         </div>
 
     </div>

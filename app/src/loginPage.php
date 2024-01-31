@@ -1,6 +1,7 @@
 <?php
 require_once("bootstrap.php");
 $template["title"] = "Login";
+$template["style"] = "login.css";
 $template["file"] = "loginTemplate.php";
 
 if(!empty($_GET["nickname"]) && !empty($_GET["password"])){
