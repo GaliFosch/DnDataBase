@@ -7,62 +7,57 @@
 <main>
     <div class="scrolling">
         <h3>Diario delle Campagne</h1>
-        <!-- Roba dello scorrimento -->
         <img class="leftArrow" src="#" alt="freccia sinistra"/>
         <div>
-            <img src="#" alt="icona Campagna"/>
-            <p>1 Campagna</p><br/>
-            <p>00/00/00</p>
+            <a href="#">
+                <img src="#" alt=""/>
+                <p>Crea Personaggio</p>
+            </a>
         </div>
-        <div>
-            <img src="#" alt="icona Campagna"/>
-            <p>2 Campagna</p><br/>
-            <p>00/00/00</p>
-        </div>
-        <div>
-            <img src="#" alt="icona Campagna"/>
-            <p>3 Campagna</p><br/>
-            <p>00/00/00</p>
-        </div>
-        <div>
-            <img src="#" alt="icona Campagna"/>
-            <p>4 Campagna</p><br/>
-            <p>00/00/00</p>
-        </div>
-        <div>
-            <img src="#" alt="icona Campagna"/>
-            <p>5 Campagna</p><br/>
-            <p>00/00/00</p>
-        </div>
-        <div>
-            <img src="#" alt="icona Campagna"/>
-            <p>6 Campagna</p><br/>
-            <p>00/00/00</p>
-        </div>
-        <div>
-            <img src="#" alt="icona Campagna"/>
-            <p>7 Campagna</p><br/>
-            <p>00/00/00</p>
-        </div>
+        <?php
+            $sql = "SELECT nome, immagine
+                    FROM Campagna
+                    WHERE Id_campagna IN (SELECT Id_campagna
+                                        FROM Eroe INNER JOIN Pg ON Eroe.IDPersonaggio = Pg.IDPersonaggio
+                                        WHERE Pg.Creatore = ?)";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+            $result = $stmnt->get_result();
+        ?>
+        <?php while($row = $result->fetch_assoc()) {?>
+            <div>
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                <p><?php echo $row['Nome']; ?></p>
+            </div>
+        <?php }?>
         <img class="rightArrow" src="#" alt="freccia destra"/>
     </div>
     
     <div class="scrolling">
         <h3>I tuoi Personaggi</h3>
-        <!-- Roba dello scorrimento -->
         <img class="leftArrow" src="#" alt="freccia sinistra"/>
         <div>
-            <img src="#" alt="Icona PG"/>
-            <p>Nome personaggio</p><br/>
+            <a href="#">
+                <img src="#" alt=""/>
+                <p>Crea Personaggio</p>
+            </a>
         </div>
-        <div>
-            <img src="#" alt="Icona PG"/>
-            <p>Nome personaggio</p><br/>
-        </div>
-        <div>
-            <img src="#" alt="Icona PG"/>
-            <p>Nome personaggio</p><br/>
-        </div>
+        <?php
+            $sql = "SELECT Nome, Immagine
+                    FROM Pg
+                    WHERE Creatore = ?";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+            $result = $stmnt->get_result();
+        ?>
+        <?php while($row = $result->fetch_assoc()) {?>
+            <div>
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                <p><?php echo $row['Nome']; ?></p>
+            </div>
+        <?php }?>
         <img class="rightArrow" src="#" alt="freccia destra"/>
     </div>
     <script src="js/scrolling.js"></script>
