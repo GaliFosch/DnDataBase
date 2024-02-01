@@ -16,12 +16,12 @@
 
                         <div class="wrap-input">
                                 <label class="hidden" for="nickname">Nickname</label>
-                                <input type="text" name="nickname" id="nickname" placeholder="Enter your nickname" required>
+                                <input type="text" name="nickname" id="nickname" placeholder="Nickname" required>
                         </div>
 
                         <div class="wrap-input">
                             <label class="hidden" for="password">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
                         </div>
                         <input class="button" type="submit" value="Login">
                     </div>

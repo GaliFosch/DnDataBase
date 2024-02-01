@@ -142,9 +142,13 @@
     font-weight: 500;
     color: #333;
     margin: 15px 5px 5px;
-    text-align: center;
   }
   
+.container .info{
+  font-size: 12px;
+  text-align: center;
+}
+
   .container a{
     text-decoration: none;
     cursor: pointer;

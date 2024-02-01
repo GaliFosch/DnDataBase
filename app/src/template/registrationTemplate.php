@@ -21,7 +21,11 @@
                 </div>
             </div>
             </form>
-            <p>*Il nickname sarà il nome con cui gli utenti potranno vederti</p>
+            <p class="info">*Il nickname sarà il nome con cui gli utenti potranno vederti</p>
+
+            <div>
+                <p>Hai già un account? <a href="http://localhost/DnDataBase/app/src/loginPage.php">Accedi</a></p>
+            </div>
             
             <?php
             if(!empty($template["err_REG"])){
