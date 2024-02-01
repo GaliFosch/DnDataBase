@@ -192,7 +192,7 @@ create table OGGETTO (
      Costo int not null,
      Peso float not null,
      Descrizione text not null,
-     Categoria varchar(20) not null,
+     Categoria varchar(50) not null,
      Rarita varchar(20) not null,
      Id_effetto_magico varchar(20),
      Creatore varchar(20) not null,
@@ -253,7 +253,7 @@ create table SESSIONE (
      constraint ID_SESSIONE_ID primary key (Id_campagna, Data_Sessione));
 
 create table SOTTO_CLASSE (
-     Nome varchar(20) not null,
+     Nome varchar(50) not null,
      Classe varchar(20) not null,
      Descrizione text not null,
      Creatore varchar(20) not null,
@@ -270,7 +270,7 @@ create table Specializza (
      Nome_SottoClasse varchar(20) not null,
      Classe varchar(20) not null,
      IDPersonaggio int not null,
-     constraint ID_Specializza_ID primary key (Nome_SottoClasse, Classe, IDPersonaggio));
+     constraint ID_Specializza_ID primary key (IDPersonaggio, Nome_SottoClasse, Classe));
 
 create table SPECIE (
      IdSpecie int not null,
@@ -312,7 +312,7 @@ create table Tipologia (
 
 create table TRATTI (
      IDTratto int not null,
-     Nome varchar(20) not null,
+     Nome varchar(50) not null,
      Descrizione text not null,
      Creatore varchar(20) not null,
      constraint ID_TRATTI_ID primary key (IDTratto));

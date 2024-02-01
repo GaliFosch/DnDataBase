@@ -32,7 +32,7 @@ INSERT INTO `specie`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Human','La razz
 
 INSERT INTO `personaggio`(`Nome`, `Allineamento`, `Taglia`, `CA`, `PercezionePassiva`, `PB`, `PF`, `Descrizione`) VALUES ('William DeFoe','LB','Media','18','10','2','25','Un tipo veramente figo che combatte con chiunque incontra just for fun.');
 
-INSERT INTO `personaggio`(`Nome`, `Allineamento`, `Taglia`, `CA`, `PercezionePassiva`, `PB`, `PF`, `Descrizione`) VALUES ('Drago rosso adulto','CM','Mastodontico','22','12','[value-7]','546','I draghi rossi, i più avidi dei draghi puri, non pensano ad altro che ingrandire il loro tesoro. Sono straordinariamente vanitosi, anche per i parametri dei draghi, e la loro arroganza e ben visibile nel portamento superbo e nel disprezzo che dimostrano verso le altre creature.');
+INSERT INTO `personaggio`(`Nome`, `Allineamento`, `Taglia`, `CA`, `PercezionePassiva`, `PB`, `PF`, `Descrizione`) VALUES ('Drago rosso adulto','CM','Mastodontica','22','12','7','546','I draghi rossi, i più avidi dei draghi puri, non pensano ad altro che ingrandire il loro tesoro. Sono straordinariamente vanitosi, anche per i parametri dei draghi, e la loro arroganza e ben visibile nel portamento superbo e nel disprezzo che dimostrano verso le altre creature.');
 
 INSERT INTO `classe`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Barbaro',"Un umano selvaggio, alto e possente, avanza a grandi passi in una tormenta di neve, avvolto in una pelliccia e armato di ascia. Si concede una risata quando si scaglia contro il gigante del gelo che ha osato cacciare di frodo gli alci della sua tribù.
 
@@ -43,11 +43,13 @@ Con la bava alla bocca, un nano schianta il suo elmo sul volto del drow che lo h
 Questi barbari, per quanto diversi tra loro, sono tutti definiti dalla loro ira: una furia irrazionale, incontrollata e insaziabile. La loro collera è ben più di una semplice emozione, è la ferocia di un predatore messo all'angolo, l'assalto implacabile di una tempesta, il tumulto ribollente del mare.
 Per alcuni, questa ira sgorga da una comunione con un indomabile spirito animale. Altri attingono alle riserve sterminate di collera di un mondo gravato dal dolore. Per ogni barbaro, l'ira è un potere che alimenta non solo la frenesia della lotta, ma anche i suoi riflessi e la sua resilienza, permettendogli di compiere imprese di forza prodigiose.",'WOC');
 
+INSERT INTO `pg`(`IDPersonaggio`, `Livello`, `Creatore`, `IdSpecie`) VALUES ('1','1','WOC','1');
+
 INSERT INTO `vocazione`(`IDPersonaggio`, `Classe`, `Livello`) VALUES ('1','Barbaro','1');
 
-INSERT INTO `specializza`(`Nome_SottoClasse`, `Classe`, `IDPersonaggio`) VALUES ('Cammino del Berserker','Barbaro','1');
+INSERT INTO `sotto_classe`(`Nome`, `Classe`, `Descrizione`, `Creatore`) VALUES ('Cammino del Berserker','Barbaro',"Per alcuni barbari, l’ira è un mezzo per raggiungere un fine – e quel fine è la violenza. Il Cammino del Berserker è un cammino di furia indiscriminata, grondante di sangue. Quando un barbaro entra nell'ira del berserker, si esalta nel caos della battaglia, ignorando la propria salute e la propria incolumità.",'WOC');
 
-INSERT INTO `pg`(`IDPersonaggio`, `Livello`, `Creatore`, `IdSpecie`) VALUES ('1','1','WOC','1');
+INSERT INTO `specializza`(`Nome_SottoClasse`, `Classe`, `IDPersonaggio`) VALUES ('Cammino del Berserker','Barbaro','1');
 
 INSERT INTO `eroe`(`IDPersonaggio`, `Id_campagna`) VALUES ('1','1');
 
@@ -77,11 +79,13 @@ INSERT INTO `inventario`(`Id_oggetto`, `IDPersonaggio`) VALUES ('3','1');
 
 INSERT INTO `tratti`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Competenza armi guerra','Sei in grado di combattere con tutte le armi da guerra','WOC');
 
-INSERT INTO `competenza_oggetto`(`Id_oggetto`, `IDTratto`) VALUES ('3','1',);
+INSERT INTO `competenza_oggetto`(`Id_oggetto`, `IDTratto`) VALUES ('3','1');
 
 INSERT INTO `dote`(`Nome`, `Tipologia`, `Descrizione`, `Creatore`) VALUES ('Velocità terreno','Velocità','La velocità sul terreno è di 9 metri','WOC');
 
-INSERT INTO `dotazione`(`IDTratto`, `Dote`, `Metri`) VALUES ('2','Velocità terreno','9m');
+INSERT INTO `tratti`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Velocità terreno 9m','La velocità sul terreno è di 9m','WOC');
+
+INSERT INTO `dotazione`(`IDTratto`, `Dote`, `Metri`) VALUES ('2','Velocità terreno','9');
 
 INSERT INTO `tratti`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Velocità terreno 9m','La velocità sul terreno è di 9m','WOC');
 
