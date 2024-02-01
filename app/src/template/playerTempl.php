@@ -8,12 +8,6 @@
     <div class="scrolling">
         <h3>Diario delle Campagne</h1>
         <img class="leftArrow" src="#" alt="freccia sinistra"/>
-        <div>
-            <a href="#">
-                <img src="#" alt=""/>
-                <p>Crea Personaggio</p>
-            </a>
-        </div>
         <?php
             $sql = "SELECT nome, immagine
                     FROM Campagna
@@ -40,7 +34,7 @@
         <div>
             <a href="#">
                 <img src="#" alt=""/>
-                <p>Crea Personaggio</p>
+                <p>Nuovo Personaggio</p>
             </a>
         </div>
         <?php
