@@ -7,6 +7,6 @@
     </div>
     <div>
         <img src="#" alt=""/>
-        <a href="#">Dungeon Master</a>
+        <a href="http://localhost/DnDataBase/app/src/index.php?mode=dm#">Dungeon Master</a>
     </div>
 </main>
