@@ -34,8 +34,8 @@ create table ABILITA (
 create table ARMATURA (
      Id_oggetto int not null,
      Classe_armatura int not null,
-     Forza_richiesta int not null,
-     Svantaggio_furtivita bool not null,
+     Forza_richiesta int not null DEFAULT '0',
+     Svantaggio_furtivita bool not null DEFAULT '0',
      constraint ID_ARMAT_OGGET_ID primary key (Id_oggetto));
 
 create table Attribuzione (
@@ -94,13 +94,13 @@ create table CLASSE (
 create table Competenza_Abilita (
      IDTratto int not null,
      IDAbilita varchar(20) not null,
-     Maestria bool not null,
+     Maestria bool not null DEFAULT '0',
      constraint ID_Competenza_Abilita_ID primary key (IDAbilita, IDTratto));
 
 create table Competenza_Oggetto (
      Id_oggetto int not null,
      IDTratto int not null,
-     Maestria bool not null,
+     Maestria bool not null DEFAULT '0',
      constraint ID_Competenza_Oggetto_ID primary key (Id_oggetto, IDTratto));
 
 create table Dotazione (
@@ -267,10 +267,10 @@ create table Sotto_Privilegio (
      constraint ID_Sotto_Privilegio_ID primary key (Nome_SottoClasse, Classe, IDTratto));
 
 create table Specializza (
-     Nome_SottoClasse varchar(20) not null,
+     Nome_SottoClasse varchar(50) not null,
      Classe varchar(20) not null,
      IDPersonaggio int not null,
-     constraint ID_Specializza_ID primary key (IDPersonaggio, Nome_SottoClasse, Classe));
+     constraint ID_Specializza_ID primary key (Nome_SottoClasse, Classe, IDPersonaggio));
 
 create table SPECIE (
      IdSpecie int not null,
