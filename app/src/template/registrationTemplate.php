@@ -1,11 +1,11 @@
 <main>
-    <div class="container-registration">
+    <div class="container registration">
         <div class="wrap-form">
             <form action="#" method="get">
             <div class="form-content">
-                <div class="registration-form">
+                <div class="form">
 
-                <span class="registration-form-title"> Registrazione</span>
+                <span class="title registration"> Registrazione</span>
 
                             <div class="wrap-input"><label class="hidden" for="name">Nome</label><input type="text" name="name" id="name" placeholder="Nome"/></div>
                         

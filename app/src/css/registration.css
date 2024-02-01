@@ -11,13 +11,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #FFF3B0 ;
+    background: #708D81 ;
   }
   
   .container-registration {
     max-width: 400px;
     width: 100%;
-    background: #9E2A2B;
+    background: #F4D58D;
     padding: 30px 60px;
     border-radius: 18px;
   }
@@ -25,7 +25,7 @@
   .container-registration .wrap-form {
     height: 100%;
     width: 100%;
-    background: #9E2A2B;
+    background: #F4D58D;
     padding: 15px;
     display: flex; 
     flex-direction: column;
@@ -57,7 +57,7 @@
     width: 100%;
     margin: 10px 0;
     position: relative;
-    font-size: 17px;
+    font-size: 17px; /*!!!!!*/
   }
   
   form .form-content input{
@@ -92,7 +92,7 @@
   .container-registration p{
     font-size: 14px;
     margin: 15px 5px 5px;
-    text-align: center;
+    text-align: center; /*!!!!!!!!!*/
   }
 
   

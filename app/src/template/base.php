@@ -10,7 +10,7 @@
         ?>
     </head>
     <body>
-        <header>
+        <header class="header">
             <h1>DnDatabase</h1>
         </header>
         <?php require($template["file"])?>

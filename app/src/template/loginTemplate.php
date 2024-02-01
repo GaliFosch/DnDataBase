@@ -1,5 +1,5 @@
 <main>
-    <div class="container-login">
+    <div class="container login">
 
         <div class="cover">
             <img src="..\..\images\loginImage.jpg" alt="Ai generated image of a typical Dungeons & Dragons campaign.">
@@ -11,8 +11,8 @@
 
                 <div class="form-content">
 
-                    <div class="login-form">
-                        <span class="login-form-title"> Benvenut*</span>
+                    <div class="form">
+                        <span class="title login"> Benvenut*</span>
 
                         <div class="wrap-input">
                                 <label class="hidden" for="nickname">Nickname</label>
