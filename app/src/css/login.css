@@ -158,11 +158,18 @@
     text-decoration: underline;
   }
   
-  .hidden, .header{
+  .hidden{
     display:none;
   }
-  
 
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #8D0801;
+    color: #F4D58D;
+    font-size: 25px;
+}
 
 .selection-wrap {
   position: relative;

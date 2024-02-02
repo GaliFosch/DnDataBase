@@ -1,19 +1,19 @@
 INSERT INTO `giocatore`
-VALUES ('S_Nova', 'Ginevra', 'Bartolini', '2002-10-21', 'progetto01');
+VALUES ('S_Nova', 'Ginevra', 'Bartolini', '2002-10-21', 'progetto01', 'C:\xampp\htdocs\DnDatabase\images\users\Galileo.jpg');
 
 INSERT INTO `giocatore`
-VALUES ('Tripp', 'Galileo', 'Foschini', '2002-09-15', 'progetto02');
+VALUES ('Tripp', 'Galileo', 'Foschini', '2002-09-15', 'progetto02', 'C:\xampp\htdocs\DnDatabase\images\user\Ginevra.jpg');
 
 INSERT INTO `giocatore`
-VALUES ('WOC', 'Wizard', 'Of The Coast', '1990-01-01', 'wizardPass');
+VALUES ('WOC', 'Wizard', 'Of The Coast', '1990-01-01', 'wizardPass', 'C:\xampp\htdocs\DnDatabase\images\user\WOC.jpg');
 
 INSERT INTO mondo(Nome,Ambientazione,Descrizione,Creatore)
 VALUES ('Forgotten Realms','Fantasy',"NEL MONDO DI TORIL, tra il mare delle Spade spazzato dal vento a ovest e le misteriose terre di Kara-Tur a est, giace il continente di Faerùn: un luogo ricco di razze e culture di ogni genere, che è dominato dalle terre degli umani, che si tratti di regni, città-stato o alleanze - di comunità rurali meticolosamente curate. Qua e là, tra le terre degli umani, spuntano i vecchi regni dei nani e le enclave nascoste degli elfi, le popolazioni degli gnomi e degli halfling assimilate nelle altre società e altre razze più esotiche. Chi va in cerca di avventura nei Reami ha solo l'imbarazzo della scelta. Le strade che collegano le città e le nazioni spesso attraversano territori infestati da briganti e predoni umanoidi. Ogni foresta, palude o catena montuosa pullula di pericoli, che si tratti di banditi in agguato, orchi e goblinoidi selvaggi o possenti creature come giganti e draghi. Ogni regione è disseminata di rovine e di caverne che si insinuano sottoterra e molti di questi luoghi custodiscono ancora i tesori di tutte le razze viventi (nonché di molte razze scomparse), che restano in attesa di avventurieri abbastanza intrepidi da farsi avanti a rivendicarli.",'WOC');
 
-INSERT INTO campagna(Nome,Sinossi,Creatore,Id_mondo)
+INSERT INTO campagna(Nome,Sinossi, Immagine, Creatore,Id_mondo)
 VALUES ('Lost Mine of Phandelver','Questa fantastica avventura ha inizio a Neverwinter, accompagnando un gruppo di personaggi dal livello 1 al livello 5, qualora aspirino a trovare la tanto chiacchierata miniera perduta di Phandelver.
 Tutto comincia dall’incarico affidato agli avventurieri, dal nano Gundreen Rockseeker il quale attenderà i giocatori nella città di Phandalin. I nostri eroi dovranno passare lungo la Pista di Triboar, si dice che vari banditi e fuorilegge si nascondano in agguato in agguato lungo il sentiero..
-Resta a voi scoprire in che modo gli avventurieri riusciranno a portare a termine il loro incarico e quali nemici li attenderanno!','WOC','1');
+Resta a voi scoprire in che modo gli avventurieri riusciranno a portare a termine il loro incarico e quali nemici li attenderanno!','C:\xampp\htdocs\DnDatabase\images\campaign\Lost Mine of Phandelver.jpg', 'WOC','1');
 
 INSERT into stato
 VALUES ('1','Costa della Spada','Vario','Ricco','Fantasy');
@@ -30,7 +30,7 @@ INSERT INTO `scena` VALUES ('1','2024/01/01','Combattimento contro i goblin','I 
 
 INSERT INTO `specie`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Human','La razza degli umani è la più versatile e flessibile tra quelle comuni. Sono rinomati per la loro ambizione e diversità per usi, gusti e principi ma anche nell’aspetto, infatti non esiste un umano tipico. L’origine dell’umanità è sempre stata sconosciuta. Gli umani non hanno un mito della creazione come altre razze, tuttavia secondo alcuni calcoli, sono certamente la razza più giovane delle razze comuni. Sebbene gli esseri umani fossero effettivamente nativi del continente Toril nel Faerûn, sono stati trovati anche su altri mondi. Gli esseri umani hanno avuto un innegabile successo in fatto di dominio. Anche se non sia l’unica razza dominante su Toril, gli umani sono stati gli ultimi ad ottenerene il dominio. Nonostante questa forza, o forse proprio a causa di essa, l’umanità era è razza eternamente fratturata e divisa, suddivisa in diversi gruppi etnici. Si credeva che ciò fosse in parte dovuto al fatto che l’umanità, a differenza della maggior parte delle altre razze, non emergeva nel suo insieme ma piuttosto in più luoghi e gruppi contemporaneamente, risultando così nella sua diversità.','WOC');
 
-INSERT INTO `personaggio`(`Nome`, `Allineamento`, `Taglia`, `CA`, `PercezionePassiva`, `PB`, `PF`, `Descrizione`) VALUES ('William DeFoe','LB','Media','18','10','2','25','Un tipo veramente figo che combatte con chiunque incontra just for fun.');
+INSERT INTO `personaggio`(`Nome`, `Allineamento`, `Taglia`, `CA`, `PercezionePassiva`, `PB`, `PF`, `Descrizione`, 'Immagine') VALUES ('William DeFoe','LB','Media','18','10','2','25','Un tipo veramente figo che combatte con chiunque incontra just for fun.', 'C:\xampp\htdocs\DnDatabase\images\pg\William DeFoe.jpg');
 
 INSERT INTO `personaggio`(`Nome`, `Allineamento`, `Taglia`, `CA`, `PercezionePassiva`, `PB`, `PF`, `Descrizione`) VALUES ('Drago rosso adulto','CM','Mastodontica','22','12','7','546','I draghi rossi, i più avidi dei draghi puri, non pensano ad altro che ingrandire il loro tesoro. Sono straordinariamente vanitosi, anche per i parametri dei draghi, e la loro arroganza e ben visibile nel portamento superbo e nel disprezzo che dimostrano verso le altre creature.');
 
