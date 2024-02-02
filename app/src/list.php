@@ -1,8 +1,5 @@
 <?php
 require_once("bootstrap.php");
-$template["title"] = "Login";
-$template["style"] = "login.css";
-$template["file"] = "loginTemplate.php";
 
 if(empty($_GET["listName"])){
     $template["title"] = "ERROR";
@@ -11,6 +8,8 @@ if(empty($_GET["listName"])){
 }else{
     switch($_GET["listName"]){
         case "specie":
+            $template["title"] = "Specie";
+            $template["file"] = "listTempl.php";
             break;
         default:
             $template["title"] = "ERROR";
