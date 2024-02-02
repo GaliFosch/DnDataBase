@@ -39,7 +39,7 @@
         </div>
         <?php
             $sql = "SELECT Nome, Immagine
-                    FROM Pg
+                    FROM Pg INNER JOIN Personaggio ON Pg.IDPersonaggio = Personaggio.IDPersonaggio
                     WHERE Creatore = ?";
             $stmnt = $db->getConnection()->prepare($sql);
             $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
