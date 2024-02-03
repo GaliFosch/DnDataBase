@@ -2,20 +2,29 @@
     <table>
         <thead>
             <?php
-                $sql = "SELECT `COLUMN_NAME` 
-                FROM `INFORMATION_SCHEMA`.`COLUMNS` 
-                WHERE `TABLE_SCHEMA`='dndatabase' 
-                    AND `TABLE_NAME`= ?;";
-                $stmnt = $db->getConnection()->prepare($sql);
-                $stmnt->bind_param("s", $template["title"]);
-                $stmnt->execute();
-                $result = $stmnt->get_result();
-                while($row = $result->fetch_array(MYSQLI_NUM)){
-                    echo "<th>". $row[0] ."</th>"; 
+                foreach($template["columns"] as $c){
+                    echo "<th>". $c ."</th>";
                 }
-                ?>
+            ?>
         </thead>
         <tbody>
+            <?php
+                $sql = "SELECT " . $template["columns"][0] . ", ";
+                for($i = 1; $i<count($template["columns"]); $i++){
+                    $sql = ", " . $sql . $template["columns"][$i];
+                }
+                $sql = $sql . " FROM " . $template["title"];
+                $result = $db->getConnection()->execute($sql);
+                while($row = $result->fetch_array(MYSQLI_NUM)){
+            ?>
+                <tr>
+                    <?php
+                        foreach($row as $val){
+                            echo "<tr>".$val."</tr>";
+                        }
+                    ?>
+                </tr>
+            <?php }?>
         </tbody>
     </table>
 </main>

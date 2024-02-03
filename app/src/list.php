@@ -10,6 +10,7 @@ if(empty($_GET["listName"])){
         case "specie":
             $template["title"] = "Specie";
             $template["file"] = "listTempl.php";
+            $template["columns"] = ["Nome", "Creatore"];
             break;
         default:
             $template["title"] = "ERROR";
