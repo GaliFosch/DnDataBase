@@ -9,7 +9,7 @@
         <h3>Diario delle Campagne</h1>
         <img class="leftArrow" src="#" alt="freccia sinistra"/>
         <?php
-            $sql = "SELECT nome, immagine
+            $sql = "SELECT Nome, Immagine
                     FROM Campagna
                     WHERE Id_campagna IN (SELECT Id_campagna
                                         FROM Eroe INNER JOIN Pg ON Eroe.IDPersonaggio = Pg.IDPersonaggio
