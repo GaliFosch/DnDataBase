@@ -62,3 +62,4 @@
             <img class="rightArrow" src="#" alt="freccia destra"/>
         </div>
         <script src="js/scrolling.js"></script>
+</main>
