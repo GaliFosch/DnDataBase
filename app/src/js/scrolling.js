@@ -26,11 +26,11 @@ class Scroll{
         }
     }
 }
-const divs = document.getElementsByClassName("scrolling");
+const divs = document.getElementsByClassName("container.scrolling.campaign");
 
 for(let i = 0; i < divs.length; i++){
     let current = divs.item(i);
     let s = new Scroll(current.getElementsByTagName("div"));
-    current.getElementsByClassName("leftArrow").item(0).addEventListener("click", function(){s.scrollLX()});
-    current.getElementsByClassName("rightArrow").item(0).addEventListener("click", function(){s.scrollDX()});
+    current.getElementsByClassName(".arrow.sx").item(0).addEventListener("click", function(){s.scrollLX()});
+    current.getElementsByClassName(".arrow.dx").item(0).addEventListener("click", function(){s.scrollDX()});
 }

@@ -76,7 +76,7 @@ create table CAMPAGNA (
      Id_campagna int not null,
      Nome varchar(50) not null,
      Sinossi text not null,
-     Immagine blob null,
+     Immagine longblob null,
      Creatore varchar(20) not null,
      Id_mondo int not null,
      constraint ID_CAMPAGNA_ID primary key (Id_campagna));
@@ -134,7 +134,7 @@ create table GIOCATORE (
      Cognome varchar(20) not null,
      Data_nascita date not null,
      Password varchar(20) not null,
-     Immagine blob null,
+     Immagine longblob null,
      constraint ID_GIOCATORE_ID primary key (Nickname));
 
 create table INCANTESIMO (
@@ -210,7 +210,7 @@ create table PERSONAGGIO (
      PB int not null,
      PF int not null,
      Descrizione text not null,
-     Immagine blob null,
+     Immagine longblob null,
      constraint ID_PERSONAGGIO_ID primary key (IDPersonaggio));
 
 create table PG (

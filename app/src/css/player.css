@@ -6,9 +6,12 @@
   }
   
   main {
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    display: table;
+    display: grid;
+    grid-template-rows: 150px 3fr 3fr;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-gap: 10px;
     align-items: center;
     justify-content: center;
     background: #708D81 ;
@@ -16,18 +19,68 @@
   
   .container {
     position: relative;
-    max-width: 850px;
     width: 100%;
     background: #F4D58D;
-    padding: 70px 30px;
-    display: table;
+    padding: 30px;
     border-radius: 18px;
   }
 
 .container.user{
-  max-width: 200px;
-  height: 100px;
   font-size: 13px;
+  grid-area: 1 / 1 / 1 / 1;
+  width: 200px;
+  margin: 20px;
+}
+
+.container.scrolling{
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  grid-template-rows: 30px 1fr;
+  grid-template-columns: 100px 2fr 100px;
+  grid-gap: 10px;
+  max-height: 250px;
+}
+
+.container.scrolling.campaign{
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.container.scrolling h3 {
+  grid-area: 1 / 1 / 1 / 3;
+}
+
+.container.scrolling .arrow.sx{
+  grid-area: 2 / 1 / 2 / 1;
+}
+
+.container.scrolling .arrow.dx{
+  grid-area: 2 / 3 / 2 / 3;
+}
+
+.container.scrolling .wrap{
+  grid-area: 2 / 2 / 2 / 2;
+  display: grid;
+  grid-template-rows: 1fr 30px;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 10px;
+  
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*da ricontrollare perche non sono scalabili*/
+.container.scrolling .wrap img {
+  grid-area: span 1;
+}
+
+.container.scrolling  p{
+  grid-row: 2;
+}
+
+.container.scrolling.pg{
+  grid-area: 3 / 2 / 4/ 3;
 }
 
   .header{
@@ -39,34 +92,26 @@
     font-size: 25px;
 }
 
-.wrap {
-  display: grid;
-  column-gap: 20px;
-  align-items: center;
-  justify-content: center;
-  max-width: 850px;
-  width: 100%;
-}
-
 .wrap img {
   width: 100px;
   height:100px;
 }
 
 .arrow {
-  background-color: #F4D58D;
-  width: 0;  
-  height: 0;  
+  background-color: #F4D58D; 
   border-top: 50px solid transparent; 
   border-bottom: 50px solid transparent; 
   border-left: transparent; 
-  border-right: 50px solid green; 
+  border-right: 50px solid #001427; 
   margin: 2rem; 
   &:hover{
-    background: red;
     cursor: pointer;
-    border-right-color: darkgreen;
+    border-right-color: #002B53;
   }
+}
+
+.arrow.dx {
+  transform: rotate(180deg);
 }
 
 
