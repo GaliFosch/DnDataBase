@@ -1,7 +1,7 @@
 <main>   
     <div class="container user">
+        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
         <?php
-        //img
         echo "<h2>".$_SESSION["user"]["Nickname"]."</h2>";
         ?>
         <p>Giocatore</p>
@@ -38,7 +38,7 @@
                     <img src="..\..\images\plus-sign.jpg" alt=""/>
                     <p>Nuovo Personaggio</p>
                 </a>
-            
+            </div>
                 <?php
                     $sql = "SELECT Nome, Immagine
                             FROM Pg INNER JOIN Personaggio ON Pg.IDPersonaggio = Personaggio.IDPersonaggio
@@ -49,10 +49,11 @@
                     $result = $stmnt->get_result();
                 ?>
                 <?php while($row = $result->fetch_assoc()) {?>
-                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
-                    <p><?php echo $row['Nome']; ?></p>
+                    <div class="wrap">
+                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                        <p><?php echo $row['Nome']; ?></p>
+                    </div>
                 <?php }?>
-            </div>
             <button class="arrow dx"></button>
         </div>
         <script src="js/scrolling.js"></script>

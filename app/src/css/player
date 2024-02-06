@@ -97,7 +97,7 @@
     font-size: 25px;
 }
 
-.wrap img, img{
+.wrap img, img {
   width: 100px;
   height:100px;
 }

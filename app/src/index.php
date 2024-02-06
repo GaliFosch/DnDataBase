@@ -11,6 +11,7 @@ if(!isset($_SESSION["user"])){
 }elseif($template["mode"] = "player"){
     $template["title"] = "Player";
     $template["file"] = "playerTempl.php";
+    //$template["style"] = "player.css";
 }elseif($template["mode"] = "dm"){
     $template["title"] = "Player";
     $template["file"] = "dmTempl.php";
