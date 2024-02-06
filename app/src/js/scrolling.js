@@ -1,5 +1,4 @@
 "use strict";
-document.write("ciao");
 class Scroll{
     constructor(elements){
         this.elements = elements;
@@ -27,7 +26,6 @@ class Scroll{
     }
 }
 const divs = document.getElementsByClassName("scrolling");
-document.write(divs.length);
 for(let i = 0; i < divs.length; i++){
     let current = divs.item(i);
     let s = new Scroll(current.getElementsByTagName("div"));

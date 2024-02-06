@@ -1,3 +1,11 @@
+  <nav>
+        <a href="#">Home</a> 
+        <a href="#">Statistiche</a> 
+        <a href="#">Database</a> 
+        <a href="#">Specie</a>
+        <a href="#">Classe</a>
+    </nav>
+    
 <main>   
     <div class="container user">
         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
