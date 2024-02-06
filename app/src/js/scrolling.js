@@ -1,5 +1,5 @@
 "use strict";
-
+document.write("ciao");
 class Scroll{
     constructor(elements){
         this.elements = elements;
