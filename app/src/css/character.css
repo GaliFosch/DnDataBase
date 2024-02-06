@@ -1,0 +1,79 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Book Antiqua", serif;
+}
+
+main {
+    height: 100vh;
+     display: flex;
+    justify-content: center;
+    background: #708D81;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: #F4D58D;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 18px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pg {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.info, .desc {
+    margin: 0px 20px;
+}
+
+.CAPF{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.CA, .PF {
+    color: #F4D58D;
+    background: #8D0801;
+    width:  120px;
+    height:  50px;
+    border-radius: 18px;
+    display: flex;
+    align-content:space-around;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0px 20px;
+}
+
+.stats {
+    border: solid #8D0801;
+    border-radius: 18px;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+.wrap{
+    display: grid;
+}
+
+.statisti
+
