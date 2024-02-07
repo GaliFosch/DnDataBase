@@ -7,8 +7,7 @@
 }
 
 main {
-    height: 100vh;
-     display: flex;
+    display: flex;
     justify-content: center;
     background: #708D81;
 }
@@ -16,6 +15,7 @@ main {
 .container {
     max-width: 900px;
     width: 100%;
+    height: 100%;
     background: #F4D58D;
     padding: 30px;
     margin: 20px;
@@ -45,17 +45,17 @@ img {
     margin: 0px 20px;
 }
 
-.CAPF{
+.CAPF ,.points{
     display: flex;
     align-items: center;
     margin: 10px 0px;
 }
 
-.CA, .PF {
+.CA, .PF, .points p {
     color: #F4D58D;
     background: #8D0801;
-    width:  120px;
-    height:  50px;
+    width: 150px;
+    height: 50px;
     border-radius: 18px;
     display: flex;
     align-content:space-around;
@@ -73,7 +73,48 @@ img {
 
 .wrap{
     display: grid;
+    width: 100px;
+    grid-template-rows: 30px 50px 20px; 
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    padding: 5px;
+    grid-gap: 5px;
 }
 
-.statisti
+.statistica{
+    font-size: 25px; 
+    
+}
+
+.numero{
+    color: #F4D58D;
+    background: #8D0801;
+    width: 80px;
+    height: 70px;
+    padding: 10px;
+    font-size: 30px; 
+}
+
+.mod{
+    background: #F4D58D;
+    width: 50px;
+    height: 30px;
+    border-radius: 50px; 
+    margin: 0px 15px;
+    font-size: 20px; 
+}
+
+.points{
+    justify-content: center;
+}
+
+.equipment {
+    margin: 20px;
+}
+
+.equipment li {
+    margin: 5px 40px;
+}
 

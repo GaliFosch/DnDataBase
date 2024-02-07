@@ -29,10 +29,10 @@
         </div> 
 
         <div class="stats">
-            <div class="stat wrap">
-                <p class="statistica">Statistica</p>
-                <p class="numero">Numero</p>
-                <p class="mod">Mod</p>
+            <div class="wrap">
+                <p class="statistica">Forza</p>
+                <p class="numero">14</p>
+                <p class="mod">+3</p>
             </div>
         </div> 
 
@@ -42,6 +42,7 @@
         </div> 
 
         <div class="equipment">
+            <h3>Equipaggiamento:</h3>
             <ul>
                 <li>Spada</li>
                 <li>Torcia</li>
