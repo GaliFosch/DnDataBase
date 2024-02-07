@@ -39,6 +39,7 @@ img {
     width: 100px;
     height: 100px;
     object-fit: cover;
+    object-position:  50%  0;
 }
 
 .info, .desc {
@@ -54,7 +55,7 @@ img {
 .CA, .PF, .points p {
     color: #F4D58D;
     background: #8D0801;
-    width: 150px;
+    min-width: 150px;
     height: 50px;
     border-radius: 18px;
     display: flex;
@@ -64,11 +65,18 @@ img {
     margin: 0px 20px;
 }
 
+.points p {
+    min-width: 200px;
+}
+
 .stats {
     border: solid #8D0801;
     border-radius: 18px;
     padding: 10px;
     margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .wrap{
@@ -84,8 +92,7 @@ img {
 }
 
 .statistica{
-    font-size: 25px; 
-    
+    font-size: 18px; 
 }
 
 .numero{
