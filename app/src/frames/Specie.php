@@ -9,8 +9,8 @@
             $stmnt = $db->getConnection()->prepare($sql);
             $stmnt->bind_param("i",$_GET["id"]);
             $stmnt->execute();
-            $result = $stmnt->get_result();
-            $specie = $result->fetch_assoc();
+            $oggetto = $stmnt->get_result();
+            $specie = $oggetto->fetch_assoc();
         ?>
         <main>
             <h2><?php echo $specie["Nome"]?></h2>
@@ -22,8 +22,8 @@
                 $stmnt = $db->getConnection()->prepare($sql);
                 $stmnt->bind_param("i", $_GET["id"]);
                 $stmnt->execute();
-                $result = $stmnt->get_result();
-                while($row = $result->fetch_assoc()){
+                $oggetto = $stmnt->get_result();
+                while($row = $oggetto->fetch_assoc()){
             ?>
             <article>
                 <h3><?php echo $row["Nome"] ?></h3>

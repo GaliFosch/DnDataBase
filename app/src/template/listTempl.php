@@ -13,9 +13,9 @@
                 for($i = 1; $i<count($template["columns"]); $i++){
                     $sql = $sql . ", " . $template["columns"][$i];
                 }
-                $sql = $sql . " FROM " . $template["title"];
-                $result = $db->getConnection()->query($sql);
-                while($row = $result->fetch_assoc()){
+                $sql = $sql . " FROM " . $template["table"];
+                $oggetto = $db->getConnection()->query($sql);
+                while($row = $oggetto->fetch_assoc()){
             ?>
                 <tr>
                     <?php foreach($template["columns"] as $col){ ?>

@@ -17,9 +17,9 @@
             $stmnt = $db->getConnection()->prepare($sql);
             $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
             $stmnt->execute();
-            $result = $stmnt->get_result();
+            $oggetto = $stmnt->get_result();
         ?>
-        <?php while($row = $result->fetch_assoc()) {?>
+        <?php while($row = $oggetto->fetch_assoc()) {?>
             <div>
                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
                 <p><?php echo $row['Nome']; ?></p>
@@ -44,9 +44,9 @@
             $stmnt = $db->getConnection()->prepare($sql);
             $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
             $stmnt->execute();
-            $result = $stmnt->get_result();
+            $oggetto = $stmnt->get_result();
         ?>
-        <?php while($row = $result->fetch_assoc()) {?>
+        <?php while($row = $oggetto->fetch_assoc()) {?>
             <div>
                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
                 <p><?php echo $row['Nome']; ?></p>
