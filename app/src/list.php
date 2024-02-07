@@ -21,4 +21,4 @@ if(empty($_GET["listName"])){
     }
 }
 
-require("template/listTempl.php");
+require("template/base.php");

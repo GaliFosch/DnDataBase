@@ -20,7 +20,7 @@
                 <tr>
                     <?php foreach($template["columns"] as $col){ ?>
                         <td>
-                            <a href="<?php echo "http://localhost/DnDataBase/app/src/species.php?id=" . $row[$template["idname"]] . "#"?>" target="visualizer">
+                            <a href="http://localhost/DnDataBase/app/src/frame.php?frame=<?php echo $template["title"]?>&id=<?php echo $row[$template["idname"]]?>#" target="visualizer">
                             <?php echo $row[$col]?>
                             </a>
                         </td>

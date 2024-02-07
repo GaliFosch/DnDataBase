@@ -1,4 +1,3 @@
-<?php require_once("bootstrap.php") ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +35,5 @@
         <footer>
             <p><?php echo $specie["Creatore"]?></p>
         </footer>
-
-        
     </body>
 </html>
