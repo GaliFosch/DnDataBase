@@ -1,4 +1,10 @@
-  <nav>
+<script>
+    function saveCharacterName(characterName) {
+        window.location.href='detail.php?imageId=123
+    }
+</script>
+ 
+ <nav>
         <a href="#">Home</a> 
         <a href="#">Statistiche</a> 
         <a href="#">Database</a> 
@@ -49,7 +55,7 @@
                 </a>
             </div>
                 <?php
-                    $sql = "SELECT Nome, Immagine
+                    $sql = "SELECT *
                             FROM Pg INNER JOIN Personaggio ON Pg.IDPersonaggio = Personaggio.IDPersonaggio
                             WHERE Creatore = ?";
                     $stmnt = $db->getConnection()->prepare($sql);
@@ -59,8 +65,10 @@
                 ?>
                 <?php while($row = $result->fetch_assoc()) {?>
                     <div class="wrap">
-                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
-                        <p><?php echo $row['Nome']; ?></p>
+                        <a href="sheet.php" onclick="window.location.href='sheet.php?IDPersonaggio=<?php echo urlencode($row['IDPersonaggio']); ?>'; return false;">
+                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                            <p><?php echo $row['Nome']; ?></p>
+                        </a>
                     </div>
                 <?php }?>
             <button class="arrow dx"></button>

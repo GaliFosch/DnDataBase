@@ -13,8 +13,9 @@ if(!isset($_SESSION["user"])){
     $template["file"] = "playerTempl.php";
     $template["style"] = "player.css";
 }elseif($template["mode"] = "dm"){
-    $template["title"] = "Player";
+    $template["title"] = "Dm";
     $template["file"] = "dmTempl.php";
+    $template["style"] = "player.css";
 }else{
     $template["title"] = "ERROR";
     $template["file"] = "errorTempl.php";

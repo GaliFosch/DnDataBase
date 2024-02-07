@@ -3,6 +3,7 @@
     <head>
         <title><?php echo $template["title"]?></title>
         <meta charset="UTF-8"/>
+        <!-- qui va il link del css Grossoh più GROSSOH -->
         <?php
             if(!empty($template["style"])){
                 echo "<link href=\"". "css/" . $template["style"] ."\" type=\"text/css\" rel=\"stylesheet\" />";
