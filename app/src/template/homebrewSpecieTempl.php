@@ -23,6 +23,18 @@ if(empty($_SESSION["Hid"])){
 </main>
 <?php 
 } else{
+    if(!empty($_GET["addTrait"])){
+        $sql="SELECT * FROM Tratto WHERE IdSpecie = ? AND IDTratto = ?";
+        $stmnt = $db->getConnection()->prepare($sql);
+        $stmnt->bind_param("ii", $_SESSION["Hid"], $_GET["addTrait"]);
+        $stmnt->execute();
+        if(!$stmnt->get_result()->num_rows>0){
+            $sql="INSERT INTO Tratto(IdSpecie,IDTratto) VALUES(?,?)";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("ii", $_SESSION["Hid"], $_GET["addTrait"]);
+            $stmnt->execute();
+        }
+    }
     $sql = "SELECT * FROM Specie WHERE IdSpecie = ?";
     $stmnt = $db->getConnection()->prepare($sql);
     $stmnt->bind_param("i", $_SESSION["Hid"]);
@@ -53,6 +65,8 @@ if(empty($_SESSION["Hid"])){
                 </tr>
             <?php }?>
         </table>
+        <button id="Add">Aggiungi</button>
+        <script src="js/addTrait.js"></script>
     </section>
 </main>
 <?php }?>
