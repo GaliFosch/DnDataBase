@@ -3,7 +3,7 @@
     <head>
         <title><?php echo $template["title"]?></title>
         <meta charset="UTF-8"/>
-        <!-- qui va il link del css Grossoh più GROSSOH -->
+        <link rel="stylesheet" href="css\base.css">
         <?php
             if(!empty($template["style"])){
                 echo "<link href=\"". "css/" . $template["style"] ."\" type=\"text/css\" rel=\"stylesheet\" />";
@@ -14,6 +14,16 @@
         <header class="header">
             <h1>DnDatabase</h1>
         </header>
+
+        <nav>
+            <a href="#">Home</a> 
+            <a href="#">Statistiche</a> 
+            <a href="#">Database</a> 
+            <a href="http://localhost/DnDataBase/app/src/list.php?listName=specie#">Specie</a>
+            <a href="http://localhost/DnDataBase/app/src/list.php?listName=oggetti#">Oggetti</a>
+            <a href="#">Classe</a>
+        </nav>
+
         <?php require($template["file"])?>
     </body>
 </html>

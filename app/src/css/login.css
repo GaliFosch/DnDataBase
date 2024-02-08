@@ -1,211 +1,179 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Book Antiqua", serif;
-  }
-  
-  main {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #708D81 ;
-  }
-  
-  .container, .selection-wrap {
-    position: relative;
-    max-width: 850px;
-    width: 100%;
-    background: #F4D58D;
-    padding: 70px 30px;
-    display: table;
-    border-radius: 18px;
-  }
-
-  .container.registration {
-    max-width: 400px;
-    height: 95%;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-  }
-  
-  .container.login .cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    display: table-cell;
-    border-radius: 18px 0 0 18px;
-  }
-  
-  .container.login .cover img {
-    width: 100%;
-    height:100%;
-    object-fit: cover;
-    border-radius: 18px 0 0 18px;
-  }
-  
- .wrap-form {
-    height: 100%;
-    width: 40%;
-    background: #F4D58D;
-    padding: 15px;
-    display: table-cell;
-    
-  }
-
-  .container.registration .wrap-form {
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    width: 100%
-  }
-  
-  .form-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .form {
-    width: calc(100%/2 -25px);
-  }
-  
-  form .title {
-    position: relative;
-    font-size: 30px;
-    font-weight: 500;
-  }
-
-  form .title.registration {
-    font-size: 35px;
-    font-weight: 700;
-  }
-  
-  form .form-content .title.login::before,  form .form-content .title.registration::before   {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 25px;
-    background: #8D0801;
-  }
-  
-  form .form-content .wrap-input {
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-    height: 50px;
-    width: 100%;
-    margin: 10px 0;
-    position: relative;
-  }
-  
-  .form-content input{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    padding: 0px 40px 0px 0px;
-    font-size: 16px;
-    font-weight: 500;
-    background: #F4D58D;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-  }
-  
-  .form-content .button{
-    color: #fff;
-    margin-top: 30px;
-    background: #8D0801;
-    border-radius: 25px;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.4s ease;
-  }
-  
-  form .form-content .button:hover{
-    color: #fff;
-    background-color: #BF0603;
-    border-radius: 25px;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  .container p{
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    margin: 15px 5px 5px;
-  }
-  
-.container .info{
-  font-size: 12px;
-  text-align: center;
+.container, .selection-wrap {
+  position: relative;
+  max-width: 850px;
+  padding: 70px 30px;
+  display: table;
 }
 
-  .container a{
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .container a:hover{
-    text-decoration: underline;
-  }
-  
-  .hidden{
-    display:none;
-  }
+.container.registration {
+  max-width: 400px;
+  height: 95%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
 
-  .header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #8D0801;
-    color: #F4D58D;
-    font-size: 25px;
+.container.login .cover {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 50%;
+display: table-cell;
+border-radius: 18px 0 0 18px;
+}
+
+.container.login .cover img {
+width: 100%;
+height:100%;
+object-fit: cover;
+border-radius: 18px 0 0 18px;
+}
+
+.wrap-form {
+height: 100%;
+width: 40%;
+background: #F4D58D;
+padding: 15px;
+display: table-cell;
+
+}
+
+.container.registration .wrap-form {
+display: flex; 
+flex-direction: column;
+justify-content: center;
+align-items: center; 
+width: 100%
+}
+
+.form-content {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.form {
+width: calc(100%/2 -25px);
+}
+
+form .title {
+position: relative;
+font-size: 30px;
+font-weight: 500;
+}
+
+form .title.registration {
+font-size: 35px;
+font-weight: 700;
+}
+
+form .form-content .title.login::before,  form .form-content .title.registration::before   {
+content: '';
+position: absolute;
+left: 0;
+bottom: 0;
+height: 3px;
+width: 25px;
+background: #8D0801;
+}
+
+form .form-content .wrap-input {
+display: flex;
+align-items: center;
+margin-top: 30px;
+height: 50px;
+width: 100%;
+margin: 10px 0;
+position: relative;
+}
+
+.form-content input{
+height: 100%;
+width: 100%;
+outline: none;
+border: none;
+padding: 0px 40px 0px 0px;
+font-size: 16px;
+font-weight: 500;
+background: #F4D58D;
+border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.form-content .button{
+color: #fff;
+margin-top: 30px;
+background: #8D0801;
+border-radius: 25px;
+padding: 0;
+cursor: pointer;
+transition: all 0.4s ease;
+}
+
+form .form-content .button:hover{
+color: #fff;
+background-color: #BF0603;
+border-radius: 25px;
+padding: 0;
+cursor: pointer;
+}
+
+.container p{
+font-size: 14px;
+font-weight: 500;
+color: #333;
+margin: 15px 5px 5px;
+}
+
+.container .info{
+font-size: 12px;
+text-align: center;
+}
+
+.container a{
+text-decoration: none;
+cursor: pointer;
+}
+
+.container a:hover{
+text-decoration: underline;
 }
 
 .selection-wrap {
-  position: relative;
-  max-width: 850px;
-  width: 100%;
-  background: #F4D58D;
-  padding: 50px 30px;
-  border-radius: 18px;
+position: relative;
+max-width: 850px;
+width: 100%;
+background: #F4D58D;
+padding: 50px 30px;
+border-radius: 18px;
 }
 
 
 .selection-title{
-  padding: 0 0 15px 0;
-  text-align: center;
-  font-size: 24px;
+padding: 0 0 15px 0;
+text-align: center;
+font-size: 24px;
 }
 
 .selection-container{
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
 }
-  
+
 .selection-image img {
-    width: 200px;
-    height:200px;
-    object-fit: cover;
-    border-radius: 100%;
-    margin: 25px;
-  }
+width: 200px;
+height:200px;
+object-fit: cover;
+border-radius: 100%;
+margin: 25px;
+}
 
 .selection-image a{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0px 25px;
-    font-size: 20px; 
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 0px 25px;
+font-size: 20px; 
 }
-  

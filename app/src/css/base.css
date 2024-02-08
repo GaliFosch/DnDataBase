@@ -1,14 +1,63 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Book Antiqua", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Book Antiqua", serif;
+}
+
+body {
+  background: #708D81 ;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #8D0801;
+  color: #F4D58D;
+  font-size: 25px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F4D58D;
+  font-size: 20px;
+}
+
+nav a {
+  margin: 0px 20px;
+}
+
+.container, .selection-wrap {
+  width: 100%;
+  background: #F4D58D;
+  border-radius: 18px;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 18px;
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+  &:hover{
+
   }
-  
-  main {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #708D81 ;
-  }
+  &:
+}
+
+.container a:hover{
+  text-decoration: underline;
+}
