@@ -69,8 +69,6 @@ align-items: center;
 justify-content: center;
 }
 
-
-/*da ricontrollare perchÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¨ non sono scalabili*/
 .container.scrolling .wrap img {
 grid-area: span 1;
 width: 100px;
