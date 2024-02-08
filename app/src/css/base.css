@@ -48,16 +48,17 @@ nav a {
   border-radius: 18px;
 }
 
-a{
+a {
   text-decoration: none;
   cursor: pointer;
   color: #000;
-  &:hover{
-
+  &:visited {
+    color: #000;
   }
-  &:
-}
-
-.container a:hover{
-  text-decoration: underline;
+  &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      color: #003F7A;
+      text-decoration: underline;
+  }
 }
