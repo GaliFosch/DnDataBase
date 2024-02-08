@@ -7,7 +7,7 @@
     justify-content: space-between;
 }
 
-.pg {
+.pg, .campaign {
 display: flex;
 margin: 10px;
 padding: 10px;
@@ -97,11 +97,79 @@ font-size: 20px;
 justify-content: center;
 }
 
-.equipment {
+.equipment , .partecipants {
 margin: 20px;
 }
 
-.equipment li {
+.equipment li , .partecipants li{
 margin: 5px 40px;
 }
 
+
+.mondo {
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+        color: #003F7A;
+        text-decoration: underline;
+    }
+}
+
+
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    min-width: 700px;
+    width: 100%;
+    background-color: #001427;
+    color: #f4d58d;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    left: 110%;
+    top: 0%;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    bottom: 95%;
+    right: 100%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #001427 transparent transparent
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }

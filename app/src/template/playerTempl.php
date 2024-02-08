@@ -1,9 +1,3 @@
-<script>
-    function saveCharacterName(characterName) {
-        window.location.href='detail.php?imageId=123
-    }
-</script>
-    
 <main>   
     <div class="container user">
         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
@@ -17,7 +11,7 @@
             <h3>Diario delle Campagne</h3>
             <button class="arrow sx"></button>
             <?php
-                $sql = "SELECT nome, immagine
+                $sql = "SELECT nome, immagine, Id_campagna
                         FROM Campagna
                         WHERE Id_campagna IN (SELECT Id_campagna
                                             FROM Eroe INNER JOIN Pg ON Eroe.IDPersonaggio = Pg.IDPersonaggio
@@ -29,8 +23,10 @@
             ?>
             <?php while($row = $result->fetch_assoc()) {?>
                 <div class="wrap">
-                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['immagine']); ?>" />
-                    <p><?php echo $row['nome']; ?></p>
+                    <a href="campaign.php" onclick="window.location.href='campaign.php?Id_campagna=<?php echo urlencode($row['Id_campagna']); ?>'; return false;">
+                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['immagine']); ?>" />
+                        <p><?php echo $row['nome']; ?></p>
+                    </a>
                 </div>
             <?php }?>
             <button class="arrow dx"></button>
