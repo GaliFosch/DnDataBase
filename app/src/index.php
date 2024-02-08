@@ -15,6 +15,7 @@ if(!isset($_SESSION["user"])){
 }elseif($template["mode"] == "dm"){
     $template["title"] = "Dungeon Master";
     $template["file"] = "dmTempl.php";
+    $template["style"] = "player.css";
 }else{
     $template["title"] = "ERROR";
     $template["file"] = "errorTempl.php";
