@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Oggetto</title>
+        <link rel="stylesheet" href="css\frame.css">
     </head>
     <body>
         <?php
