@@ -76,11 +76,31 @@
                         $stmnt->execute();
                         $result = $stmnt->get_result();
                         ?>
-                        <?php while($inv = $result->fetch_assoc()) {?>
-                            <li> <?php echo $inv['Nome'];?></li>
+                        <?php while($part = $result->fetch_assoc()) {?>
+                            <li> <?php echo $part['Nome'];?></li>
                     <?php }?>
                 </ul>
         </div> 
+
+        <div class="sessions">
+            <h3>Sessioni:</h3>
+            <ul>
+                <?php
+                    $sql = "SELECT *
+                    FROM Sessione
+                    WHERE Id_campagna = ?";
+                    $stmnt = $db->getConnection()->prepare($sql);
+                    $stmnt->bind_param("i", $idSelected);
+                    $stmnt->execute();
+                    $result = $stmnt->get_result();
+                    ?>
+                    <?php while($ses = $result->fetch_assoc()) {?>
+                        <li> 
+                            <p> <?php echo $ses['Data_Sessione'];?> <br> <?php echo $ses['Riassunto'];?> </p>
+                        </li>
+                <?php }?>
+            </ul>
+        </div>
 
     </div>    
 </main>

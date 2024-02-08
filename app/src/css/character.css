@@ -97,11 +97,11 @@ font-size: 20px;
 justify-content: center;
 }
 
-.equipment , .partecipants {
+.equipment , .partecipants, .sessions {
 margin: 20px;
 }
 
-.equipment li , .partecipants li{
+.equipment li , .partecipants li , .sessions li{
 margin: 5px 40px;
 }
 
