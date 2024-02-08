@@ -32,5 +32,27 @@ if(empty($_SESSION["Hid"])){
 <main>
     <h2><?php echo $specie["Nome"]?></h2>
     <p><?php echo $specie["Descrizione"]?></p>
+    <section>
+        <h3>Tratti</h3>
+        <?php
+        $sql = "SELECT * FROM Tratto INNER JOIN TRATTI ON Tratto.IDTratto = TRATTI.IDTratto WHERE IdSpecie = ?";
+        $stmnt = $db->getConnection()->prepare($sql);
+        $stmnt->bind_param("i", $_SESSION["Hid"]);
+        $stmnt->execute();
+        $result = $stmnt->get_result();
+        ?>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Creatore</th>
+            </tr>
+            <?php while($row = $result->fetch_assoc()){ ?>
+                <tr>
+                    <td><?php echo $row["Nome"] ?></td>
+                    <td><?php echo $row["Creatore"] ?></td>
+                </tr>
+            <?php }?>
+        </table>
+    </section>
 </main>
 <?php }?>
