@@ -13,12 +13,14 @@ if(empty($_GET["listName"])){
             $template["table"] = "specie";
             $template["idname"] = "IdSpecie"; 
             $template["columns"] = ["Nome", "Creatore"];
+            $template["style"] = "list.css";
             break;
         case "oggetti":
             $template["title"] = "Oggetti";
             $template["table"] = "oggetto";
             $template["idname"] = "Id_oggetto"; 
             $template["columns"] = ["Nome", "Costo", "Peso", "Categoria", "Creatore"];
+            $template["style"] = "list.css";
             break;
         default:
             $template["title"] = "ERROR";

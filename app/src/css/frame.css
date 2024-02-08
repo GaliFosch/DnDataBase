@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Book Antiqua", serif;
+  }
+
+  body::-webkit-scrollbar {
+    width:  10px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #F4D58D;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #8D0801;
+    border-radius:  20px;
+  }
