@@ -8,12 +8,12 @@ if(!isset($_SESSION["user"])){
     $template["title"] = "ERROR";
     $template["file"] = "errorTempl.php";
     $template["ERR_message"] = "user not logged in";
-}elseif($template["mode"] = "player"){
+}elseif($template["mode"] == "player"){
     $template["title"] = "Player";
     $template["file"] = "playerTempl.php";
     $template["style"] = "player.css";
-}elseif($template["mode"] = "dm"){
-    $template["title"] = "Player";
+}elseif($template["mode"] == "dm"){
+    $template["title"] = "Dungeon Master";
     $template["file"] = "dmTempl.php";
 }else{
     $template["title"] = "ERROR";
