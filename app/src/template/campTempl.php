@@ -14,6 +14,12 @@
         } else {
             die("No ID provided.");
         }
+
+        if (isset($_GET['modalita'])) {
+            $modalità = filter_var($_GET['modalita'], FILTER_SANITIZE_NUMBER_INT);
+        } else {
+            die("No modalità provided.");
+        }
     ?>
     <div class="container">
 
@@ -52,7 +58,8 @@
 
 
                     <p class="creatore"><?php echo ($row['CampagnaCreatore']); ?></p>
-                </div>
+                </div>              
+
             </div>
         </div> 
 
