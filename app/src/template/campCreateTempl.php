@@ -1,107 +1,58 @@
 <main>
-
     <div class="container">
-
-        <div class="top">
-
-            <div class="campaign"> 
-
-                <?php
-                    $sql = "SELECT Campagna.Nome AS CampagnaNome, 
-                            Campagna.Sinossi AS Sinossi, Campagna.Immagine AS Immagine, 
-                            Campagna.Creatore AS CampagnaCreatore, Mondo.Nome AS MondoNome, 
-                            Mondo.Ambientazione AS Ambientazione, Mondo.Descrizione AS Descrizione, 
-                            Mondo.Creatore AS MondoCreatore, Mondo.Id_mondo AS Id_Mondo
-                            FROM Campagna
-                            JOIN Mondo
-                            ON Campagna.Id_mondo = Mondo.Id_mondo
-                            WHERE Campagna.Id_campagna = ?";
-                    $stmnt = $db->getConnection()->prepare($sql);
-                    $stmnt->bind_param("i", $idSelected);
-                    $stmnt->execute();
-                    $result = $stmnt->get_result();
-                    $row = $result->fetch_assoc();
-                ?>
-
-                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
-                
-                <div class="info">
-                    <h2> <?php echo ($row['CampagnaNome']); ?> </h2>
-                    <p class="mondo"> <?php echo $row['MondoNome'];?></p>
-                    <p class="creatore"><?php echo ($row['CampagnaCreatore']); ?></p>
-                </div>              
-
+        <form action="" method="get">
+            <div class="immagine">
+                <label for="img">Selezione immagine:</label>
+                <input type="file" id="img" name="img" accept="image/*" required>
+                <img id="preview" style="display:none;">
             </div>
-        </div> 
+            <div class="info">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" 
+                onfocus="this.placeholder=''" onblur="this.placeholder='Il nome della tua campagna'"
+                placeholder="Il nome della tua campagna" required> <br>
 
-        
-        <div class="desc">
-            <p> <?php echo ($row['Sinossi']); ?> </p>
-        </div>
-
-        <div class="partecipants">
-            <h3>Partecipanti:</h3>
-                <ul>
+                <label for="mondo">Mondo:</label>
+                <input list="mondi" id="mondo" 
+                onfocus="this.placeholder=''" onblur="this.placeholder='Dove avviene la tua campagna'"
+                placeholder="Dove avviene la tua campagna" required>
+                <datalist id="mondi">
                     <?php
                         $sql = "SELECT *
-                        FROM Eroe
-                        JOIN Personaggio
-                        ON Eroe.IDPersonaggio = Personaggio.IDPersonaggio
-                        WHERE Eroe.Id_campagna = ?";
+                        FROM Mondo";
                         $stmnt = $db->getConnection()->prepare($sql);
-                        $stmnt->bind_param("i", $idSelected);
                         $stmnt->execute();
                         $result = $stmnt->get_result();
                         ?>
-                        <?php while($part = $result->fetch_assoc()) {?>
-                            <li> <?php echo $part['Nome'];?></li>
+                        <?php while($mondo = $result->fetch_assoc()) {?>
+                            <option value="<?php echo $mondo['Nome'];?>">
                     <?php }?>
-                </ul>
-        </div> 
+                </datalist>
 
-        <button class="accordion">Sessioni:</button>
-        <div class="panel">
-            <ul>
-                <?php
-                    $sql = "SELECT *
-                    FROM Sessione
-                    WHERE Id_campagna = ?";
-                    $stmnt = $db->getConnection()->prepare($sql);
-                    $stmnt->bind_param("i", $idSelected);
-                    $stmnt->execute();
-                    $result = $stmnt->get_result();
-                    ?>
-                    <?php while($ses = $result->fetch_assoc()) {?>
-                        <li> 
-                            <p> <?php echo $ses['Data_Sessione'];?> <br> <?php echo $ses['Riassunto'];?> </p>
-                        </li>
-                    <?php }?>
-            </ul>
-        </div>
-
-        <button class="accordion">Mondo:</button>
-            <div class="panel">
-                <p>  <?php echo $row['Ambientazione'];?> <br> 
-                    <?php echo $row['Descrizione'];?> <br>
-                    <?php echo $row['MondoCreatore'];?>
-                </p>
+                <div class="desc">
+                   <label for="sinossi">Sinossi:</label>
+                    <textarea id="sinossi" name="sinossi" 
+                        onfocus="this.placeholder=''" onblur="this.placeholder='La trama della tua campagna'"
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="La trama della tua campagna" required></textarea> <br>
+                    <p class="reminder">*Ricorda che la trama può essere visibile anche ai giocatori. Dovresti quindi descrivere
+                        i dettagli principali senza spiegare il piano malefico di Vecna.
+                    </p>    
+                </div>
+                
             </div>
+            <input type="submit" id="submit"> 
+        </form>
 
-            <script>
-                var acc = document.getElementsByClassName("accordion");
-                var i;
-
-                for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                    } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                    }
-                });
-                }
-            </script>
-    </div>    
+    </div> 
+    <script>
+        document.getElementById('img').addEventListener('change', function(event) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var preview = document.getElementById('preview');
+                preview.src = e.target.result;
+                preview.style.display = 'block'; // Show the image
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
+    </script>   
 </main>
