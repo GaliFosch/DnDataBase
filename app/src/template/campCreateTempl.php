@@ -1,25 +1,5 @@
-<script>
-    function popUpFunc() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
-    }
-</script>
-
 <main>
 
-    <?php
-        if (isset($_GET['Id_campagna'])) {
-            $idSelected = filter_var($_GET['Id_campagna'], FILTER_SANITIZE_NUMBER_INT);
-        } else {
-            die("No ID provided.");
-        }
-
-        if (isset($_GET['modalita'])) {
-            $modalità = filter_var($_GET['modalita'], FILTER_SANITIZE_NUMBER_INT);
-        } else {
-            die("No modalità provided.");
-        }
-    ?>
     <div class="container">
 
         <div class="top">

@@ -12,7 +12,7 @@
         <h3>Diario delle Campagne Create</h3>
         <button class="arrow sx"></button>
         <div class="wrap">
-            <a href="#">
+            <a href="campaignCreation.php">
                 <img src="..\..\images\plus-sign.jpg" alt=""/>
                 <p>Nuova Campagna</p>
             </a>

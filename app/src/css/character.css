@@ -97,79 +97,53 @@ font-size: 20px;
 justify-content: center;
 }
 
-.equipment , .partecipants, .sessions {
+.equipment , .partecipants {
 margin: 20px;
 }
 
-.equipment li , .partecipants li , .sessions li{
+.equipment li , .partecipants li {
 margin: 5px 40px;
 }
 
 
-.mondo {
-    text-decoration: underline;
+  button.accordion {
+    background-color: #f4d58d;
+    color: #000;
+    border: 2px solid #8D0801;
     cursor: pointer;
-    &:hover {
-        cursor: pointer;
-        color: #003F7A;
-        text-decoration: underline;
-    }
+    padding: 18px;
+    width: 100%;
+    outline: none;
+    text-align: left;
+    font-size: 15px;
+    transition: 0.4s;
+    margin-bottom: 10px;;
+}
+  
+  .active, .accordion:hover {
+    background-color: #EAE8FF;
+  }
+
+  .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+  
+.panel {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    color: #000;
 }
 
-
-/* Popup container - can be anything you want */
-.popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* The actual popup */
-  .popup .popuptext {
-    visibility: hidden;
-    min-width: 700px;
-    width: 100%;
-    background-color: #001427;
-    color: #f4d58d;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    left: 110%;
-    top: 0%;
-  }
-  
-  /* Popup arrow */
-  .popup .popuptext::after {
-    content: "";
-    position: absolute;
-    bottom: 95%;
-    right: 100%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent #001427 transparent transparent
-  }
-  
-  /* Toggle this class - hide and show the popup */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+.panel *{
+  margin: 10px;
+}
