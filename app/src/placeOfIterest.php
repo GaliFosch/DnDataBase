@@ -1,5 +1,31 @@
 <?php
 require_once("bootstrap.php");
+if(!empty($_POST)){
+
+    if(!empty($_GET["stato"]) && !empty($_GET["mondo"])){
+        $sql = "INSERT INTO Luogo_d_Interesse(Nome, Tipologia, Descrizione, Mondo, Stato) VALUES (?,?,?,?,?)";
+        $stmnt = $db->getConnection()->prepare($sql);
+        $stmnt->bind_param("sssis", $_POST["nome"], $_POST["type"], $_POST["desc"], $_GET["mondo"], $_GET["stato"]);
+        $stmnt->execute();
+    }else if(!empty($_GET["app"])){
+        $sql = "SELECT Stato, Mondo FROM luogo_d_interesse WHERE Id_luogo_d_interesse=?";
+        $stmnt = $db->getConnection()->prepare($sql);
+        $stmnt->bind_param("i", $_GET["app"]);
+        $stmnt->execute();
+        $result = $stmnt->get_result();
+        if($result->num_rows === 0){
+            signalError("l'Id di appartenenza non esiste");
+        }
+        $app = $result->fetch_assoc();
+        $sql = "INSERT INTO Luogo_d_Interesse(Nome, Tipologia, Descrizione, Appartiene, Mondo, Stato) VALUES (?,?,?,?,?,?)";
+        $stmnt = $db->getConnection()->prepare($sql);
+        $stmnt->bind_param("sssiis", $_POST["nome"], $_POST["type"], $_POST["desc"], $_GET["app"], $app["Mondo"], $app["Stato"]);
+        $stmnt->execute();
+    } else {
+        signalError("Mancano delle variabili");
+    }
+    header("Location: ?id=" . $stmnt->insert_id ."#");
+}
 
 if(!empty($_GET["id"])){
     $sql = "SELECT ldi.*, M.nome as NomeMondo, app.Nome AS appNome
