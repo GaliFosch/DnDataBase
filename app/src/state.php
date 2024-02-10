@@ -5,14 +5,14 @@ if(!empty($_POST)){
     $stmnt = $db->getConnection()->prepare($sql);
     $stmnt->bind_param("si", $_POST["nome"], $_GET["worldId"]);
     $stmnt->execute();
-    if($stmnt->get_result()->num_rows===0){
+    if($stmnt->get_result()->num_rows!=0){
+        $template["InsertionError"] = "Nome già presente nel mondo!";
+    }else{
         $sql = "INSERT INTO Stato VALUES (?, ?, ?, ?, ?, ?)";
         $stmnt = $db->getConnection()->prepare($sql);
         $stmnt->bind_param("isssss", $_GET["worldId"], $_POST["nome"], $_POST["desc"], $_POST["gov"], $_POST["ricchezza"], $_POST["architettura"]);
         $stmnt->execute();
         header("Location: ?name=" . $_POST["nome"] . "&worldId=" . $_GET["worldId"] ."#");
-    }else{
-        $template["InsertionError"] = "Nome già presente nel mondo!";
     }
 }
 if(!empty($_GET["name"]) && !empty($_GET["worldId"])){
@@ -27,6 +27,17 @@ if(!empty($_GET["name"]) && !empty($_GET["worldId"])){
     $template["title"] = $state["Nome"];
     $template["file"] = "stateTempl.php";
 }else if(!empty($_GET["worldId"])){
+    $sql = "SELECT Creatore FROM Mondo WHERE Id_mondo = ? ";
+    $stmnt = $db->getConnection()->prepare($sql);
+    $stmnt->bind_param("i", $_GET["worldId"]);
+    $stmnt->execute();
+    $result=$stmnt->get_result();
+    if($result->num_rows==0){
+        signalError("Mondo inesistente!");
+    }
+    if($result->fetch_assoc()["Creatore"]!=$_SESSION["user"]["Nickname"]){
+        signalError("Non puoi modificare un mondo non tuo!");
+    }
     $template["title"] = "Crea Stato";
     $template["file"] = "stateCreationTempl.php";
 }
