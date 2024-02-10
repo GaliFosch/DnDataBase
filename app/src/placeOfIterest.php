@@ -16,6 +16,9 @@ if(!empty($_GET["id"])){
     $lint = $result->fetch_assoc();
     $template["title"] = $lint["Nome"];
     $template["file"] = "POITempl.php";
+}else if((!empty($_GET["stato"]) && !empty($_GET["mondo"])) || !empty($_GET["app"])){
+    $template["title"] = "Crea Luogo d'Interesse";
+    $template["file"] = "POICreationTempl.php";
 }
 
 require("template/base.php");
