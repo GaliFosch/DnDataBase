@@ -25,7 +25,7 @@
             <tbody>
                 <?php while($row = $result->fetch_assoc()){?>
                     <tr>
-                        <td><?php echo $row["Nome"] ?></td>
+                        <td><a href="state.php?name=<?php echo $row["Nome"] ?>&worldId=<?php echo $world["Id_mondo"] ?>#"><?php echo $row["Nome"] ?></a></td>
                         <td><?php echo $row["Governo"] ?></td>
                         <td><?php echo $row["Ricchezza"] ?></td>
                         <td><?php echo $row["Architettura"] ?></td>
@@ -35,6 +35,7 @@
         </table>
     </section>
     <?php } ?>
+    <a href="state.php?worldId=<?php echo $world["Id_mondo"]?>#"><button>Aggiungi Stato</button></a>
 </main>
 <footer>
     <p><?php echo $world["Creatore"] ?></p>

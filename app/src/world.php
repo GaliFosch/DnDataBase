@@ -5,7 +5,7 @@ if(!empty($_POST)){
     $stmnt = $db->getConnection()->prepare($sql);
     $stmnt->bind_param("ssss", $_POST["nome"], $_POST["ambientazione"], $_POST["desc"], $_SESSION["user"]["Nickname"]);
     $stmnt->execute();
-    header('Location: world.php?id=' . $stmnt->insert_id . '#');
+    header('Location: ?id=' . $stmnt->insert_id . '#');
 }
 if(!empty($_GET["id"])){
     $sql = "SELECT * FROM Mondo WHERE Id_mondo = ?";
@@ -14,8 +14,7 @@ if(!empty($_GET["id"])){
     $stmnt->execute();
     $world = $stmnt->get_result()->fetch_assoc();
     if(!$world){
-        echo "Id doesn't exist";
-        exit();
+        signalError("Id doesn't exist");
     }
     $template["title"] = $world["Nome"];
     $template["file"] = "worldTempl.php";
@@ -23,5 +22,6 @@ if(!empty($_GET["id"])){
     $template["title"] = "Crea Mondo";
     $template["file"] = "worldCreationTempl.php";
 }
+$template["style"] = "world.css";
 
 require("template/base.php");
