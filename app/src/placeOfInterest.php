@@ -28,7 +28,7 @@ if(!empty($_POST)){
 }
 
 if(!empty($_GET["id"])){
-    $sql = "SELECT ldi.*, M.nome as NomeMondo, app.Nome AS appNome
+    $sql = "SELECT ldi.*, M.nome as NomeMondo, M.Creatore, app.Nome AS appNome
             FROM Luogo_D_Interesse ldi LEFT JOIN luogo_d_interesse app ON ldi.Appartiene=app.Id_luogo_d_interesse, Mondo M
             WHERE ldi.Id_luogo_d_interesse = ? 
                 AND ldi.Mondo = M.id_mondo";

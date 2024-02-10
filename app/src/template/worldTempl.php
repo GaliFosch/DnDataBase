@@ -35,7 +35,9 @@
         </table>
     </section>
     <?php } ?>
+    <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
     <a href="state.php?worldId=<?php echo $world["Id_mondo"]?>#"><button>Aggiungi Stato</button></a>
+    <?php } ?>
 </main>
 <footer>
     <p><?php echo $world["Creatore"] ?></p>

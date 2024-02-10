@@ -21,6 +21,7 @@
         <?php }?>
     </table>
     <p><?php echo $lint["Descrizione"] ?></p>
+    <h3>Contiene:</h3>
     <?php 
     $sql="SELECT Id_luogo_d_interesse as id, Nome, Tipologia FROM Luogo_D_Interesse WHERE Appartiene = ?";
     $stmnt = $db->getConnection()->prepare($sql);
@@ -29,7 +30,6 @@
     $result = $stmnt->get_result();
     if($result->num_rows>0){
     ?>
-    <h3>Contiene:</h3>
         <table>
             <tr>
                 <th>Nome</th>
@@ -43,4 +43,7 @@
             <?php }?>
         </table>
     <?php }?>
+    <?php if($_SESSION["user"]["Nickname"] === $lint["Creatore"]){?>
+        <a href="?app=<?php echo $lint["Id_luogo_d_interesse"]?>#"><button>Aggiungi</button></a>
+    <?php }?>    
 </main>

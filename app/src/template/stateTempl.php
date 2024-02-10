@@ -41,13 +41,15 @@
                 </tr>
                 <?php while($row = $result->fetch_assoc()) {?>
                 <tr>
-                    <td><a href="?id=<?php echo $row["id"] ?>#"><?php echo $row["Nome"] ?></a></td>
+                    <td><a href="placeOfInterest.php?id=<?php echo $row["id"] ?>#"><?php echo $row["Nome"] ?></a></td>
                     <td><?php echo $row["Tipologia"] ?></td>
                 </tr>
                 <?php }?>
             </table>
         <?php }?>
+        <?php if($_SESSION["user"]["Nickname"] === $state["Creatore"]){?>
         <a href="placeOfInterest.php?stato=<?php echo $state["Nome"] ?>&mondo=<?php echo $state["Id_mondo"]?>#"><button>Aggiungi</button></a>
+        <?php } ?>
     </section>
     <footer>
         <p><?php echo $state["Creatore"] ?></p>
