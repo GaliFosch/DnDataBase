@@ -297,6 +297,7 @@ create table STATISTICA (
 create table STATO (
      Id_mondo int not null,
      Nome varchar(20) not null,
+     Descrizione text not null,
      Governo varchar(20) not null,
      Ricchezza enum("Povero", "Medio", "Agiato", "Ricco") not null,
      Architettura text not null,
