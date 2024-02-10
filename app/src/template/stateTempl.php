@@ -29,7 +29,7 @@
         <?php 
         $sql="SELECT Id_luogo_d_interesse as id, Nome, Tipologia FROM Luogo_D_Interesse WHERE Stato = ? AND Mondo = ?";
         $stmnt = $db->getConnection()->prepare($sql);
-        $stmnt->bind_param("si", $state["Nome"], $state["Id_world"]);
+        $stmnt->bind_param("si", $state["Nome"], $state["Id_mondo"]);
         $stmnt->execute();
         $result = $stmnt->get_result();
         if($result->num_rows>0){
