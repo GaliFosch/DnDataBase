@@ -12,22 +12,26 @@
                 onfocus="this.placeholder=''" onblur="this.placeholder='Il nome della tua campagna'"
                 placeholder="Il nome della tua campagna" required> <br>
 
-                <label for="mondo">Mondo:</label>
-                <input list="mondi" id="mondo" 
-                onfocus="this.placeholder=''" onblur="this.placeholder='Dove avviene la tua campagna'"
-                placeholder="Dove avviene la tua campagna" required>
-                <datalist id="mondi">
+
+                <button class="accordion">Mondo:</button>
+                <div class="panel">
                     <?php
-                        $sql = "SELECT *
-                        FROM Mondo";
+                        $sql = "SELECT Nome
+                        FROM Mondo
+                        WHERE Creatore = ?";
                         $stmnt = $db->getConnection()->prepare($sql);
+                        $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
                         $stmnt->execute();
                         $result = $stmnt->get_result();
-                        ?>
-                        <?php while($mondo = $result->fetch_assoc()) {?>
-                            <option value="<?php echo $mondo['Nome'];?>">
+                    ?>
+                    <?php while($mondo = $result->fetch_assoc()) {?>
+                        <div class="panelContent">
+                            <label for="<?php echo $mondo['Nome'];?>">
+                            <a href="#"><?php echo $mondo['Nome'];?></a></label>
+                            <input type="radio" id="<?php echo $mondo['Nome'];?>" value="<?php echo $mondo['Nome'];?>" required>
+                        </div>
                     <?php }?>
-                </datalist>
+                </div>
 
                 <div class="desc">
                    <label for="sinossi">Sinossi:</label>
@@ -43,7 +47,25 @@
             <input type="submit" id="submit"> 
         </form>
 
-    </div> 
+    </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+            } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+        }
+    </script>
+
     <script>
         document.getElementById('img').addEventListener('change', function(event) {
             var reader = new FileReader();
