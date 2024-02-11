@@ -53,12 +53,33 @@
                 <?php while($row = $result->fetch_assoc()) {?>
                     <div class="wrap">
                         <a href="sheet.php" onclick="window.location.href='sheet.php?IDPersonaggio=<?php echo urlencode($row['IDPersonaggio']); ?>'; return false;">
-                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                            <?php if(!empty($row['Immagine'])){?> 
+                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                            <?php }else{?>
+                                <img src="../../images/pg/playsolder.jfif" alt=""/>
+                            <?php }?>
                             <p><?php echo $row['Nome']; ?></p>
                         </a>
                     </div>
                 <?php }?>
             <button class="arrow dx"></button>
+        </div>
+        <div>
+            <h3>Inviti</h3>
+            <?php
+            $sql="SELECT C.Id_campagna, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ?";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+            $result=$stmnt->get_result();
+            ?>
+            <ul>
+                <?php while($row = $result->fetch_assoc()){?>
+                    <li>
+                        <a href="invitation.php?campaign=<?php echo $row["Id_campagna"]?>"><?php echo $row["Nome"]?></a>
+                    </li>
+                <?php }?>
+            </ul>
         </div>
         <script src="js/scrolling.js"></script>
 </main>

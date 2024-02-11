@@ -12,7 +12,7 @@
         <h3>Diario delle Campagne Create</h3>
         <button class="arrow sx"></button>
         <div class="wrap">
-            <a href="campaignCreation.php">
+            <a href="campaign.php">
                 <img src="..\..\images\plus-sign.jpg" alt=""/>
                 <p>Nuova Campagna</p>
             </a>
@@ -32,7 +32,7 @@
                     <?php if(!empty($row["Immagine"])){?>
                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
                     <?php } else {?>
-                        <img src="..\..\images\campaign\campaign1.jpg" alt=""/>
+                        <img src="../../images/campaign/campaign10.jpg" alt=""/>
                     <?php }?>
                     <p><?php echo $row['Nome']; ?></p>
                 </a>

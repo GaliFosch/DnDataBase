@@ -1,6 +1,6 @@
 <main>
     <div class="container">
-        <form action="#" method="get">
+        <form action="#" method="post">
             <div class="immagine">
                 <label for="img">Selezione immagine:</label>
                 <input type="file" id="img" name="img" accept="image/*">
@@ -16,7 +16,7 @@
                 <button class="accordion">Mondo:</button>
                 <div class="panel">
                     <?php
-                        $sql = "SELECT Nome
+                        $sql = "SELECT Nome, Id_mondo as Id
                         FROM Mondo
                         WHERE Creatore = ?";
                         $stmnt = $db->getConnection()->prepare($sql);
@@ -27,8 +27,8 @@
                     <?php while($mondo = $result->fetch_assoc()) {?>
                         <div class="panelContent">
                             <label for="<?php echo $mondo['Nome'];?>">
-                            <a href="#"><?php echo $mondo['Nome'];?></a></label>
-                            <input type="radio" id="<?php echo $mondo['Nome'];?>" value="<?php echo $mondo['Nome'];?>" name="mondi" required>
+                            <a href="world.php?id=<?php echo $mondo["Id"] ?>"><?php echo $mondo['Nome'];?></a></label>
+                            <input type="radio" id="<?php echo $mondo['Nome'];?>" value="<?php echo $mondo['Id'];?>" name="mondo" required>
                         </div>
                     <?php }?>
                 </div>

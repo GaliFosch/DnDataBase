@@ -8,17 +8,8 @@
 <main>
 
     <?php
-        if (isset($_GET['Id_campagna'])) {
-            $idSelected = filter_var($_GET['Id_campagna'], FILTER_SANITIZE_NUMBER_INT);
-        } else {
-            die("No ID provided.");
-        }
-
-        if (isset($_GET['modalita'])) {
-            $modalità = filter_var($_GET['modalita'], FILTER_SANITIZE_NUMBER_INT);
-        } else {
-            die("No modalità provided.");
-        }
+        $modalità = filter_var($_GET['modalita'], FILTER_SANITIZE_NUMBER_INT);
+        $idSelected = filter_var($_GET['Id_campagna'], FILTER_SANITIZE_NUMBER_INT);
     ?>
     <div class="container">
 
@@ -42,9 +33,11 @@
                     $result = $stmnt->get_result();
                     $row = $result->fetch_assoc();
                 ?>
-
-                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
-                
+                <?php if(!empty($row["Immagine"])){?>
+                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                <?php }else{?>
+                    <img src="../../images/campaign/campaign10.jpg" alt=""/>
+                <?php }?>
                 <div class="info">
                     <h2> <?php echo ($row['CampagnaNome']); ?> </h2>
                     <p class="mondo"> <?php echo $row['MondoNome'];?></p>
@@ -77,6 +70,7 @@
                             <li> <?php echo $part['Nome'];?></li>
                     <?php }?>
                 </ul>
+                <a href="invitation.php?campaign=<?php echo $_GET["Id_campagna"]?>"><button>Aggiungi partecipante</button></a>
         </div> 
 
         <button class="accordion">Sessioni:</button>

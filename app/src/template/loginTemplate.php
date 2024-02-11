@@ -7,7 +7,7 @@
 
         <div class="wrap-form">
 
-            <form action="#" method="get">
+            <form action="#" method="post">
 
                 <div class="form-content">
 
