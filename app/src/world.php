@@ -18,10 +18,12 @@ if(!empty($_GET["id"])){
     }
     $template["title"] = $world["Nome"];
     $template["file"] = "worldTempl.php";
+    $template["style"] = "creation.css";
 }else{
     $template["title"] = "Crea Mondo";
     $template["file"] = "worldCreationTempl.php";
+    $template["style"] = "creation.css";
 }
-$template["style"] = "world.css";
+
 
 require("template/base.php");

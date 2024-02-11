@@ -1,6 +1,6 @@
 <main>
     <div class="container">
-        <form action="" method="get">
+        <form action="#" method="get">
             <div class="immagine">
                 <label for="img">Selezione immagine:</label>
                 <input type="file" id="img" name="img" accept="image/*">
@@ -44,7 +44,7 @@
                 </div>
                 
             </div>
-            <input type="submit" id="submit"> 
+            <input type="submit" id="submit" value="Conferma"> 
         </form>
 
     </div>
