@@ -53,7 +53,11 @@
                 <?php while($row = $result->fetch_assoc()) {?>
                     <div class="wrap">
                         <a href="sheet.php" onclick="window.location.href='sheet.php?IDPersonaggio=<?php echo urlencode($row['IDPersonaggio']); ?>'; return false;">
-                            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                            <?php if(!empty($row['Immagine'])){?> 
+                                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                            <?php }else{?>
+                                <img src="../../images/pg/playsolder.jfif" alt=""/>
+                            <?php }?>
                             <p><?php echo $row['Nome']; ?></p>
                         </a>
                     </div>
