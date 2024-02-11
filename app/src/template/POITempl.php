@@ -21,7 +21,7 @@
             </tr>
             <?php }?>
         </table>
-        <p><?php echo $lint["Descrizione"] ?></p>
+        <p class="desc">Descrizione: <?php echo $lint["Descrizione"] ?></p>
         <h3>Contiene:</h3>
         <?php 
         $sql="SELECT Id_luogo_d_interesse as id, Nome, Tipologia FROM Luogo_D_Interesse WHERE Appartiene = ?";

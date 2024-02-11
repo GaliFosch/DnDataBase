@@ -1,5 +1,5 @@
 <main>
-    <div class="container">
+    <div class="container world">
         <h2><?php echo $world["Nome"]?></h2>
             <p class="ambientazione"><strong>Ambientazione:</strong> <?php echo $world["Ambientazione"]?></p>
             <p class="worldDesc"><?php echo $world["Descrizione"] ?></p>
