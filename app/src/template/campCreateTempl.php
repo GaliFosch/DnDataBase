@@ -1,6 +1,6 @@
 <main>
     <div class="container">
-        <form action="" method="get">
+        <form action="" method="post">
             <div class="immagine">
                 <label for="img">Selezione immagine:</label>
                 <input type="file" id="img" name="img" accept="image/*">
