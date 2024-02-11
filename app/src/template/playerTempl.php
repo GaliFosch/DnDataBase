@@ -60,5 +60,22 @@
                 <?php }?>
             <button class="arrow dx"></button>
         </div>
+        <div>
+            <h3>Inviti</h3>
+            <?php
+            $sql="SELECT C.Id_campagna, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ?";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+            $result=$stmnt->get_result();
+            ?>
+            <ul>
+                <?php while($row = $result->fetch_assoc()){?>
+                    <li>
+                        <a href="invitation.php?campaign=<?php echo $row["Id_campagna"]?>"><?php echo $row["Nome"]?></a>
+                    </li>
+                <?php }?>
+            </ul>
+        </div>
         <script src="js/scrolling.js"></script>
 </main>

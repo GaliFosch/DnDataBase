@@ -12,12 +12,12 @@ if(!empty($_GET["response"])){
         $stmnt->execute();
         $sql = "DELETE FROM Invito WHERE Nickname = ? AND Id_campagna = ?";
         $stmnt = $db->getConnection()->prepare($sql);
-        $stmnt->bind_param("si", $_SESSION["Nickname"], $_POST["campaign"]);
+        $stmnt->bind_param("si", $_SESSION["user"]["Nickname"], $_POST["campaign"]);
         $stmnt->execute();
-    }elseif($_GET["response"] == "rifiuta"){
+    }elseif($_GET["response"] == "rifiuto"){
         $sql = "DELETE FROM Invito WHERE Nickname = ? AND Id_campagna = ?";
         $stmnt = $db->getConnection()->prepare($sql);
-        $stmnt->bind_param("si", $_SESSION["Nickname"], $_POST["campaign"]);
+        $stmnt->bind_param("si", $_SESSION["user"]["Nickname"], $_POST["campaign"]);
         $stmnt->execute();
     }else{
         signalError("Response non valido");
@@ -34,7 +34,7 @@ if(!empty($_POST["campaign"]) && !empty($_POST["player"])){
 }
 
 if(!empty($_GET["campaign"])){
-    $sql = "SELECT Creatore, Nome FROM Campagna WHERE id_campagna=?";
+    $sql = "SELECT * FROM Campagna WHERE id_campagna=?";
     $stmnt = $db->getConnection()->prepare($sql);
     $stmnt->bind_param("i", $_GET["campaign"]);
     $stmnt->execute();

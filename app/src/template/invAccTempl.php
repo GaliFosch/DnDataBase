@@ -29,5 +29,8 @@
         <input type="hidden" name="campaign" id="campaign" value="<?php echo $_GET["campaign"] ?>" />
         <input type="submit" value="Accetta" />
     </form>
-    <a href="?response=rifiuto#"><button>Rifiuta</button></a>
+    <form action="?response=rifiuto" method="post">
+        <input type="hidden" name="campaign" id="campaign" value="<?php echo $_GET["campaign"] ?>" />
+        <input type="submit" value="Rifiuta" />
+    </form>
 </main>
