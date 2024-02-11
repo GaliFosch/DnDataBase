@@ -34,7 +34,7 @@
         <label for="desc">Descrizione:</label>
         <textarea name="desc" name="desc" id="desc" onfocus="this.placeholder=''" onblur="this.placeholder='Come è fatto il tuo stato?'"
             oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Come è fatto il tuo stato?" required></textarea>
-            <p class="reminder mondo">*Ricorda che la descrizione può essere visibile anche ai giocatori. Dovresti quindi descrivere
+            <p class="reminder">*Ricorda che la descrizione può essere visibile anche ai giocatori. Dovresti quindi descrivere
                         i dettagli principali senza dire che l'intero stato è governato da Strahd von Zarovich.
             </p> 
         <input type="submit" id="submit" value="Conferma"/>

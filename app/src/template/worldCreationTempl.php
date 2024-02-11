@@ -14,7 +14,7 @@
             <label for="desc">Descrizione:</label>
             <textarea name="desc" id="desc" onfocus="this.placeholder=''" onblur="this.placeholder='Come è fatto il tuo mondo?'"
             oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Come è fatto il tuo mondo?" required></textarea>
-            <p class="reminder mondo">*Ricorda che la descrizione può essere visibile anche ai giocatori. Dovresti quindi descrivere
+            <p class="reminder">*Ricorda che la descrizione può essere visibile anche ai giocatori. Dovresti quindi descrivere
                         i dettagli principali senza dire dove si trova il covo di Tiamat.
             </p> 
         </div>

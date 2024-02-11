@@ -15,7 +15,7 @@
             <label for="desc">Descrizione</label>
             <textarea name="desc" id="desc" onfocus="this.placeholder=''" onblur="this.placeholder='Come è fatto questo luogo?'"
             oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Come è fatto questo luogo?" required></textarea>
-            <p class="reminder mondo">*Ricorda che la descrizione può essere visibile anche ai giocatori. Dovresti quindi descrivere
+            <p class="reminder">*Ricorda che la descrizione può essere visibile anche ai giocatori. Dovresti quindi descrivere
                         i dettagli principali senza dire che Asmodeus comanda tutti gli abitanti della città.
             </p> 
         </div>
