@@ -17,7 +17,7 @@
 
         <nav>
             <a href="#">Home</a> 
-            <a href="#">Statistiche</a> 
+            <a href="http://localhost/DnDataBase/app/src/statistic.php">Statistiche</a> 
             <a href="#">Database</a> 
             <a href="http://localhost/DnDataBase/app/src/list.php?listName=specie#">Specie</a>
             <a href="http://localhost/DnDataBase/app/src/list.php?listName=oggetti#">Oggetti</a>
