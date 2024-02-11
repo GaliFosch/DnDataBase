@@ -4,7 +4,7 @@ if(!empty($_GET["mode"])){
     $_SESSION["mode"] = $_GET["mode"];
 }
 
-if(!isset($_SESSION["user"])){
+if(empty($_SESSION["user"])){
     header("Location: loginPage.php");
 }elseif($_SESSION["mode"] == "player"){
     $template["title"] = "Player";
