@@ -158,6 +158,12 @@ create table Inventario (
      IDPersonaggio int not null,
      constraint ID_Inventario_ID primary key (IDPersonaggio, Id_oggetto));
 
+create table Invito (
+     Nickname varchar(20) not null,
+     Id_campagna int not null,
+     DataDiInserimento date not null,
+     constraint ID_Invito_ID primary key (Nickname, Id_campagna));
+
 create table LUOGO_D_INTERESSE (
      Id_luogo_d_interesse int not null,
      Nome varchar(20) not null,
@@ -297,6 +303,7 @@ create table STATISTICA (
 create table STATO (
      Id_mondo int not null,
      Nome varchar(20) not null,
+     Descrizione text not null,
      Governo varchar(20) not null,
      Ricchezza enum("Povero", "Medio", "Agiato", "Ricco") not null,
      Architettura text not null,
@@ -467,6 +474,14 @@ alter table Inventario add constraint REF_Inven_PG
 alter table Inventario add constraint REF_Inven_OGGET_FK
      foreign key (Id_oggetto)
      references OGGETTO(Id_oggetto);
+
+alter table Invito add constraint REF_Invito_GIOCAT_FK
+     foreign key (Nickname)
+     references GIOCATORE(Nickname);
+
+alter table Invito add constraint REF_Invito_CAMP_FK
+     foreign key (Id_campagna)
+     references CAMPAGNA(Id_campagna);
 
 alter table LUOGO_D_INTERESSE add constraint REF_LUOGO_LUOGO_FK
      foreign key (Appartiene)
@@ -744,6 +759,9 @@ create unique index ID_Inventario_IND
 
 create index REF_Inven_OGGET_IND
      on Inventario (Id_oggetto);
+
+create unique index ID_Inventario_IND
+     on Invito (Id_campagna, Nickname);
 
 create unique index ID_LUOGO_D_INTERESSE_IND
      on LUOGO_D_INTERESSE (Id_luogo_d_interesse);

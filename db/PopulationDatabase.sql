@@ -16,7 +16,7 @@ Tutto comincia dall’incarico affidato agli avventurieri, dal nano Gundreen Roc
 Resta a voi scoprire in che modo gli avventurieri riusciranno a portare a termine il loro incarico e quali nemici li attenderanno!','C:\xampp\htdocs\DnDatabase\images\campaign\Lost Mine of Phandelver.jpg', 'WOC','1');
 
 INSERT into stato
-VALUES ('1','Costa della Spada','Vario','Ricco','Fantasy');
+VALUES ('1','Costa della Spada', 'Descrizione','Vario','Ricco','Fantasy');
 
 INSERT into luogo_d_interesse(Nome,Tipologia,Descrizione,Mondo,Stato)
 VALUES ('Neverwinter','Città',"Una città fortificata di umani e mezz'elfi, Neverwinter è un centro di cultura che non ne da sfoggio, un luogo dove la gente è indaffarata ma non avara, un posto affascinante che non è bizzarro. La città è principalmente conosciuta per i prodotti dei suoi abili artigiani: lampade di vetro multicolore, orologi di precisione ad acqua e gioielli stupendi. E' anche famosa per i suoi giardini, riscaldati dalle acque incredibilmente calde del Fiume Neverwinter. D'estate i giardini forniscono ai mercati gran quantità di frutta, mentre d'inverno rallegrano l'atmosfera con i loro fiori.Le meraviglie architettoniche della città sono i suoi tre ponti: il Delfino, la Viverna Alata, e il Drago Addormentato. Ognuno dei ponti è stato lavorato per dargli la forma della creatura da cui prende il nome. Neverwinter e il suo signore, Lord Nasher Alagondar, sono quasi sempre stati alleati con Waterdeep nella lotta contro Luskan e gli orchi. Chiamata anche 'Gioiello del Nord', Neverwinter è anche sede, assieme a città come Waterdeep, dell'Alleanza dei Lord.",'1','Costa della Spada');
