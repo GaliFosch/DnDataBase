@@ -1,10 +1,11 @@
 <main>
+<div class="container">
     <h2><?php echo $state["Nome"]?></h2>
     <section>
         <table>
             <tr>
                 <th>Mondo:</th>
-                <td><a href="world.php?id=<?php echo $_GET["worldId"]?>#"><?php echo $state["Mondo"]?></a></td>
+                <td><a href="world.php?id=<?php echo $_GET["worldId"]?>#" class="aMondo"><?php echo $state["Mondo"]?></a></td>
             </tr>
             <tr>
                 <th>Governo:</th>
@@ -20,11 +21,11 @@
             </tr>
         </table>
     </section>
-    <section>
+    <section class="desc">
         <h3>Descrizione:</h3>
         <p><?php echo $state["Descrizione"] ?></p>
     </section>
-    <section>
+    <section class="POI">
         <h3>Luoghi d'interesse:</h3>
         <?php 
         $sql="SELECT Id_luogo_d_interesse as id, Nome, Tipologia FROM Luogo_D_Interesse WHERE Stato = ? AND Mondo = ?";
@@ -48,10 +49,11 @@
             </table>
         <?php }?>
         <?php if($_SESSION["user"]["Nickname"] === $state["Creatore"]){?>
-        <a href="placeOfInterest.php?stato=<?php echo $state["Nome"] ?>&mondo=<?php echo $state["Id_mondo"]?>#"><button>Aggiungi</button></a>
+        <a href="placeOfInterest.php?stato=<?php echo $state["Nome"] ?>&mondo=<?php echo $state["Id_mondo"]?>#" class="aPOI"><button>Aggiungi</button></a>
         <?php } ?>
     </section>
     <footer>
         <p><?php echo $state["Creatore"] ?></p>
     </footer>
+    </div>
 </main>

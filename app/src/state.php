@@ -26,6 +26,7 @@ if(!empty($_GET["name"]) && !empty($_GET["worldId"])){
     }
     $template["title"] = $state["Nome"];
     $template["file"] = "stateTempl.php";
+    $template["style"] = "table.css";
 }else if(!empty($_GET["worldId"])){
     $sql = "SELECT Creatore FROM Mondo WHERE Id_mondo = ? ";
     $stmnt = $db->getConnection()->prepare($sql);

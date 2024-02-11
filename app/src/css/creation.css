@@ -27,7 +27,7 @@ label {
 }
 
 
-input#nome, input#ambientazione, input#gov, input#architettura {
+input#nome, input#ambientazione, input#gov, input#architettura, input#type {
     width: 50%;
     outline: none;
     border: none;
@@ -157,4 +157,8 @@ button.accordion , select{
 
 select {
     width: 200px;
+}
+
+.info.poi *{
+    margin: 10px 0px;
 }

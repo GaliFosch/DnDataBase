@@ -42,6 +42,7 @@ if(!empty($_GET["id"])){
     $lint = $result->fetch_assoc();
     $template["title"] = $lint["Nome"];
     $template["file"] = "POITempl.php";
+    $template["style"] = "table.css";
 }else if(!empty($_GET["stato"]) && !empty($_GET["mondo"])){
     $sql = "SELECT Mondo.Creatore FROM Mondo, Stato WHERE Mondo.Id_mondo = ? AND Stato.Nome = ? AND Mondo.Id_mondo = Stato.Id_mondo";
     $stmnt=$db->getConnection()->prepare($sql);
@@ -56,6 +57,7 @@ if(!empty($_GET["id"])){
     }
     $template["title"] = "Crea Luogo d'Interesse";
     $template["file"] = "POICreationTempl.php";
+    $template["style"] = "creation.css";
 }elseif(!empty($_GET["app"])){
     $sql = "SELECT Mondo.Creatore FROM Mondo, Luogo_D_Interesse WHERE Id_mondo = Mondo AND Id_luogo_d_interesse = ?";
     $stmnt=$db->getConnection()->prepare($sql);
@@ -70,6 +72,7 @@ if(!empty($_GET["id"])){
     }
     $template["title"] = "Crea Luogo d'Interesse";
     $template["file"] = "POICreationTempl.php";
+    $template["style"] = "creation.css";
 }
 
 require("template/base.php");
