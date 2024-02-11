@@ -3,7 +3,7 @@
         <form action="" method="get">
             <div class="immagine">
                 <label for="img">Selezione immagine:</label>
-                <input type="file" id="img" name="img" accept="image/*" required>
+                <input type="file" id="img" name="img" accept="image/*">
                 <img id="preview" style="display:none;">
             </div>
             <div class="info">
@@ -28,7 +28,7 @@
                         <div class="panelContent">
                             <label for="<?php echo $mondo['Nome'];?>">
                             <a href="#"><?php echo $mondo['Nome'];?></a></label>
-                            <input type="radio" id="<?php echo $mondo['Nome'];?>" value="<?php echo $mondo['Nome'];?>" required>
+                            <input type="radio" id="<?php echo $mondo['Nome'];?>" value="<?php echo $mondo['Nome'];?>" name="mondi" required>
                         </div>
                     <?php }?>
                 </div>
