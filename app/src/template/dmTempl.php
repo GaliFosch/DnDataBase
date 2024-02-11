@@ -28,14 +28,47 @@
         ?>
         <?php while($row = $oggetto->fetch_assoc()) {?>
             <div class="wrap">
-                <a href="campaign.php" onclick="window.location.href='campaign.php?Id_campagna=<?php echo urlencode($row['Id_campagna']); ?>&modalita=dm'; return false;">
-                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                <a href="campaign.php?Id_campagna=<?php echo urlencode($row['Id_campagna']); ?>&modalita=dm">
+                    <?php if(!empty($row["Immagine"])){?>
+                        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                    <?php } else {?>
+                        <img src="..\..\images\campaign1.jpg" alt=""/>
+                    <?php }?>
                     <p><?php echo $row['Nome']; ?></p>
                 </a>
             </div>
         <?php }?>
         <button class="arrow dx"></button>
+    </div>
+
+    <div class="container scrolling">
+        <h3>Archivio dei Mondi</h3>
+        <button class="arrow sx"></button>
+        <div class="wrap">
+            <a href="world.php">
+                <img src="..\..\images\plus-sign.jpg" alt=""/>
+                <p>Nuovo Mondo</p>
+            </a>
         </div>
+        <?php
+            $sql = "SELECT Nome, Id_mondo
+                    FROM Mondo
+                    WHERE Creatore = ?";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+            $oggetto = $stmnt->get_result();
+        ?>
+        <?php while($row = $oggetto->fetch_assoc()) {?>
+            <div class="wrap">
+                <a href="world.php?id=<?php echo $row["Id_mondo"]?>#">
+                    <img src="..\..\images\campaign1.jpg" alt=""/>
+                    <p><?php echo $row['Nome']; ?></p>
+                </a>
+            </div>
+        <?php }?>
+        <button class="arrow dx"></button>
+    </div>
 
     <script src="js/scrolling.js"></script>
 </main>
