@@ -40,5 +40,6 @@ if(!empty($_GET["name"]) && !empty($_GET["worldId"])){
     }
     $template["title"] = "Crea Stato";
     $template["file"] = "stateCreationTempl.php";
+    $template["style"] = "creation.css";
 }
 require("template/base.php");
