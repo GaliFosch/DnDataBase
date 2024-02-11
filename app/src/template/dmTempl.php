@@ -41,7 +41,7 @@
         <button class="arrow dx"></button>
     </div>
 
-    <div class="container scrolling">
+    <div class="container scrolling mondo">
         <h3>Archivio dei Mondi</h3>
         <button class="arrow sx"></button>
         <div class="wrap">
