@@ -33,9 +33,11 @@
                     $result = $stmnt->get_result();
                     $row = $result->fetch_assoc();
                 ?>
-
-                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
-                
+                <?php if(!empty($row["Immagine"])){?>
+                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                <?php }else{?>
+                    <img src="../../images/campaign/campaign10.jpg" alt=""/>
+                <?php }?>
                 <div class="info">
                     <h2> <?php echo ($row['CampagnaNome']); ?> </h2>
                     <p class="mondo"> <?php echo $row['MondoNome'];?></p>
