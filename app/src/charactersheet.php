@@ -15,9 +15,12 @@
         if(!$character){
             signalError("Il personaggio non esiste");
         }
-        $template["title"] = "Character";
+        $template["title"] = $character["nome"];
         $template["file"] = "charTempl.php";
         $template["style"] = "character.css";
+    }else{
+        $template["title"] = "Creazione Personaggio";
+        $template["file"] = "charCreationTempl.php";
     }
 
     require_once("template/base.php");

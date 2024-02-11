@@ -36,7 +36,7 @@
             <h3>I tuoi Personaggi</h3>
             <button class="arrow sx"></button>
             <div class="wrap">
-                <a href="#">
+                <a href="charactersheet.php">
                     <img src="..\..\images\plus-sign.jpg" alt=""/>
                     <p>Nuovo Personaggio</p>
                 </a>
