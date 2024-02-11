@@ -7,8 +7,8 @@ $template["title"] = "Login";
 $template["style"] = "login.css";
 $template["file"] = "loginTemplate.php";
 
-if(!empty($_GET["nickname"]) && !empty($_GET["password"])){
-    $oggetto = $db->getAccount($_GET["nickname"], $_GET["password"]);
+if(!empty($_POST["nickname"]) && !empty($_POST["password"])){
+    $oggetto = $db->getAccount($_POST["nickname"], $_POST["password"]);
     if(!$oggetto){
         $template["log_ERR"] = "Combinazione Nickname e Password errata";
     }else{
