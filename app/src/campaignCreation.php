@@ -4,13 +4,15 @@
     $template["file"] = "campCreateTempl.php";
     $template["style"] = "creation.css";
 
-    if(!empty($_GET["img"])
-    && !empty($_GET["nome"])
+    if(!empty($_GET["nome"])
     && !empty($_GET["mondo"])
     && !empty($_GET["sinossi"])){
-            $sql = "INSERT INTO campagna(Immagine,Nome,Id_mondo,Sinossi, Creatore) VALUES (?,?,?,?)";
+            if(empty($_GET["img"])){
+                $_GET["img"] = "NULL";
+            }
+            $sql = "INSERT INTO campagna(Immagine,Nome,Id_mondo,Sinossi, Creatore) VALUES (?,?,?,?,?)";
             $stmnt = $db->getConnection()->prepare($sql);
-            $stmnt->bind_param("ssss", $_GET["img"], $_GET["nome"], $_GET["mondo"], $_GET["sinossi"],$_SESSION["user"]["Nickname"]);
+            $stmnt->bind_param("ssiss", $_GET["img"], $_GET["nome"], $_GET["mondo"], $_GET["sinossi"],$_SESSION["user"]["Nickname"]);
             $stmnt->execute();
             $template["title"] = "Dungeon Master";
             $template["file"] = "index.php";
