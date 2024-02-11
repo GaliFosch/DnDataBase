@@ -1,5 +1,8 @@
 <?php
 require_once("bootstrap.php");
+if(!empty($_SESSION["user"])){
+    unset($_SESSION["user"]);
+}
 $template["title"] = "Login";
 $template["style"] = "login.css";
 $template["file"] = "loginTemplate.php";
