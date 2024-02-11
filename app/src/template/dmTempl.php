@@ -32,7 +32,7 @@
                     <?php if(!empty($row["Immagine"])){?>
                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
                     <?php } else {?>
-                        <img src="..\..\images\campaign1.jpg" alt=""/>
+                        <img src="..\..\images\campaign\campaign1.jpg" alt=""/>
                     <?php }?>
                     <p><?php echo $row['Nome']; ?></p>
                 </a>
@@ -62,7 +62,7 @@
         <?php while($row = $oggetto->fetch_assoc()) {?>
             <div class="wrap">
                 <a href="world.php?id=<?php echo $row["Id_mondo"]?>#">
-                    <img src="..\..\images\campaign1.jpg" alt=""/>
+                    <img src="..\..\images\campaign\campaign1.jpg" alt=""/>
                     <p><?php echo $row['Nome']; ?></p>
                 </a>
             </div>
