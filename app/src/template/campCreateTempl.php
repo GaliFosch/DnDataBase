@@ -10,7 +10,7 @@
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" 
                 onfocus="this.placeholder=''" onblur="this.placeholder='Il nome della tua campagna'"
-                placeholder="Il nome della tua campagna" required> <br>
+                placeholder="Il nome della tua campagna" required>
 
 
                 <button class="accordion">Mondo:</button>
@@ -37,7 +37,7 @@
                    <label for="sinossi">Sinossi:</label>
                     <textarea id="sinossi" name="sinossi" 
                         onfocus="this.placeholder=''" onblur="this.placeholder='La trama della tua campagna'"
-                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="La trama della tua campagna" required></textarea> <br>
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="La trama della tua campagna" required></textarea>
                     <p class="reminder">*Ricorda che la trama può essere visibile anche ai giocatori. Dovresti quindi descrivere
                         i dettagli principali senza spiegare il piano malefico di Vecna.
                     </p>    

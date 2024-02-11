@@ -1,33 +1,43 @@
 <main>
+<div class="container">
     <h2>Crea Stato</h2>
     <form action="#" method="post">
-        <ul>
-            <li><label for="nome">Nome:</label><input type="text" name="nome" id="nome" required/></li>
-            <li><label for="gov">Governo:</label><input type="text" name="gov" id="gov" required/></li>
-            <li><label for="architettura">Architettura:</label><input type="text" name="architettura" id="architettura" required/></li>
-            <li>
-                <label for="ricchezza">Ricchezza</label>
-                <select name="ricchezza" id="ricchezza" required>
-                    <?php
-                        $sql = "SELECT SUBSTRING(COLUMN_TYPE,5) As options 
-                                FROM information_schema.COLUMNS 
-                                WHERE TABLE_SCHEMA='dndatabase'  
-                                    AND TABLE_NAME='Stato' 
-                                    AND COLUMN_NAME='Ricchezza'";
-                        $result = $db->getConnection()->query($sql);
-                        $string = $result->fetch_assoc()["options"];
-                        $string = trim($string, "()");
-                        $values = explode(",", $string);
-                        foreach ($values as $v){
-                            $vt = trim($v, "'");
-                    ?>
-                        <option value="<?php echo $vt?>"><?php echo $vt?></option>
-                    <?php }?>
-                </select>
-            </li>
-        </ul>
-        <textarea name="desc" id="" cols="30" rows="10" required>Inserisci una descrizione</textarea>
-        <input type="submit" value="Conferma"/>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" onfocus="this.placeholder=''" onblur="this.placeholder='Il nome del tuo stato'"
+                placeholder="Il nome del tuo stato" required> <br>
+        <label for="gov">Governo:</label>
+        <input type="text" name="gov" id="gov" onfocus="this.placeholder=''" onblur="this.placeholder='Il tipo di governo'"
+                placeholder="Il tipo di governo" required> <br>
+        <label for="architettura">Architettura:</label>
+        <input type="text" name="architettura" id="architettura" onfocus="this.placeholder=''" onblur="this.placeholder='Es. Fantasy, Medioevo, Gotico, ...'"
+                placeholder="Es. Fantasy, Medioevo, Gotico, ..." required> <br>
+
+        <label for="ricchezza">Ricchezza</label>
+            <select name="ricchezza" id="ricchezza" required>
+                <?php
+                    $sql = "SELECT SUBSTRING(COLUMN_TYPE,5) As options 
+                            FROM information_schema.COLUMNS 
+                            WHERE TABLE_SCHEMA='dndatabase'  
+                                AND TABLE_NAME='Stato' 
+                                AND COLUMN_NAME='Ricchezza'";
+                    $result = $db->getConnection()->query($sql);
+                    $string = $result->fetch_assoc()["options"];
+                    $string = trim($string, "()");
+                    $values = explode(",", $string);
+                    foreach ($values as $v){
+                        $vt = trim($v, "'");
+                ?>
+                    <option value="<?php echo $vt?>"><?php echo $vt?></option>
+                <?php }?>
+            </select>
+        
+        <label for="desc">Descrizione:</label>
+        <textarea name="desc" id="" onfocus="this.placeholder=''" onblur="this.placeholder='Come è fatto il tuo stato?'"
+            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Come è fatto il tuo stato?" required></textarea>
+            <p class="reminder mondo">*Ricorda che la descrizione può essere visibile anche ai giocatori. Dovresti quindi descrivere
+                        i dettagli principali senza dire che l'intero stato è governato da Strahd von Zarovich.
+            </p> 
+        <input type="submit" id="submit" value="Conferma"/>
     </form>
     <?php
     if(!empty($template["InsertionError"])){
@@ -35,4 +45,5 @@
         $template["InsertionError"] = "";
     }
     ?>
+</div>
 </main>

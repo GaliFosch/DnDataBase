@@ -27,7 +27,7 @@ label {
 }
 
 
-input#nome, input#ambientazione {
+input#nome, input#ambientazione, input#gov, input#architettura {
     width: 50%;
     outline: none;
     border: none;
@@ -98,7 +98,7 @@ input#submit:hover, input[type="file"]::file-selector-button:hover, .state:hover
     cursor: pointer;
 }
 
-button.accordion {
+button.accordion , select{
     background-color: #f4d58d;
     color: #000;
     border: 2px solid #8D0801;
@@ -153,4 +153,8 @@ button.accordion {
 
 .worldDesc{
     margin: 0px 10px;
+}
+
+select {
+    width: 200px;
 }

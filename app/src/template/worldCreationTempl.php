@@ -5,10 +5,10 @@
         <div class="info">
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" onfocus="this.placeholder=''" onblur="this.placeholder='Il nome del tuo mondo'"
-                placeholder="Il nome del tuo mondo" required> <br>
+                placeholder="Il nome del tuo mondo" required> 
             <label for="ambientazione">Ambientazione</label>
             <input type="text" name="ambientazione" id="ambientazione" onfocus="this.placeholder=''" onblur="this.placeholder='Es. Fantasy, Sci-fi, Steampunk, ...'"
-                placeholder="Es. Fantasy, Sci-fi, Steampunk, ..." required> <br>
+                placeholder="Es. Fantasy, Sci-fi, Steampunk, ..." required> 
         </div>
         <div class="desc">
             <label for="desc">Descrizione:</label>
