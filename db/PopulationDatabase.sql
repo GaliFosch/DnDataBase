@@ -89,6 +89,12 @@ INSERT INTO `dotazione`(`IDTratto`, `Dote`, `Metri`) VALUES ('2','Velocità terr
 
 INSERT INTO `tratti`(`Nome`, `Descrizione`, `Creatore`) VALUES ('Velocità terreno 9m','La velocità sul terreno è di 9m','WOC');
 
-
+INSERT INTO statistica(Nome, Creatore, Descrizione) VALUES
+("Forza", "WOC", "lorem Ipsum"),
+("Destrezza", "WOC", "lorem Ipsum"),
+("Costituzione", "WOC", "lorem Ipsum"),
+("Intelligenza", "WOC", "lorem Ipsum"),
+("Saggezza", "WOC", "lorem Ipsum"),
+("Carisma", "WOC", "lorem Ipsum");
 
 
