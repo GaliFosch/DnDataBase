@@ -23,7 +23,7 @@
             ?>
             <?php while($row = $result->fetch_assoc()) {?>
                 <div class="wrap">
-                    <a href="campaign.php" onclick="window.location.href='campaign.php?Id_campagna=<?php echo urlencode($row['Id_campagna']); ?>'; return false;">
+                    <a href="campaign.php?Id_campagna=<?php echo urlencode($row['Id_campagna']); ?>">
                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['immagine']); ?>" />
                         <p><?php echo $row['nome']; ?></p>
                     </a>
@@ -36,7 +36,7 @@
             <h3>I tuoi Personaggi</h3>
             <button class="arrow sx"></button>
             <div class="wrap">
-                <a href="#">
+                <a href="charactersheet.php">
                     <img src="..\..\images\plus-sign.jpg" alt=""/>
                     <p>Nuovo Personaggio</p>
                 </a>
@@ -52,7 +52,7 @@
                 ?>
                 <?php while($row = $result->fetch_assoc()) {?>
                     <div class="wrap">
-                        <a href="sheet.php" onclick="window.location.href='sheet.php?IDPersonaggio=<?php echo urlencode($row['IDPersonaggio']); ?>'; return false;">
+                        <a href="charactersheet.php?IDPersonaggio=<?php echo urlencode($row['IDPersonaggio']); ?>">
                             <?php if(!empty($row['Immagine'])){?> 
                                 <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
                             <?php }else{?>

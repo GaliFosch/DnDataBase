@@ -1,45 +1,24 @@
 <main>
-
-    <?php
-        if (isset($_GET['IDPersonaggio'])) {
-            $idSelected = filter_var($_GET['IDPersonaggio'], FILTER_SANITIZE_NUMBER_INT);
-        } else {
-            die("No ID provided.");
-        }
-    ?>
     <div class="container">
 
         <div class="top">
 
             <div class="pg"> 
-
-                <?php
-                    $sql = "SELECT *
-                            FROM Personaggio
-                            JOIN Pg
-                            ON Personaggio.IDPersonaggio = Pg.IDPersonaggio
-                            WHERE Pg.IDPersonaggio = ?";
-                    $stmnt = $db->getConnection()->prepare($sql);
-                    $stmnt->bind_param("i", $idSelected);
-                    $stmnt->execute();
-                    $result = $stmnt->get_result();
-                    $row = $result->fetch_assoc();
-                ?>
-                <?php if(!empty($row['Immagine'])){?> 
-                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
+                <?php if(!empty($character['Immagine'])){?> 
+                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($character['Immagine']); ?>" />
                 <?php }else{?>
                     <img src="../../images/pg/playsolder.jfif" alt=""/>
                 <?php }?>
                 
                 <div class="info">
-                    <h2> <?php echo ($row['Nome']); ?> </h2>
+                    <h2> <?php echo ($character['Nome']); ?> </h2>
 
                     <?php
                     $sql = "SELECT *
                             FROM Vocazione
                             WHERE IDPersonaggio = ?";
                     $stmnt = $db->getConnection()->prepare($sql);
-                    $stmnt->bind_param("i", $idSelected);
+                    $stmnt->bind_param("i", $character["IDPersonaggio"]);
                     $stmnt->execute();
                     $result = $stmnt->get_result();
                     ?>
@@ -48,24 +27,24 @@
                     <?php }?>
                     
 
-                    <p class="alignment"><?php echo ($row['Allineamento']); ?>, <?php echo ($row['Taglia']); ?></p>
-                    <p class="creatore"><?php echo ($row['Creatore']); ?></p>
+                    <p class="alignment"><?php echo ($character['Allineamento']); ?>, <?php echo ($character['Taglia']); ?></p>
+                    <p class="creatore"><?php echo ($character['Creatore']); ?></p>
                 </div>
             </div> 
 
             <div class="CAPF">
                 <div class="CA">
-                    <p>CA:</p><p><?php echo ($row['CA']); ?></p>
+                    <p>CA:</p><p><?php echo ($character['CA']); ?></p>
                 </div>
                 <div class="PF">
-                    <p>PF:</p> <p><?php echo ($row['PF']); ?></p>
+                    <p>PF:</p> <p><?php echo ($character['PF']); ?></p>
                 </div>
             </div> 
 
         </div> 
         
         <div class="desc">
-            <p> <?php echo ($row['Descrizione']); ?> </p>
+            <p> <?php echo ($character['Descrizione']); ?> </p>
 
         <div class="stats">
 
@@ -74,7 +53,7 @@
                             FROM Stat
                             WHERE IDPersonaggio = ?";
                     $stmnt = $db->getConnection()->prepare($sql);
-                    $stmnt->bind_param("i", $idSelected);
+                    $stmnt->bind_param("i", $character["IDPersonaggio"]);
                     $stmnt->execute();
                     $result = $stmnt->get_result();
                     ?>
@@ -91,8 +70,8 @@
         </div> 
 
         <div class="points">
-            <p>Percezione passiva: <?php echo ($row['PercezionePassiva']); ?></p>
-            <p>Bonus competenza: +<?php echo ($row['PB']); ?></p>
+            <p>Percezione passiva: <?php echo ($character['PercezionePassiva']); ?></p>
+            <p>Bonus competenza: +<?php echo ($character['PB']); ?></p>
         </div> 
 
         <div class="equipment">
@@ -105,7 +84,7 @@
                                             FROM Inventario 
                                             WHERE Inventario.IDPersonaggio = ?)";
                         $stmnt = $db->getConnection()->prepare($sql);
-                        $stmnt->bind_param("i", $idSelected);
+                        $stmnt->bind_param("i", $character["IDPersonaggio"]);
                         $stmnt->execute();
                         $result = $stmnt->get_result();
                         ?>
