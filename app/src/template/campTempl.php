@@ -18,7 +18,7 @@
                 <?php }?>
                 <div class="info">
                     <h2> <?php echo ($row['CampagnaNome']); ?> </h2>
-                    <p class="mondo"> <?php echo $row['MondoNome'];?></p>
+                    <p class="mondo"><a href="world.php?id=<?php echo $row["Id_Mondo"]?>"><?php echo $row['MondoNome'];?></a></p>
                     <p class="creatore"><?php echo ($row['CampagnaCreatore']); ?></p>
                 </div>              
 
@@ -34,21 +34,24 @@
             <h3>Partecipanti:</h3>
                 <ul>
                     <?php
-                        $sql = "SELECT *
-                        FROM Eroe
-                        JOIN Personaggio
-                        ON Eroe.IDPersonaggio = Personaggio.IDPersonaggio
-                        WHERE Eroe.Id_campagna = ?";
+                        $sql = "SELECT Creatore, Nome
+                                FROM Pg, Personaggio
+                                WHERE Pg.IDPersonaggio = Personaggio.IDPersonaggio
+                                        AND Pg.IDPersonaggio IN (SELECT IDPersonaggio
+                                                                FROM Eroe
+                                                                WHERE Id_campagna=?)";
                         $stmnt = $db->getConnection()->prepare($sql);
                         $stmnt->bind_param("i", $idSelected);
                         $stmnt->execute();
                         $result = $stmnt->get_result();
                         ?>
                         <?php while($part = $result->fetch_assoc()) {?>
-                            <li> <?php echo $part['Nome'];?></li>
+                            <li><?php echo $part['Creatore'];?>: <?php echo $part['Nome'];?></li>
                     <?php }?>
                 </ul>
+                <?php if($row["CampagnaCreatore"] === $_SESSION["user"]["Nickname"]){?>
                 <a href="invitation.php?campaign=<?php echo $_GET["Id_campagna"]?>" class="aInvitation"><button class="invitation">Aggiungi partecipante</button></a>
+                <?php }?>
         </div> 
 
         <button class="accordion">Sessioni:</button>
