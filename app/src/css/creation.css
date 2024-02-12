@@ -27,7 +27,7 @@ label {
 }
 
 
-input[type=text], input[type=number] {
+input[type=text], input[type=number], input[type=date] {
     width: 50%;
     outline: none;
     border: none;
@@ -36,6 +36,10 @@ input[type=text], input[type=number] {
     font-weight: 500;
     background: #F4D58D;
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+input[type=date] {
+    width: 30%;
 }
 
 textarea {

@@ -148,7 +148,7 @@ margin: 5px 40px;
   margin: 10px;
 }
 
-.invitation  {
+.invitation , .ses, .scena {
   color: #fff;
   min-width:200px;
   min-height: 30px;
@@ -160,18 +160,20 @@ margin: 5px 40px;
   padding: 0;
   cursor: pointer;
   transition: all 0.4s ease;
+  &:hover{
+    color: #F4D58D;
+    background-color: #BF0603;
+    border-radius: 25px;
+    padding: 0;
+    cursor: pointer;
+  }
 }
 
-.aInvitation:hover {
+.aInvitation:hover , .aSes:hover, .aScena:hover{
       cursor: default;
       opacity: 1;
       text-decoration: none;
 }
-
-.invitation:hover {
-  color: #fff;
-  background-color: #BF0603;
-  border-radius: 25px;
-  padding: 0;
-  cursor: pointer;
+.sessionInfo {
+  margin: 10px 0px;
 }
