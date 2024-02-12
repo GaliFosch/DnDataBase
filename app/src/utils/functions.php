@@ -9,7 +9,6 @@ function signalError($message){
 
 function parseImg($image){
     if(isset($_FILES[$image])){
-        echo "ok";
         return file_get_contents($_FILES[$image]['tmp_name']);
     }
     return NULL;

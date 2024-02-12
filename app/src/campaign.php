@@ -13,12 +13,10 @@
         if(!empty($_POST["nome"])
         && !empty($_POST["mondo"])
         && !empty($_POST["sinossi"])){
-            if(empty($_POST["img"])){
-                $_POST["img"] = NULL;
-            }
+            $_POST["img"] = parseImg('img');
             $sql = "INSERT INTO campagna(Immagine,Nome,Id_mondo,Sinossi, Creatore) VALUES (?,?,?,?,?)";
             $stmnt = $db->getConnection()->prepare($sql);
-            $stmnt->bind_param("bsiss", $_POST["img"], $_POST["nome"], $_POST["mondo"], $_POST["sinossi"],$_SESSION["user"]["Nickname"]);
+            $stmnt->bind_param("ssiss", $_POST["img"], $_POST["nome"], $_POST["mondo"], $_POST["sinossi"],$_SESSION["user"]["Nickname"]);
             $stmnt->execute();
             $template["title"] = "Dungeon Master";
             $template["file"] = "index.php";

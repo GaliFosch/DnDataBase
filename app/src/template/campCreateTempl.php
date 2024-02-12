@@ -1,6 +1,6 @@
 <main>
     <div class="container">
-        <form action="#" method="post">
+        <form action="#" method="post" enctype="multipart/form-data">
             <div class="immagine">
                 <label for="img">Selezione immagine:</label>
                 <input type="file" id="img" name="img" accept="image/*">
