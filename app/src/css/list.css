@@ -1,24 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Book Antiqua", serif;
-  }
-
-body{
-    background: #708D81 ;
-}
- 
 .container {
     position: relative;
     margin: auto;
     margin-top: 50px;
     width: 80%;
-    background: #F4D58D;
-    padding: 70px 30px;
-    border-radius: 18px;
     display: grid; 
     grid-template-columns: 40% 60%; 
+    grid-gap: 10px;
 } 
 
 .col {
