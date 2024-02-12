@@ -28,7 +28,7 @@
                                 </td>
                             <?php }?>
                             <td class="add">
-                                <a href="homebrew.php?type=specie&addTrait=<?php echo $row["IDTratto"]?>">Aggiungi</a>
+                                <a href="homebrew.php?action=create&type=specie&addTrait=<?php echo $row["IDTratto"]?>">Aggiungi</a>
                             </td>
                         </tr>
                     <?php }?>

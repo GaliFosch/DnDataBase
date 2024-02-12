@@ -70,5 +70,17 @@
         <button class="arrow dx"></button>
     </div>
 
+    <div class="container scrolling homebrew">
+        <h3>Le Tue Homebrew</h3>
+        <button class="arrow sx"></button>
+        <div class="wrap">
+            <a href="homebrew.php?type=specie&action=show#">
+                <img src="..\..\images\pg\dream_TradingCard(24).jpg" alt=""/>
+                <p>Specie</p>
+            </a>
+        </div>
+        <button class="arrow dx"></button>
+    </div>
+
     <script src="js/scrolling.js"></script>
 </main>
