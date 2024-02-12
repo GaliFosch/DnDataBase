@@ -11,15 +11,21 @@ if(!empty($_POST) && empty($_SESSION["Hid"])){
 if(empty($_SESSION["Hid"])){
 ?>
 <main>
-    <h2>Crea Specie</h2>
-    <section>
-        <form action="#" method="post">
-            <label for="nome">Nome</label><input type="text" name="nome" id="nome"/>
-            <label for="desc">Descrizione</label><br/>
-            <textarea name="desc" id="desc" cols="30" rows="10">Inserisci la descrizione</textarea>
-            <input type="submit" value="Conferma"/>
-        </form>
-    </section>
+    <div class="container home">
+        <h2>Crea Specie</h2>
+        <section>
+            <form action="#" method="post">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" onfocus="this.placeholder=''" onblur="this.placeholder='Il nome della tua specie'"
+                placeholder="Il nome della tua specie" required>
+
+                <label for="desc">Descrizione</label>
+                <textarea name="desc" id="desc" onfocus="this.placeholder=''" onblur="this.placeholder='La descrizione della tua specie'"
+                        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="La descrizione della tua specie" required></textarea>
+                <input type="submit" id="submit" value="Conferma"/>
+            </form>
+        </section>
+    </div>
 </main>
 <?php 
 } else{
@@ -42,6 +48,7 @@ if(empty($_SESSION["Hid"])){
     $specie = $stmnt->get_result()->fetch_assoc();
 ?>
 <main>
+<div class="container trait">
     <h2><?php echo $specie["Nome"]?></h2>
     <p><?php echo $specie["Descrizione"]?></p>
     <section>
@@ -65,8 +72,9 @@ if(empty($_SESSION["Hid"])){
                 </tr>
             <?php }?>
         </table>
-        <button id="Add">Aggiungi</button>
+        <button id="add">Aggiungi</button>
         <script src="js/addTrait.js"></script>
     </section>
+</div>
 </main>
 <?php }?>

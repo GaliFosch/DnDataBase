@@ -9,6 +9,7 @@ $tratto = $stmnt->get_result()->fetch_assoc();
 <html>
     <head>
         <title>Tratti</title>
+        <link rel="stylesheet" href="css\frame.css">
     </head>
     <body>
         <h2><?php echo $tratto["Nome"] ?></h2>
