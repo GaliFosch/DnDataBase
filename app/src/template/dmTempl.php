@@ -28,7 +28,7 @@
         ?>
         <?php while($row = $oggetto->fetch_assoc()) {?>
             <div class="wrap">
-                <a href="campaign.php?Id_campagna=<?php echo urlencode($row['Id_campagna']); ?>&modalita=dm">
+                <a href="campaign.php?Id_campagna=<?php echo urlencode($row['Id_campagna']); ?>">
                     <?php if(!empty($row["Immagine"])){?>
                         <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
                     <?php } else {?>

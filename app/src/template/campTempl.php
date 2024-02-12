@@ -6,33 +6,11 @@
 </script>
 
 <main>
-
-    <?php
-        $modalità = filter_var($_GET['modalita'], FILTER_SANITIZE_NUMBER_INT);
-        $idSelected = filter_var($_GET['Id_campagna'], FILTER_SANITIZE_NUMBER_INT);
-    ?>
     <div class="container">
 
         <div class="top">
 
             <div class="campaign"> 
-
-                <?php
-                    $sql = "SELECT Campagna.Nome AS CampagnaNome, 
-                            Campagna.Sinossi AS Sinossi, Campagna.Immagine AS Immagine, 
-                            Campagna.Creatore AS CampagnaCreatore, Mondo.Nome AS MondoNome, 
-                            Mondo.Ambientazione AS Ambientazione, Mondo.Descrizione AS Descrizione, 
-                            Mondo.Creatore AS MondoCreatore, Mondo.Id_mondo AS Id_Mondo
-                            FROM Campagna
-                            JOIN Mondo
-                            ON Campagna.Id_mondo = Mondo.Id_mondo
-                            WHERE Campagna.Id_campagna = ?";
-                    $stmnt = $db->getConnection()->prepare($sql);
-                    $stmnt->bind_param("i", $idSelected);
-                    $stmnt->execute();
-                    $result = $stmnt->get_result();
-                    $row = $result->fetch_assoc();
-                ?>
                 <?php if(!empty($row["Immagine"])){?>
                     <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['Immagine']); ?>" />
                 <?php }else{?>
