@@ -1,10 +1,3 @@
-<script>
-    function popUpFunc() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
-    }
-</script>
-
 <main>
     <div class="container">
 
@@ -56,6 +49,7 @@
 
         <button class="accordion">Sessioni:</button>
         <div class="panel">
+            <a href="session.php?Id_campagna=<?php echo $idSelected ?>" class="aSes"><button class="ses">Crea Nuova</button></a>
             <ul>
                 <?php
                     $sql = "SELECT *
