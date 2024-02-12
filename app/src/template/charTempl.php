@@ -73,26 +73,5 @@
             <p>Percezione passiva: <?php echo ($character['PercezionePassiva']); ?></p>
             <p>Bonus competenza: +<?php echo ($character['PB']); ?></p>
         </div> 
-
-        <div class="equipment">
-            <h3>Equipaggiamento:</h3>
-                <ul>
-                    <?php
-                        $sql = "SELECT *
-                        FROM Oggetto
-                        WHERE Id_oggetto IN (SELECT Id_oggetto
-                                            FROM Inventario 
-                                            WHERE Inventario.IDPersonaggio = ?)";
-                        $stmnt = $db->getConnection()->prepare($sql);
-                        $stmnt->bind_param("i", $character["IDPersonaggio"]);
-                        $stmnt->execute();
-                        $result = $stmnt->get_result();
-                        ?>
-                        <?php while($inv = $result->fetch_assoc()) {?>
-                            <li> <?php echo $inv['Nome'];?></li>
-                    <?php }?>
-                </ul>
-        </div> 
-
     </div>    
 </main>
