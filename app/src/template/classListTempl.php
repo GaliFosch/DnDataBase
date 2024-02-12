@@ -6,13 +6,13 @@
     ?>
     <table>
         <tr>
-            <td>Nome</td>
-            <td>Creatore</td>
+            <th>Nome</th>
+            <th>Creatore</th>
         </tr>
         <?php while($row = $list->fetch_assoc()){?>
         <tr>
-            <tr><?php echo $row["Nome"]?></tr>
-            <tr><?php echo $row["Creatore"]?></tr>
+            <td><?php echo $row["Nome"]?></td>
+            <td><?php echo $row["Creatore"]?></td>
         </tr>
         <?php }?>
     </table>

@@ -16,11 +16,11 @@
         </header>
 
         <nav>
-            <a href="http://localhost/DnDataBase/app/src/index.php">Home</a> 
-            <a href="http://localhost/DnDataBase/app/src/statistic.php">Statistiche</a>
-            <a href="http://localhost/DnDataBase/app/src/list.php?listName=specie#">Specie</a>
-            <a href="http://localhost/DnDataBase/app/src/list.php?listName=oggetti#">Oggetti</a>
-            <a href="#">Classe</a>
+            <a href="index.php">Home</a> 
+            <a href="statistic.php">Statistiche</a>
+            <a href="list.php?listName=specie#">Specie</a>
+            <a href="list.php?listName=oggetti#">Oggetti</a>
+            <a href="class.php?action=list">Classe</a>
         </nav>
 
         <?php require($template["file"])?>
