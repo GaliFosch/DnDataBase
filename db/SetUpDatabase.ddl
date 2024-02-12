@@ -184,6 +184,7 @@ create table MONDO (
      Id_mondo int not null,
      Nome varchar(20) not null,
      Ambientazione varchar(20) not null,
+     Immagine longblob,
      Descrizione text not null,
      Creatore varchar(20) not null,
      constraint ID_MONDO_ID primary key (Id_mondo));

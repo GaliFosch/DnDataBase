@@ -10,9 +10,10 @@ if(!empty($_POST)){
         $stmnt->execute();
         $id = $_GET["id"];
     }else{
-        $sql = "INSERT INTO Mondo(Nome, Ambientazione, Descrizione, Creatore) VALUES(?, ?, ?, ?)";
+        $sql = "INSERT INTO Mondo(Nome, Ambientazione, Immagine, Descrizione, Creatore) VALUES(?, ?, ?, ?, ?)";
+        $_POST["img"] = parseImg('img');
         $stmnt = $db->getConnection()->prepare($sql);
-        $stmnt->bind_param("ssss", $_POST["nome"], $_POST["ambientazione"], $_POST["desc"], $_SESSION["user"]["Nickname"]);
+        $stmnt->bind_param("sssss", $_POST["nome"], $_POST["ambientazione"], $_POST["img"], $_POST["desc"], $_SESSION["user"]["Nickname"]);
         $stmnt->execute();
         $id = $stmnt->insert_id;
     }
