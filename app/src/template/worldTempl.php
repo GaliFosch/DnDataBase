@@ -1,8 +1,13 @@
 <main>
     <div class="container world">
+        <?php if(!empty($world["Immagine"])){?>
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($world['Immagine']); ?>" />
+        <?php }else{?>
+            <img src="../../images/campaign/campaign1.jpg" alt=""/>
+        <?php }?>
         <h2><?php echo $world["Nome"]?></h2>
             <p class="ambientazione"><strong>Ambientazione:</strong> <?php echo $world["Ambientazione"]?></p>
-            <p class="worldDesc"><?php echo $world["Descrizione"] ?></p>
+        <p class="worldDesc"><?php echo $world["Descrizione"] ?></p>
         <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
         <a href="world.php?id=<?php echo $world["Id_mondo"]?>&action=modify#" class="aState"><button class="state">Modifica</button></a>
         <?php } ?>
