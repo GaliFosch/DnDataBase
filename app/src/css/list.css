@@ -5,6 +5,7 @@
     width: 80%;
     display: grid; 
     grid-template-columns: 40% 60%; 
+    grid-template-rows: 90% 10%;
     grid-gap: 10px;
 } 
 
@@ -41,3 +42,27 @@ aside * {
     height: 100%;
     padding: 10px;
 }
+
+button#add  {
+    grid-row: 2/3;
+    color: #fff;
+    max-width:200px;
+    max-height: 30px;
+    margin-top: 10px;
+    background: #8D0801;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+button#add:hover {
+    color: #fff;
+    background-color: #BF0603;
+    border-radius: 25px;
+    padding: 0;
+    cursor: pointer;
+}
+

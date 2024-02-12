@@ -33,9 +33,9 @@
                 <?php }?>
             </tbody>
         </table>
-        <a href="?type=specie&action=create"><button>Crea Nuova</button></a>
 </main>
 <aside class="col">
     <iframe src="http://localhost/DnDataBase/app/src/Hello.html" name="visualizer" frameborder="0"></iframe>
+    <a href="?type=specie&action=create" class="aHome"><button id="add">Crea Nuova</button></a>
 </aside>
 </div>
