@@ -3,9 +3,10 @@ require_once("bootstrap.php");
 
 function addCharacter($values){
     global $db;
-    $sql = "INSERT INTO Personaggio(Nome, Allineamento, Taglia, CA, PercezionePassiva, PB, PF, Descrizione) VALUES(?,?,?,?,?,2,?,?)";
+    $sql = "INSERT INTO Personaggio(Nome, Immagine, Allineamento, Taglia, CA, PercezionePassiva, PB, PF, Descrizione) VALUES(?,?,?,?,?,?,2,?,?)";
     $stmnt = $db->getConnection()->prepare($sql);
-    $stmnt->bind_param("sssiiis", $values["nome"], 
+    $stmnt->bind_param("ssssiiis", $values["nome"],
+                        $values["img"], 
                         $values["allineamento"], 
                         $values["taglia"],
                         $values["ca"],
@@ -40,6 +41,7 @@ if(!empty($_POST) && !empty($_POST["action"])){
     switch($_POST["action"]){
         case "species":
             $_SESSION["creaPg"] = $_POST;
+            $_SESSION["creaPg"]["img"] = parseImg("img");
             $template["title"] = "Creazione Personaggio";
             $template["file"] = "charCreationTempl.php";    
             break;
