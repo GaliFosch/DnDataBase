@@ -2,6 +2,7 @@
 function signalError($message){
     $template["title"] = "ERROR";
     $template["file"] = "errorTempl.php";
+    /*quiiiiiiii */
     $template["ERR_message"] = $message;
     require("template/base.php");
     exit();

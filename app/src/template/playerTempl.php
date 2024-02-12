@@ -1,16 +1,37 @@
 <main>   
-    <div class="container user">
-        <?php if(!empty($_SESSION['user']['Immagine'])){?>
-            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
-        <?php }else{?>
-            <img src="../../images/user/playsolder.jpg" alt=""/>
-        <?php }?>
-        <?php
-        echo "<h2>".$_SESSION["user"]["Nickname"]."</h2>";
-        ?>
-        <p>Giocatore</p>
+    <div class="container left">
+        <div class="container user">
+            <?php if(!empty($_SESSION['user']['Immagine'])){?>
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
+            <?php }else{?>
+                <img src="../../images/user/playsolder.jpg" alt=""/>
+            <?php }?>
+            <?php
+            echo "<h2>".$_SESSION["user"]["Nickname"]."</h2>";
+            ?>
+            <p>Giocatore</p>
+        </div>
+        <a href="?mode=dm" class="aMode"><button class="mode">Modalità DM</button></a>
     </div>
-    <a href="?mode=dm"><button>Modalità DM</button></a>
+
+    <div class="container invite">
+            <h3>Inviti</h3>
+            <p class="reminder">Clicca un invito per interagire</p>
+            <?php
+            $sql="SELECT C.Id_campagna, I.DataDiInserimento as data, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ? ORDER BY data";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+            $result=$stmnt->get_result();
+            ?>
+            <ul>
+                <?php while($row = $result->fetch_assoc()){?>
+                    <li>
+                        <?php echo $row["data"]?> <a href="invitation.php?campaign=<?php echo $row["Id_campagna"]?>"><?php echo $row["Nome"]?></a>
+                    </li>
+                <?php }?>
+            </ul>
+        </div>
 
         <div class="container scrolling campaign">
             <h3>Diario delle Campagne</h3>
@@ -70,22 +91,4 @@
             <button class="arrow dx"></button>
         </div>
         <script src="js/scrolling.js"></script>
-        <div class="container invite">
-            <h3>Inviti</h3>
-            <p class="reminder">Clicca un invito per interagire</p>
-            <?php
-            $sql="SELECT C.Id_campagna, I.DataDiInserimento as data, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ? ORDER BY data";
-            $stmnt = $db->getConnection()->prepare($sql);
-            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
-            $stmnt->execute();
-            $result=$stmnt->get_result();
-            ?>
-            <ul>
-                <?php while($row = $result->fetch_assoc()){?>
-                    <li>
-                        <?php echo $row["data"]?> <a href="invitation.php?campaign=<?php echo $row["Id_campagna"]?>"><?php echo $row["Nome"]?></a>
-                    </li>
-                <?php }?>
-            </ul>
-        </div>
 </main>

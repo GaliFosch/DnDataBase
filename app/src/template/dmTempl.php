@@ -1,17 +1,19 @@
 <main>
-    
-    <div class="container user">
-        <?php if(!empty($_SESSION['user']['Immagine'])){?>
-            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
-        <?php }else{?>
-            <img src="../../images/user/playsolder.jpg" alt=""/>
-        <?php }?>
-        <?php
-        echo "<h2>".$_SESSION["user"]["Nickname"]."</h2>";
-        ?>
-        <p>Dungeon Master</p>
+    <div class="container left">
+        <div class="container user">
+            <?php if(!empty($_SESSION['user']['Immagine'])){?>
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
+            <?php }else{?>
+                <img src="../../images/user/playsolder.jpg" alt=""/>
+            <?php }?>
+            <?php
+            echo "<h2>".$_SESSION["user"]["Nickname"]."</h2>";
+            ?>
+            <p>Dungeon Master</p>
+        </div>
+        <a href="?mode=player" class="aMode"><button class="mode">Modalità Player</button></a>
     </div>
-    <a href="?mode=player"><button>Modalità Player</button></a>
+    
     <div class="container scrolling campaign">
         <h3>Diario delle Campagne Create</h3>
         <button class="arrow sx"></button>
