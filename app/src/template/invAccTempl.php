@@ -11,7 +11,7 @@
         </div>
         <form action="?response=accetta#" method="post" class="pg">
             
-            <select name="pg" id="pg">
+            <select name="pg" id="pg" required>
                 <?php
                 $sql = "SELECT p.Nome, p.IDPersonaggio as id 
                         FROM Personaggio as p, Pg 
@@ -21,7 +21,7 @@
                                                         FROM Eroe
                                                         WHERE Id_campagna = ?)";
                 $stmnt = $db->getConnection()->prepare($sql);
-                $stmnt->bind_param("ii", $_SESSION["user"]["Nickname"], $_GET["campaign"]);
+                $stmnt->bind_param("si", $_SESSION["user"]["Nickname"], $_GET["campaign"]);
                 $stmnt->execute();
                 $result = $stmnt->get_result();
                 while ($row = $result->fetch_assoc()) {
