@@ -70,7 +70,7 @@
                             <li> <?php echo $part['Nome'];?></li>
                     <?php }?>
                 </ul>
-                <a href="invitation.php?campaign=<?php echo $_GET["Id_campagna"]?>"><button>Aggiungi partecipante</button></a>
+                <a href="invitation.php?campaign=<?php echo $_GET["Id_campagna"]?>" class="aInvitation"><button class="invitation">Aggiungi partecipante</button></a>
         </div> 
 
         <button class="accordion">Sessioni:</button>

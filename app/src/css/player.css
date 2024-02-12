@@ -114,3 +114,17 @@ border-right-color: #002B53;
 .arrow.dx {
 transform: rotate(180deg);
 }
+
+.reminder {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+ul {
+  margin: 10px 0px 0px 20px;
+}
+
+li {
+  text-decoration: underline;
+}

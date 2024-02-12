@@ -66,7 +66,7 @@ input#img{
     width: 100%;
 }
 
-input#submit, input[type="file"]::file-selector-button, .state  {
+input#submit, input[type="file"]::file-selector-button, .state, button#add  {
     color: #fff;
     min-width:200px;
     min-height: 30px;
@@ -86,7 +86,7 @@ input#submit, input[type="file"]::file-selector-button, .state  {
         text-decoration: none;
  }
 
-input#submit:hover, input[type="file"]::file-selector-button:hover, .state:hover {
+input#submit:hover, input[type="file"]::file-selector-button:hover, .state:hover, button#add:hover {
     color: #fff;
     background-color: #BF0603;
     border-radius: 25px;
@@ -159,12 +159,16 @@ select {
     margin: 10px 0px;
 }
 
-.container.world section , .container.world section * {
+.container.world section , .container.world section *, .container.trait section , .container.trait section * {
     display: revert;
     align-self: center;
 }
 
-.container.world section{
+.container.trait section , .container.trait section *{
+    align-self: baseline;
+}
+
+.container.world section, .container.trait section{
     margin: 10px;
 }
 
@@ -189,3 +193,8 @@ th {
 thead {
     display: inline;
 }
+
+.container.home * {
+    margin: 10px;
+}
+

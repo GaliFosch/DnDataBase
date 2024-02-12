@@ -1,0 +1,61 @@
+.container {
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    display: grid; 
+    width: 90%;
+    grid-template-columns: 50% 50%; 
+    grid-gap: 10px;
+}
+
+.col{
+    grid-column: 1;
+    flex: 50%; 
+    margin: 10px;
+    text-align: center;
+ }
+
+table { 
+    grid-column: 1;
+    border-radius: 18px;
+    border: 2px solid #8D0801;
+    margin: 10px;
+    border-collapse: collapse; /* Collapse borders */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border:  1px solid #8D0801; 
+}
+
+th {
+    text-align: center;
+    background-color: #8D0801;
+    color: #F4D58D;
+}
+
+td a{
+    margin: 10px;
+}
+
+aside * {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.trait {
+    grid-column: 2;
+}
+
+.add:hover, .add:hover a{
+    background-color: #8D0801;
+    color: #F4D58D;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.add:hover a:hover {
+    opacity: 1;
+}

@@ -65,8 +65,9 @@
             <button class="arrow dx"></button>
         </div>
         <script src="js/scrolling.js"></script>
-        <div>
+        <div class="container invite">
             <h3>Inviti</h3>
+            <p class="reminder">Cliccla un invito per interagire</p>
             <?php
             $sql="SELECT C.Id_campagna, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ?";
             $stmnt = $db->getConnection()->prepare($sql);
