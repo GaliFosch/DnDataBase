@@ -2,8 +2,11 @@
 <?php if(empty($_POST["action"])){?>
     <h2>Creazione Personaggio</h2>
     <form action="#" method="post" enctype="multipart/form-data">
-        <label for="nome">Nome:</label><input type="text" name="nome" id="nome" required/>
+    <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" onfocus="this.placeholder=''" onblur="this.placeholder='Il nome del tuo personaggio'"
+                placeholder="Il nome del tuo personaggio" required>
         <label for="img">Immagine</label><input type="file" name="img" id="img"/>
+        <label for="nome">Nome:</label><input type="text" name="nome" id="nome" required>
         <label for="allineamento">Allineamento:</label><select name="allineamento" id="allineamento" required>
             <?php
             $sql = "SELECT SUBSTRING(COLUMN_TYPE,5) As options 
