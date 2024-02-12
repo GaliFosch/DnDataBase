@@ -4,9 +4,18 @@
         <form action="#" method="post">
             <select name="player" id="player">
                 <?php
-                $sql = "SELECT Nickname FROM Giocatore WHERE Nickname <> ?";
+                $sql = "SELECT Nickname 
+                        FROM Giocatore 
+                        WHERE Nickname <> ?
+                            AND Nickname NOT IN (SELECT Nickname
+                                                FROM Invito
+                                                WHERE Id_campagna = ?)
+                            and Nickname NOT IN (SELECT Creatore
+                                                FROM Eroe, Pg
+                                                WHERE Pg.IDPersonaggio = Eroe.IDPersonaggio
+                                                    AND Id_campagna = ?)";
                 $stmnt = $db->getConnection()->prepare($sql);
-                $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+                $stmnt->bind_param("sii", $_SESSION["user"]["Nickname"],$_GET["campaign"],$_GET["campaign"]);
                 $stmnt->execute();
                 $result = $stmnt->get_result();
                 while ($row = $result->fetch_assoc()) {
