@@ -3,6 +3,9 @@
         <h2><?php echo $world["Nome"]?></h2>
             <p class="ambientazione"><strong>Ambientazione:</strong> <?php echo $world["Ambientazione"]?></p>
             <p class="worldDesc"><?php echo $world["Descrizione"] ?></p>
+        <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
+        <a href="world.php?id=<?php echo $world["Id_mondo"]?>&action=modify#" class="aState"><button class="state">Modifica</button></a>
+        <?php } ?>
         <?php
             $sql = "SELECT * FROM Stato WHERE Id_mondo = ?";
             $stmnt = $db->getConnection()->prepare($sql);
@@ -11,9 +14,6 @@
             $result = $stmnt->get_result();
             if($result->num_rows>0){
         ?>
-        <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
-        <a href="world.php?id=<?php echo $world["Id_mondo"]?>&action=modify#" class="aState"><button class="state">Modifica</button></a>
-        <?php } ?>
         <section>
             <table>
                 <thead>
