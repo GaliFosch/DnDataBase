@@ -39,10 +39,12 @@ if(!empty($_GET["action"])){
             }
             $template["title"] = $class["Nome"];
             $template["file"] = "classTempl.php";
+            $template["style"] = "character.css";
         break;
         case "create":
             $template["title"] = "Crea Classe";
             $template["file"] = "classCreateTempl.php";
+            $template["style"] = "creation.css";
         break;
         case "homebrew":
             $sql="SELECT Nome, Creatore FROM Classe WHERE Creatore = ?";
@@ -52,6 +54,7 @@ if(!empty($_GET["action"])){
             $list = $stmnt->get_result();
             $template["title"] = "Le mie Classi";
             $template["file"] = "classListTempl.php";
+            $template["style"] = "creation.css";
         break;
         default:
             signalError("action not recognized");

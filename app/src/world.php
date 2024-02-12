@@ -47,7 +47,7 @@ if(!empty($_GET["id"])){
     }else{
         $template["title"] = $world["Nome"];
         $template["file"] = "worldTempl.php";
-        $template["style"] = "creation.css";
+        $template["style"] = "character.css";
     }
 }else{
     $template["title"] = "Crea Mondo";

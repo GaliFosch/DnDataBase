@@ -43,13 +43,15 @@
                     <?php }?>
                 </ul>
                 <?php if($row["CampagnaCreatore"] === $_SESSION["user"]["Nickname"]){?>
-                <a href="invitation.php?campaign=<?php echo $_GET["Id_campagna"]?>" class="aInvitation"><button class="invitation">Aggiungi partecipante</button></a>
+                    <a href="invitation.php?campaign=<?php echo $_GET["Id_campagna"]?>" class="aInvitation"><button class="invitation">Aggiungi partecipante</button></a>
                 <?php }?>
         </div> 
 
         <button class="accordion">Sessioni:</button>
         <div class="panel">
-            <a href="session.php?Id_campagna=<?php echo $idSelected ?>" class="aSes"><button class="ses">Crea Nuova</button></a>
+            <?php if($row["CampagnaCreatore"] === $_SESSION["user"]["Nickname"]){?>
+                <a href="session.php?Id_campagna=<?php echo $idSelected ?>" class="aSes"><button class="ses">Crea Nuova</button></a>
+            <?php }?>
             <ul>
                 <?php
                     $sql = "SELECT *

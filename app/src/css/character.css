@@ -7,7 +7,7 @@
     justify-content: space-between;
 }
 
-.pg, .campaign {
+.pg, .campaign, .worldContent {
 display: flex;
 margin: 10px;
 padding: 10px;
@@ -148,7 +148,7 @@ margin: 5px 40px;
   margin: 10px;
 }
 
-.invitation , .ses, .scena {
+.invitation , .ses, .scena, .bmod, .state {
   color: #fff;
   min-width:200px;
   min-height: 30px;
@@ -169,11 +169,38 @@ margin: 5px 40px;
   }
 }
 
-.aInvitation:hover , .aSes:hover, .aScena:hover{
+.aInvitation:hover , .aSes:hover, .aScena:hover, .aMod:hover, .aState:hover{
       cursor: default;
       opacity: 1;
       text-decoration: none;
 }
 .sessionInfo {
   margin: 10px 0px;
+}
+
+section, section *{
+    display: revert;
+    align-self: center;
+}
+
+section, .aState, .footCreator{
+  margin: 20px;
+}
+
+table {
+  border: 2px solid #8D0801;
+  margin: 10px;
+  /*width:  100%; /* Full width of the container */
+  border-collapse: collapse; /* Collapse borders */
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border:  1px solid #8D0801; 
+}
+
+th {
+  background-color: #8D0801;
+  color: #F4D58D;
 }

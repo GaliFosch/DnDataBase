@@ -1,16 +1,27 @@
 <main>
     <div class="container world">
-        <?php if(!empty($world["Immagine"])){?>
-            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($world['Immagine']); ?>" />
-        <?php }else{?>
-            <img src="../../images/campaign/campaign1.jpg" alt=""/>
-        <?php }?>
-        <h2><?php echo $world["Nome"]?></h2>
-            <p class="ambientazione"><strong>Ambientazione:</strong> <?php echo $world["Ambientazione"]?></p>
-        <p class="worldDesc"><?php echo $world["Descrizione"] ?></p>
-        <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
-        <a href="world.php?id=<?php echo $world["Id_mondo"]?>&action=modify#" class="aState"><button class="state">Modifica</button></a>
-        <?php } ?>
+        <div class="top">
+            <div class="worldContent"> 
+                <?php if(!empty($world["Immagine"])){?>
+                    <img id="preview" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($world['Immagine']); ?>" />
+                <?php }else{?>
+                    <img src="../../images/campaign/campaign1.jpg" alt=""/>
+                <?php }?>
+                
+                <div class="info">
+                    <h2><?php echo $world["Nome"]?></h2>
+                        <p class="ambientazione"><strong>Ambientazione:</strong> <?php echo $world["Ambientazione"]?></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="desc">
+            <p class="worldDesc"><?php echo $world["Descrizione"] ?></p>
+            <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
+            <a href="world.php?id=<?php echo $world["Id_mondo"]?>&action=modify#" class="aMod"><button class="bmod">Modifica</button></a>
+            <?php } ?>
+        </div>
+
         <?php
             $sql = "SELECT * FROM Stato WHERE Id_mondo = ?";
             $stmnt = $db->getConnection()->prepare($sql);
@@ -45,7 +56,7 @@
         <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
         <a href="state.php?worldId=<?php echo $world["Id_mondo"]?>#" class="aState"><button class="state">Aggiungi Stato</button></a>
         <?php } ?>
-        <footer>
+        <footer class="footCreator">
             <p><?php echo $world["Creatore"] ?></p>
         </footer>
     </div>
