@@ -17,9 +17,9 @@
                     
                             <div class="wrap-input"><label class="hidden" ="password">Password</label><input type="password" name="password" id="password" placeholder="Password"/></div>
 
-                            <div class="wrap-input"><label class="hidden" for="invia" hidden></label><input class="button" type="submit" value="Invia"></div>
-
                             <div class="wrap-input"><label class="hidden" for="img">Foto Profilo</label><input type="file" name="img" id="img"/></div>
+
+                            <div class="wrap-input"><label class="hidden" for="invia" hidden></label><input class="button" type="submit" value="Invia"></div>
                 </div>
             </div>
             </form>

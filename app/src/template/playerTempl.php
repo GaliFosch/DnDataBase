@@ -72,7 +72,7 @@
         <script src="js/scrolling.js"></script>
         <div class="container invite">
             <h3>Inviti</h3>
-            <p class="reminder">Cliccla un invito per interagire</p>
+            <p class="reminder">Clicca un invito per interagire</p>
             <?php
             $sql="SELECT C.Id_campagna, I.DataDiInserimento as data, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ? ORDER BY data";
             $stmnt = $db->getConnection()->prepare($sql);
