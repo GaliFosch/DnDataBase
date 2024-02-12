@@ -1,11 +1,16 @@
 <main>   
     <div class="container user">
-        <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
+        <?php if(!empty($_SESSION['user']['Immagine'])){?>
+            <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($_SESSION['user']['Immagine']); ?>" />
+        <?php }else{?>
+            <img src="../../images/user/playsolder.jpg" alt=""/>
+        <?php }?>
         <?php
         echo "<h2>".$_SESSION["user"]["Nickname"]."</h2>";
         ?>
         <p>Giocatore</p>
     </div>
+    <a href="?mode=dm"><button>Modalità DM</button></a>
 
         <div class="container scrolling campaign">
             <h3>Diario delle Campagne</h3>
