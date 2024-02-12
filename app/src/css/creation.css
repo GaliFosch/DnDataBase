@@ -27,7 +27,7 @@ label {
 }
 
 
-input#nome, input#ambientazione, input#gov, input#architettura, input#type {
+input[type=text], input[type=number] {
     width: 50%;
     outline: none;
     border: none;
@@ -159,7 +159,9 @@ select {
     margin: 10px 0px;
 }
 
-.container.world section , .container.world section *, .container.trait section , .container.trait section * {
+.container.world section , .container.world section *, 
+.container.trait section , .container.trait section *, 
+.race, .race *, .class, .class *{
     display: revert;
     align-self: center;
 }
@@ -168,7 +170,7 @@ select {
     align-self: baseline;
 }
 
-.container.world section, .container.trait section{
+.container.world section, .container.trait section, .race , .class{
     margin: 10px;
 }
 
@@ -198,3 +200,43 @@ thead {
     margin: 10px;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+ }
+
+.stats{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats input[type=number]{
+    color: #F4D58D;
+    background: #8D0801;
+    width: 80px;
+    height: 70px;
+    padding: 10px;
+    font-size: 30px; 
+}
+
+
+#scelta {
+    background: #F4D58D;
+    border: none;
+    outline: none;
+}
+
+.scegli:hover, .scegli:hover #scelta{
+    background-color: #8D0801;
+    color: #F4D58D;
+    cursor: pointer;
+}
+
+.scegli:hover #scelta:hover {
+    opacity: 1;
+}

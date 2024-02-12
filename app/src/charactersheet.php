@@ -43,17 +43,20 @@ if(!empty($_POST) && !empty($_POST["action"])){
             $_SESSION["creaPg"] = $_POST;
             $_SESSION["creaPg"]["img"] = parseImg("img");
             $template["title"] = "Creazione Personaggio";
-            $template["file"] = "charCreationTempl.php";    
+            $template["file"] = "charCreationTempl.php";
+            $template["style"] = "creation.css";    
             break;
         case "class":
             $_SESSION["creaPg"]["specie"] = $_POST["specie"];
             $template["title"] = "Creazione Personaggio";
-            $template["file"] = "charCreationTempl.php";    
+            $template["file"] = "charCreationTempl.php";  
+            $template["style"] = "creation.css";     
             break;
         case "subclass":
             $_SESSION["creaPg"]["class"] = $_POST["class"];
             $template["title"] = "Creazione Personaggio";
             $template["file"] = "charCreationTempl.php";
+            $template["style"] = "creation.css";   
             break;
         case "complete":
             $_SESSION["creaPg"]["subclass"] = $_POST["subclass"];
@@ -86,6 +89,7 @@ if(!empty($_POST) && !empty($_POST["action"])){
     unset($_SESSION["creaPg"]);
     $template["title"] = "Creazione Personaggio";
     $template["file"] = "charCreationTempl.php";
+    $template["style"] = "creation.css";   
 }
 
 require_once("template/base.php");
