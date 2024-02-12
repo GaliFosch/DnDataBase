@@ -8,6 +8,15 @@ if(!empty($_POST)){
         $stmnt = $db->getConnection()->prepare($sql);
         $stmnt->bind_param("sssis", $_POST["nome"], $_POST["ambientazione"], $_POST["desc"], $_GET["id"], $_SESSION["user"]["Nickname"]);
         $stmnt->execute();
+        if(!empty($_POST["img"])){
+            $_POST["img"] = parseImg('img');
+            $sql = "UPDATE Mondo
+                    SET Immagine = ?
+                    WHERE Id_mondo = ? AND Creatore = ?";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("sis", $_POST["img"], $_GET["id"], $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+        }
         $id = $_GET["id"];
     }else{
         $sql = "INSERT INTO Mondo(Nome, Ambientazione, Immagine, Descrizione, Creatore) VALUES(?, ?, ?, ?, ?)";
