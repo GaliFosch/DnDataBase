@@ -17,7 +17,7 @@
                 <?php } ?>
             </select>
             <input type="hidden" name="campaign" id="campaign" value="<?php echo $_GET["campaign"] ?>" />
-            <input type="submit" value="Invia" />
+            <input type="submit" id="submit" value="Invia" />
         </form>
     </div>
 </main>
