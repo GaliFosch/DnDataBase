@@ -204,3 +204,17 @@ th {
   background-color: #8D0801;
   color: #F4D58D;
 }
+
+.container.scene{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.sceneSection{
+  display: revert;
+  margin: 0px;
+  align-self: baseline;
+}

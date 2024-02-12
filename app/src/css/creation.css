@@ -164,7 +164,7 @@ select {
 
 .container.world section , .container.world section *, 
 .container.trait section , .container.trait section *, 
-.race, .race *, .class, .class *{
+.race, .race *, .class, .class *, .ambi, .ambi *{
     display: revert;
     align-self: center;
 }
@@ -182,6 +182,11 @@ table {
     margin: 10px;
     /*width:  100%; /* Full width of the container */
     border-collapse: collapse; /* Collapse borders */
+}
+
+.ambi .top{
+    background-color: #8D0801;
+    color: #F4D58D;
 }
 
 th, td {

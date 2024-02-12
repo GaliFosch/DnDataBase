@@ -1,8 +1,9 @@
 <?php if(isset($action) && $action="chooseLint"){?>
     <main>
+        <div class="container">
         <h2>Scegli Un'ambientazione</h2>
-        <table>
-            <tr>
+        <table class="ambi">
+            <tr class="top">
                 <td>Nome</td>
                 <td>Tipologia</td>
                 <td>Appartiene</td>
@@ -28,18 +29,20 @@
                             echo $row["Appartiene"];
                         }?></td>
                     <td><?php echo $row["Stato"]?></td>
-                    <td>
+                    <td class="scegli">
                         <form action="#" method="post">
                             <input type="hidden" id="lint" name="lint" value="<?php echo $row["id"]?>"/>
-                            <input type="submit" value="Seleziona"/>
+                            <input type="submit" id="scelta" value="Seleziona"/>
                         </form>
                     </td>
                 </tr>
             <?php }?>
         </table>
+        </div>
     </main>
 <?php }else{?>
     <main>
+        <div class="container">
         <h2>Crea Scena</h2>
         <form action="?#" method="post">
             <label for="nome">Nome:</label><input type="text" name="nome" id="nome" required/>
@@ -47,7 +50,8 @@
             <textarea name="desc" id="desc" cols="30" rows="10" required></textarea>
             <input type="hidden" name="campagna" value="<?php echo $_GET["campagna"]?>">
             <input type="hidden" name="data" value="<?php echo $_GET["data"]?>">
-            <input type="submit" value="Continua"/>
+            <input type="submit" id="submit" value="Continua"/>
         </form>
+        </div>
     </main>
 <?php }?>
