@@ -1,7 +1,7 @@
 <main>
     <div class="container registration">
         <div class="wrap-form">
-            <form action="#" method="get">
+            <form action="#" method="post" enctype="multipart/form-data">
             <div class="form-content">
                 <div class="form">
 
@@ -18,6 +18,8 @@
                             <div class="wrap-input"><label class="hidden" ="password">Password</label><input type="password" name="password" id="password" placeholder="Password"/></div>
 
                             <div class="wrap-input"><label class="hidden" for="invia" hidden></label><input class="button" type="submit" value="Invia"></div>
+
+                            <div class="wrap-input"><label class="hidden" for="img">Foto Profilo</label><input type="file" name="img" id="img"/></div>
                 </div>
             </div>
             </form>
