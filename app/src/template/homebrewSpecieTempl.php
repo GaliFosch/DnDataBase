@@ -3,8 +3,7 @@ if(!empty($_POST) && empty($_SESSION["Hid"])){
     $sql = "INSERT INTO Specie(Nome, Descrizione, Creatore) 
             VALUES(?, ?, ?)";
     $stmnt = $db->getConnection()->prepare($sql);
-    $temp = "WOC";
-    $stmnt->bind_param("sss", $_POST["nome"], $_POST["desc"], $temp);
+    $stmnt->bind_param("sss", $_POST["nome"], $_POST["desc"], $_SESSION["user"]["Nickname"]);
     $stmnt->execute();
     $_SESSION["Hid"] = $stmnt->insert_id;
 }
