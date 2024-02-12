@@ -1,9 +1,5 @@
 <main>
     <h2>Classi</h2>
-    <?php
-    $sql="SELECT Nome, Creatore FROM Classe";
-    $list = $db->getConnection()->query($sql);
-    ?>
     <table>
         <tr>
             <th>Nome</th>
@@ -16,4 +12,7 @@
         </tr>
         <?php }?>
     </table>
+    <?php if($_GET["action"]==="homebrew"){?>
+        <a href="?action=create"><button>Crea</button></a>
+    <?php }?>
 </main>

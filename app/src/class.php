@@ -20,6 +20,8 @@ if(!empty($_POST["nome"]) && !empty($_POST["desc"]) ){
 if(!empty($_GET["action"])){
     switch($_GET["action"]){
         case "list":
+            $sql="SELECT Nome, Creatore FROM Classe";
+            $list = $db->getConnection()->query($sql);
             $template["title"] = "Lista Classi";
             $template["file"] = "classListTempl.php";
         break;
@@ -41,6 +43,15 @@ if(!empty($_GET["action"])){
         case "create":
             $template["title"] = "Crea Classe";
             $template["file"] = "classCreateTempl.php";
+        break;
+        case "homebrew":
+            $sql="SELECT Nome, Creatore FROM Classe WHERE Creatore = ?";
+            $stmnt = $db->getConnection()->prepare($sql);
+            $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
+            $stmnt->execute();
+            $list = $stmnt->get_result();
+            $template["title"] = "Le mie Classi";
+            $template["file"] = "classListTempl.php";
         break;
         default:
             signalError("action not recognized");
