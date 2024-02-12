@@ -56,6 +56,7 @@ if(!empty($_GET["campaign"])){
     }else{
         $template["title"] = "Crea Invito";
         $template["file"] = "invCreateTempl.php";
+        $template["style"] = "invitation.css";
     }
 }
 

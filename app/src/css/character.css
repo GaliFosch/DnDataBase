@@ -147,3 +147,31 @@ margin: 5px 40px;
 .panel *{
   margin: 10px;
 }
+
+.invitation  {
+  color: #fff;
+  min-width:200px;
+  min-height: 30px;
+  margin-top: 10px;
+  background: #8D0801;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.aInvitation:hover {
+      cursor: default;
+      opacity: 1;
+      text-decoration: none;
+}
+
+.invitation:hover {
+  color: #fff;
+  background-color: #BF0603;
+  border-radius: 25px;
+  padding: 0;
+  cursor: pointer;
+}
