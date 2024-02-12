@@ -1,7 +1,7 @@
 <main>
     <h2>Classi</h2>
     <?php
-    $sql="SELECT * FROM Classe";
+    $sql="SELECT Nome, Creatore FROM Classe";
     $list = $db->getConnection()->query($sql);
     ?>
     <table>
