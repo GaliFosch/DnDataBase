@@ -11,6 +11,9 @@
             $result = $stmnt->get_result();
             if($result->num_rows>0){
         ?>
+        <?php if($_SESSION["user"]["Nickname"] === $world["Creatore"]){?>
+        <a href="world.php?id=<?php echo $world["Id_mondo"]?>&action=modify#" class="aState"><button class="state">Modifica</button></a>
+        <?php } ?>
         <section>
             <table>
                 <thead>

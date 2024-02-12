@@ -1,11 +1,22 @@
 <?php
 require_once("bootstrap.php");
 if(!empty($_POST)){
-    $sql = "INSERT INTO Mondo(Nome, Ambientazione, Descrizione, Creatore) VALUES(?, ?, ?, ?)";
-    $stmnt = $db->getConnection()->prepare($sql);
-    $stmnt->bind_param("ssss", $_POST["nome"], $_POST["ambientazione"], $_POST["desc"], $_SESSION["user"]["Nickname"]);
-    $stmnt->execute();
-    header('Location: ?id=' . $stmnt->insert_id . '#');
+    if(!empty($_GET["id"]) && !empty($_GET["action"]) && $_GET["action"]=="modify"){
+        $sql = "UPDATE Mondo
+                SET Nome = ?, Ambientazione = ?, Descrizione = ?
+                WHERE Id_mondo = ? AND Creatore = ?";
+        $stmnt = $db->getConnection()->prepare($sql);
+        $stmnt->bind_param("sssis", $_POST["nome"], $_POST["ambientazione"], $_POST["desc"], $_GET["id"], $_SESSION["user"]["Nickname"]);
+        $stmnt->execute();
+        $id = $_GET["id"];
+    }else{
+        $sql = "INSERT INTO Mondo(Nome, Ambientazione, Descrizione, Creatore) VALUES(?, ?, ?, ?)";
+        $stmnt = $db->getConnection()->prepare($sql);
+        $stmnt->bind_param("ssss", $_POST["nome"], $_POST["ambientazione"], $_POST["desc"], $_SESSION["user"]["Nickname"]);
+        $stmnt->execute();
+        $id = $stmnt->insert_id;
+    }
+    header('Location: ?id=' . $id . '#');
 }
 if(!empty($_GET["id"])){
     $sql = "SELECT * FROM Mondo WHERE Id_mondo = ?";
@@ -16,9 +27,18 @@ if(!empty($_GET["id"])){
     if(!$world){
         signalError("Id doesn't exist");
     }
-    $template["title"] = $world["Nome"];
-    $template["file"] = "worldTempl.php";
-    $template["style"] = "creation.css";
+    if(!empty($_GET["action"]) && $_GET["action"]=="modify"){
+        if($world["Creatore"]!=$_SESSION["user"]["Nickname"]){
+            signalError("Non puoi modificare un mondo non tuo");
+        }
+        $template["title"] = $world["Nome"];
+        $template["file"] = "worldModTempl.php";
+        $template["style"] = "creation.css";
+    }else{
+        $template["title"] = $world["Nome"];
+        $template["file"] = "worldTempl.php";
+        $template["style"] = "creation.css";
+    }
 }else{
     $template["title"] = "Crea Mondo";
     $template["file"] = "worldCreationTempl.php";
