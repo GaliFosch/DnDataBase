@@ -83,6 +83,12 @@
                 <p>Specie</p>
             </a>
         </div>
+        <div class="wrap">
+            <a href="class.php?action=homebrew">
+                <img src="..\..\images\classes\classimg.jpg" alt=""/>
+                <p>Classi</p>
+            </a>
+        </div>
         <button class="arrow dx"></button>
     </div>
 
