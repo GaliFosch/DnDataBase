@@ -69,7 +69,7 @@
             <h3>Inviti</h3>
             <p class="reminder">Cliccla un invito per interagire</p>
             <?php
-            $sql="SELECT C.Id_campagna, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ?";
+            $sql="SELECT C.Id_campagna, I.DataDiInserimento as data, C.Nome FROM Invito I, Campagna C WHERE I.Id_campagna = C.Id_campagna AND I.Nickname = ? ORDER BY data";
             $stmnt = $db->getConnection()->prepare($sql);
             $stmnt->bind_param("s", $_SESSION["user"]["Nickname"]);
             $stmnt->execute();
@@ -78,7 +78,7 @@
             <ul>
                 <?php while($row = $result->fetch_assoc()){?>
                     <li>
-                        <a href="invitation.php?campaign=<?php echo $row["Id_campagna"]?>"><?php echo $row["Nome"]?></a>
+                        <?php echo $row["data"]?> <a href="invitation.php?campaign=<?php echo $row["Id_campagna"]?>"><?php echo $row["Nome"]?></a>
                     </li>
                 <?php }?>
             </ul>
