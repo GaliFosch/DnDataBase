@@ -11,7 +11,7 @@
         </tr>
         <?php while($row = $list->fetch_assoc()){?>
         <tr>
-            <td><?php echo $row["Nome"]?></td>
+            <td><a href="?action=show&id=<?php echo $row["Nome"]?>"><?php echo $row["Nome"]?></a></td>
             <td><?php echo $row["Creatore"]?></td>
         </tr>
         <?php }?>
