@@ -64,6 +64,7 @@
                 <?php }?>
             <button class="arrow dx"></button>
         </div>
+        <script src="js/scrolling.js"></script>
         <div>
             <h3>Inviti</h3>
             <?php
@@ -81,5 +82,4 @@
                 <?php }?>
             </ul>
         </div>
-        <script src="js/scrolling.js"></script>
 </main>

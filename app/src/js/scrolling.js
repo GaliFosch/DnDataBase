@@ -3,7 +3,7 @@ class Scroll{
     constructor(elements){
         this.elements = elements;
         this.current = 1;
-        this.display = elements[0].style.display;
+        this.display = "grid";
         for(let i=3; i<this.elements.length; i++){
             this.elements.item(i).style.display = "none";
         }
