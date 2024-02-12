@@ -2,7 +2,7 @@
     <div class="container acc">
         <div class="top">
             <h2>Invito per partecipare a
-                <?php echo $campaign["Nome"] ?>
+                "<?php echo $campaign["Nome"] ?>"
             </h2>
             <p>
                 <?php echo $campaign["Creatore"] ?> ti ha invitato a partecipare alla sua campagna!
