@@ -31,6 +31,7 @@ if(!empty($_GET["campagna"])&&!empty($_GET["data"])&&!empty($_GET["nome"])){
     }
     $template["title"] = $scene["Nome"];
     $template["file"] = "sceneTempl.php";
+    $template["style"] = "character.css";
 }elseif(!empty($_GET["campagna"])&&!empty($_GET["data"])){
     unset($_SESSION["createScene"]);
     $template["title"] = "Crea Scena";
