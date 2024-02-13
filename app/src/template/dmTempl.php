@@ -87,7 +87,7 @@
         </div>
         <div class="wrap">
             <a href="class.php?action=homebrew">
-                <img src="..\..\images\classes\classimg.jpg" alt=""/>
+                <img src="..\..\images\pg\classimg.jpg" alt=""/>
                 <p>Classi</p>
             </a>
         </div>
