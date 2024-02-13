@@ -36,6 +36,6 @@
             </table>
     </main>
     <aside class="trait">
-        <iframe src="http://localhost/DnDataBase/app/src/Hello.html" name="visualizer" frameborder="0"></iframe>
+        <iframe src="http://localhost/DnDataBase/app/src/blank.html" name="visualizer" frameborder="0"></iframe>
     </aside>
 </div>

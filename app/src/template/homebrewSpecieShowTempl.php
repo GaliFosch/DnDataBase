@@ -35,7 +35,7 @@
         </table>
 </main>
 <aside class="col">
-    <iframe src="http://localhost/DnDataBase/app/src/Hello.html" name="visualizer" frameborder="0"></iframe>
+    <iframe src="http://localhost/DnDataBase/app/src/blank.html" name="visualizer" frameborder="0"></iframe>
     <a href="?type=specie&action=create" class="aHome"><button id="add">Crea Nuova</button></a>
 </aside>
 </div>
