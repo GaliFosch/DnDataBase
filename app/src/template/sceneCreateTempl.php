@@ -1,7 +1,7 @@
 <?php if(isset($action) && $action="chooseLint"){?>
     <main>
         <div class="container">
-        <h2>Scegli Un'ambientazione</h2>
+        <h2>Scegli un'ambientazione</h2>
         <table class="ambi">
             <tr class="top">
                 <td>Nome</td>
@@ -45,9 +45,12 @@
         <div class="container">
         <h2>Crea Scena</h2>
         <form action="?#" method="post">
-            <label for="nome">Nome:</label><input type="text" name="nome" id="nome" required/>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" onfocus="this.placeholder=''" onblur="this.placeholder='Il nome della tua scena'"
+                placeholder="Il nome della tua scena" required>
             <label for="desc">Descrizione</label>
-            <textarea name="desc" id="desc" cols="30" rows="10" required></textarea>
+            <textarea name="desc" id="desc"onfocus="this.placeholder=''" onblur="this.placeholder='Come succede in questa scena?'"
+            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Come succede in questa scena?" required></textarea>
             <input type="hidden" name="campagna" value="<?php echo $_GET["campagna"]?>">
             <input type="hidden" name="data" value="<?php echo $_GET["data"]?>">
             <input type="submit" id="submit" value="Continua"/>
