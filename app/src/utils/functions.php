@@ -9,7 +9,7 @@ function signalError($message){
 }
 
 function parseImg($image){
-    if(isset($_FILES[$image])){
+    if(isset($_FILES[$image]) && !empty($_FILES[$image]['tmp_name'])){
         return file_get_contents($_FILES[$image]['tmp_name']);
     }
     return NULL;
