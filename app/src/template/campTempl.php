@@ -64,7 +64,14 @@
                     ?>
                     <?php while($ses = $result->fetch_assoc()) {?>
                         <li> 
-                            <p> <?php echo $ses['Data_Sessione'];?> <br> <?php echo $ses['Riassunto'];?> </p>
+                            <p>
+                            <?php if($row["CampagnaCreatore"] === $_SESSION["user"]["Nickname"]){?>
+                                <a href="session.php?Id_campagna=<?php echo $ses['Id_campagna']?>&date=<?php echo $ses['Data_Sessione']?>"><?php echo $ses['Data_Sessione']?> </a>
+                            <?php }else{?>
+                                <?php echo $ses['Data_Sessione']?> 
+                            <?php }?>
+                                <br/> <?php echo $ses['Riassunto'];?>
+                            </p>
                         </li>
                     <?php }?>
             </ul>
